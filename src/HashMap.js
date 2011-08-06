@@ -5,7 +5,7 @@
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
- * 
+ *
  * @implements {javascript.util.Map}
  * @constructor
  * @export
@@ -43,7 +43,7 @@ javascript.util.HashMap.prototype.put = function(key, value) {
  */
 javascript.util.HashMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
-  for ( var key in this.object) {
+  for (var key in this.object) {
     if (this.object.hasOwnProperty(key)) {
       arrayList.add(this.object[key]);
     }
