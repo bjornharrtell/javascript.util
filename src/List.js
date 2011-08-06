@@ -8,12 +8,15 @@
  * @extends {javascript.util.Collection}
  * @interface
  */
-javascript.util.List = function() {}
+javascript.util.List = function() {
+};
 
 /**
  * Returns the element at the specified position in this list.
- * @param {number} index
+ *
+ * @param {number}
+ *            index
  * @return {Object}
  */
-javascript.util.List.prototype.get = function(index) { };
-
+javascript.util.List.prototype.get = function(index) {
+};

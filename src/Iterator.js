@@ -3,22 +3,28 @@
  *
  * @interface
  */
-javascript.util.Iterator = function() { };
+javascript.util.Iterator = function() {
+};
 
 /**
  * Returns true if the iteration has more elements.
+ *
  * @return {boolean}
  */
-javascript.util.Iterator.prototype.hasNext = function() { };
+javascript.util.Iterator.prototype.hasNext = function() {
+};
 
 /**
  * Returns the next element in the iteration.
+ *
  * @return {Object}
  */
-javascript.util.Iterator.prototype.next = function() { };
+javascript.util.Iterator.prototype.next = function() {
+};
 
 /**
- * Removes from the underlying collection the last element returned by the iterator (optional operation).
+ * Removes from the underlying collection the last element returned by the
+ * iterator (optional operation).
  */
-javascript.util.Iterator.prototype.remove = function() { };
-
+javascript.util.Iterator.prototype.remove = function() {
+};
