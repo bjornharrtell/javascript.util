@@ -51,5 +51,14 @@ describe('javascript.util.ArrayList', function() {
       expect(e instanceof javascript.util.NoSuchElementException).toBeTruthy();
     }
   });
+  
+  it('iteration can be for looped', function() {
+    var count = 0;
+    for (var i = arrayList.iterator(); i.hasNext();) {
+      var e = i.next();
+      count++;
+    }
+    expect(count).toEqual(2);
+  });
 });
 
