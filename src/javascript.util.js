@@ -95,6 +95,10 @@ goog.exportProperty = function(object, publicName, symbol) {
 
 var javascript = {};
 javascript.util = {};
+/**
+ * @export
+ */
+javascript.util.version = '0.1.0';
 
 /**
  * @param {string=}

@@ -1,0 +1,5 @@
+javascript.util is a port of selected parts of java.util to JavaScript which
+main purpose is to ease porting Java code to JavaScript.
+
+// TODO: describe "selected parts"
+// TODO: generate API docs
