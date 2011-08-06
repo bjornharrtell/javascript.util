@@ -4,13 +4,15 @@
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/ArrayList.html
- *
+ * 
  * @implements {javascript.util.List}
  * @constructor
+ * @export
  */
 javascript.util.ArrayList = function() {
   this.array = [];
 };
+javascript.util.ArrayList.prototype = new javascript.util.List();
 
 /**
  * @type {Array}
@@ -20,6 +22,7 @@ javascript.util.ArrayList.prototype.array = null;
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.add = function(e) {
   this.array.push(e);
@@ -28,6 +31,7 @@ javascript.util.ArrayList.prototype.add = function(e) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.iterator = function() {
   /**
@@ -48,6 +52,7 @@ javascript.util.ArrayList.prototype.iterator = function() {
 
     return this.arrayList.get(this.position++);
   };
+  goog.exportProperty(Iterator.prototype,'next', Iterator.prototype.next);
   /**
    * @override
    */
@@ -57,18 +62,24 @@ javascript.util.ArrayList.prototype.iterator = function() {
     }
     return false;
   };
+  goog.exportProperty(Iterator.prototype,'hasNext', Iterator.prototype.hasNext);
   /**
    * @override
    */
   Iterator.prototype.remove = function() {
-    new javascript.util.OperationNotSupported();
+    throw new javascript.util.OperationNotSupported();
   };
+  goog.exportProperty(Iterator.prototype,'remove', Iterator.prototype.remove);
+  
+  
+  
 
   return new Iterator();
 };
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.get = function(index) {
   if (index < 0 || index >= this.size()) {
@@ -80,6 +91,7 @@ javascript.util.ArrayList.prototype.get = function(index) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.isEmpty = function() {
   return this.array.length === 0;
@@ -87,6 +99,7 @@ javascript.util.ArrayList.prototype.isEmpty = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.size = function() {
   return this.array.length;
