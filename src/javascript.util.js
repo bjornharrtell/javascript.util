@@ -1,20 +1,23 @@
 /**
- * Add part of The Closure Library
+ * Add part of The Closure Library to enable use of export JSDocs.
  * 
- * TODO: Add http://www.apache.org/licenses/LICENSE-2.0 to distribution/attribution.
+ * TODO: Add http://www.apache.org/licenses/LICENSE-2.0 to
+ * distribution/attribution.
  */
 var goog = {};
 
 /**
- * Builds an object structure for the provided namespace path,
- * ensuring that names that already exist are not overwritten. For
- * example:
- * "a.b.c" -> a = {};a.b={};a.b.c={};
- * Used by goog.provide and goog.exportSymbol.
- * @param {string} name name of the object that this file defines.
- * @param {*=} opt_object the object to expose at the end of the path.
- * @param {Object=} opt_objectToExportTo The object to add the path to; default
- *     is |goog.global|.
+ * Builds an object structure for the provided namespace path, ensuring that
+ * names that already exist are not overwritten. For example: "a.b.c" -> a =
+ * {};a.b={};a.b.c={}; Used by goog.provide and goog.exportSymbol.
+ * 
+ * @param {string}
+ *          name name of the object that this file defines.
+ * @param {*=}
+ *          opt_object the object to expose at the end of the path.
+ * @param {Object=}
+ *          opt_objectToExportTo The object to add the path to; default is
+ *          |goog.global|.
  * @private
  */
 goog.exportPath_ = function(name, opt_object, opt_objectToExportTo) {
@@ -22,7 +25,7 @@ goog.exportPath_ = function(name, opt_object, opt_objectToExportTo) {
   var cur = opt_objectToExportTo || window;
 
   // Internet Explorer exhibits strange behavior when throwing errors from
-  // methods externed in this manner.  See the testExportSymbolExceptions in
+  // methods externed in this manner. See the testExportSymbolExceptions in
   // base_test.html for an example.
   if (!(parts[0] in cur) && cur.execScript) {
     cur.execScript('var ' + parts[0]);
@@ -34,7 +37,7 @@ goog.exportPath_ = function(name, opt_object, opt_objectToExportTo) {
   // happening, use a for-loop and reserve the init logic as below.
 
   // Parentheses added to eliminate strict JS warning in Firefox.
-  for (var part; parts.length && (part = parts.shift());) {
+  for ( var part; parts.length && (part = parts.shift());) {
     if (!parts.length && opt_object !== undefined) {
       // last part and we have an object; use it
       cur[part] = opt_object;
@@ -47,58 +50,51 @@ goog.exportPath_ = function(name, opt_object, opt_objectToExportTo) {
 };
 
 /**
- * Exposes an unobfuscated global namespace path for the given object.
- * Note that fields of the exported object *will* be obfuscated,
- * unless they are exported in turn via this function or
- * goog.exportProperty
- *
- * <p>Also handy for making public items that are defined in anonymous
- * closures.
- *
+ * Exposes an unobfuscated global namespace path for the given object. Note that
+ * fields of the exported object *will* be obfuscated, unless they are exported
+ * in turn via this function or goog.exportProperty
+ * 
+ * <p>
+ * Also handy for making public items that are defined in anonymous closures.
+ * 
  * ex. goog.exportSymbol('Foo', Foo);
- *
- * ex. goog.exportSymbol('public.path.Foo.staticFunction',
- *                       Foo.staticFunction);
- *     public.path.Foo.staticFunction();
- *
+ * 
+ * ex. goog.exportSymbol('public.path.Foo.staticFunction', Foo.staticFunction);
+ * public.path.Foo.staticFunction();
+ * 
  * ex. goog.exportSymbol('public.path.Foo.prototype.myMethod',
- *                       Foo.prototype.myMethod);
- *     new public.path.Foo().myMethod();
- *
- * @param {string} publicPath Unobfuscated name to export.
- * @param {*} object Object the name should point to.
- * @param {Object=} opt_objectToExportTo The object to add the path to; default
- *     is |goog.global|.
+ * Foo.prototype.myMethod); new public.path.Foo().myMethod();
+ * 
+ * @param {string}
+ *          publicPath Unobfuscated name to export.
+ * @param {*}
+ *          object Object the name should point to.
+ * @param {Object=}
+ *          opt_objectToExportTo The object to add the path to; default is
+ *          |goog.global|.
  */
 goog.exportSymbol = function(publicPath, object, opt_objectToExportTo) {
   goog.exportPath_(publicPath, object, opt_objectToExportTo);
 };
 
-
 /**
- * Exports a property unobfuscated into the object's namespace.
- * ex. goog.exportProperty(Foo, 'staticFunction', Foo.staticFunction);
- * ex. goog.exportProperty(Foo.prototype, 'myMethod', Foo.prototype.myMethod);
- * @param {Object} object Object whose static property is being exported.
- * @param {string} publicName Unobfuscated name to export.
- * @param {*} symbol Object the name should point to.
+ * Exports a property unobfuscated into the object's namespace. ex.
+ * goog.exportProperty(Foo, 'staticFunction', Foo.staticFunction); ex.
+ * goog.exportProperty(Foo.prototype, 'myMethod', Foo.prototype.myMethod);
+ * 
+ * @param {Object}
+ *          object Object whose static property is being exported.
+ * @param {string}
+ *          publicName Unobfuscated name to export.
+ * @param {*}
+ *          symbol Object the name should point to.
  */
 goog.exportProperty = function(object, publicName, symbol) {
   object[publicName] = symbol;
 };
 
-/**
- * @export
- */
-var javascript = {
-};
-
-var util = {};
-
-/**
- * @export
- */
-javascript.util = util;
+var javascript = {};
+javascript.util = {};
 
 /**
  * @param {string=}
@@ -108,9 +104,7 @@ javascript.util = util;
  * @export
  */
 javascript.util.OperationNotSupported = function(message) {
-  if (message) {
-    this.message = message;
-  }
+  this.message = message || '';
 };
 javascript.util.OperationNotSupported.prototype = new Error();
 /**
@@ -127,9 +121,7 @@ javascript.util.OperationNotSupported.prototype.name = 'OperationNotSupported';
  * @export
  */
 javascript.util.IndexOutOfBoundsException = function(message) {
-  if (message) {
-    this.message = message;
-  }
+  this.message = message || '';
 };
 javascript.util.IndexOutOfBoundsException.prototype = new Error();
 /**
@@ -146,9 +138,7 @@ javascript.util.IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsExce
  * @export
  */
 javascript.util.NoSuchElementException = function(message) {
-  if (message) {
-    this.message = message;
-  }
+  this.message = message || '';
 };
 javascript.util.NoSuchElementException.prototype = new Error();
 /**

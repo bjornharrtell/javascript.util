@@ -38,8 +38,7 @@ javascript.util.ArrayList.prototype.iterator = function() {
    * @implements {javascript.util.Iterator}
    * @constructor
    */
-  var Iterator = function() {
-  };
+  var Iterator = function() {};
   Iterator.prototype.arrayList = this;
   Iterator.prototype.position = 0;
   /**
@@ -52,7 +51,7 @@ javascript.util.ArrayList.prototype.iterator = function() {
 
     return this.arrayList.get(this.position++);
   };
-  goog.exportProperty(Iterator.prototype,'next', Iterator.prototype.next);
+  goog.exportProperty(Iterator.prototype, 'next', Iterator.prototype.next);
   /**
    * @override
    */
@@ -62,17 +61,15 @@ javascript.util.ArrayList.prototype.iterator = function() {
     }
     return false;
   };
-  goog.exportProperty(Iterator.prototype,'hasNext', Iterator.prototype.hasNext);
+  goog
+      .exportProperty(Iterator.prototype, 'hasNext', Iterator.prototype.hasNext);
   /**
    * @override
    */
   Iterator.prototype.remove = function() {
     throw new javascript.util.OperationNotSupported();
   };
-  goog.exportProperty(Iterator.prototype,'remove', Iterator.prototype.remove);
-  
-  
-  
+  goog.exportProperty(Iterator.prototype, 'remove', Iterator.prototype.remove);
 
   return new Iterator();
 };

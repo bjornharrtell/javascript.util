@@ -9,8 +9,7 @@
  * @interface
  * @export
  */
-javascript.util.List = function() {
-};
+javascript.util.List = function() {};
 javascript.util.List.prototype = new javascript.util.Collection();
 
 /**
@@ -21,5 +20,4 @@ javascript.util.List.prototype = new javascript.util.Collection();
  * @return {Object}
  * @export
  */
-javascript.util.List.prototype.get = function(index) {
-};
+javascript.util.List.prototype.get = function(index) {};
