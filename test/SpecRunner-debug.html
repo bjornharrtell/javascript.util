@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>javascript.util Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.0.1/jasmine.css">
+  
+  <script type="text/javascript" src="lib/jasmine-1.0.1/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.0.1/jasmine-html.js"></script>
+    
+  <script type="text/javascript" src="../src/javascript.util.js"></script>
+  <script type="text/javascript" src="../src/Iterator.js"></script>
+  <script type="text/javascript" src="../src/Collection.js"></script>
+  <script type="text/javascript" src="../src/List.js"></script>
+  <script type="text/javascript" src="../src/ArrayList.js"></script>
+  <script type="text/javascript" src="../src/Map.js"></script>
+  <script type="text/javascript" src="../src/HashMap.js"></script>
+  
+  <script type="text/javascript" src="spec/ArrayList.js"></script>
+  <script type="text/javascript" src="spec/HashMap.js"></script>
+  
+</head>
+<body>
+
+<script type="text/javascript">
+  jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+  jasmine.getEnv().execute();
+</script>
+
+</body>
+</html>
