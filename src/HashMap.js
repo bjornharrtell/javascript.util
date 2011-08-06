@@ -25,7 +25,7 @@ javascript.util.HashMap.prototype.object = null;
  * @export
  */
 javascript.util.HashMap.prototype.get = function(key) {
-  return this.object[key];
+  return this.object[key] || null;
 };
 
 /**
