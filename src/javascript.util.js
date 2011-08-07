@@ -98,7 +98,7 @@ javascript.util = {};
 /**
  * @export
  */
-javascript.util.version = '0.1.1';
+javascript.util.version = '0.2.0';
 
 /**
  * @param {string=}

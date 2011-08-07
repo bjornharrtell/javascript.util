@@ -67,6 +67,7 @@ javascript.util.ArrayList.prototype.size = function() {
 
 /**
  * @implements {javascript.util.Iterator}
+ * @param {javascript.util.ArrayList} arrayList
  * @constructor
  * @private
  * @export
