@@ -5,17 +5,15 @@
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/ArrayList.html
  * 
- * @param {javascript.util.Collection|number=}
- *          arg
  * @implements {javascript.util.List}
  * @constructor
  * @export
  */
-javascript.util.ArrayList = function(arg) {
+javascript.util.ArrayList = function() {
   this.array = [];
 
-  if (arg instanceof javascript.util.Collection) {
-    this.addAll(arg);
+  if (arguments[0] instanceof javascript.util.Collection) {
+    this.addAll(arguments[0]);
   }
 };
 javascript.util.ArrayList.prototype = new javascript.util.List();
@@ -43,6 +41,7 @@ javascript.util.ArrayList.prototype.addAll = function(c) {
   for ( var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
+  return true;
 };
 
 /**

@@ -11,28 +11,27 @@
  * @export
  */
 javascript.util.TreeMap = function() {
-  this.keys = [];
-  this.object = {};
+  this.array = [];
 };
 
 /**
  * @type {Array}
  * @private
  */
-javascript.util.TreeMap.prototype.keys = null;
-
-/**
- * @type {Object}
- * @private
- */
-javascript.util.TreeMap.prototype.object = null;
+javascript.util.TreeMap.prototype.array = null;
 
 /**
  * @override
  * @export
  */
 javascript.util.TreeMap.prototype.get = function(key) {
-  return this.object[key] || null;
+  for (var i = 0; i<this.array.length; i++) {
+    var e = this.array[i];
+    if (e.key['compareTo'](key) === 0) {
+      return e.value;
+    }
+  }
+  return null;
 };
 
 /**
@@ -40,9 +39,33 @@ javascript.util.TreeMap.prototype.get = function(key) {
  * @export
  */
 javascript.util.TreeMap.prototype.put = function(key, value) {
-  this.keys.push(key);
-  this.object[key] = value;
-  return value;
+  var e = this.get(key);
+  
+  if (e) {
+    var oldValue = e.value;
+    e.value = value;
+    return oldValue;
+  }
+  
+  var newElement = {
+      key: key,
+      value: value
+    };
+  
+  for (var i = 0; i<this.array.length; i++) {
+    e = this.array[i];
+    if (e.key['compareTo'](key) === 1) {
+      this.array.splice(i, 0, newElement);
+      return null;
+    }
+  }
+  
+  this.array.push({
+    key: key,
+    value: value
+  });
+  
+  return null;
 };
 
 /**
@@ -50,19 +73,9 @@ javascript.util.TreeMap.prototype.put = function(key, value) {
  * @export
  */
 javascript.util.TreeMap.prototype.values = function() {
-  if (this.keys.length > 0) {
-    if (this.keys[0].compareTo instanceof Function) {
-      this.keys.sort(function(a, b) {
-        return a.compareTo(b);
-      });
-    } else {
-      this.keys.sort();
-    }
-  }
-
   var arrayList = new javascript.util.ArrayList();
-  for ( var i = 0; i < this.keys.length; i++) {
-    arrayList.add(this.object[this.keys[i]]);
+  for ( var i = 0; i < this.array.length; i++) {
+    arrayList.add(this.array[i].value);
   }
   return arrayList;
 };
