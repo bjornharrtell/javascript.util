@@ -4,13 +4,19 @@
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/ArrayList.html
- *
+ * 
+ * @param {javascript.util.Collection|number=}
+ *          arg
  * @implements {javascript.util.List}
  * @constructor
  * @export
  */
-javascript.util.ArrayList = function() {
+javascript.util.ArrayList = function(arg) {
   this.array = [];
+
+  if (arg instanceof javascript.util.Collection) {
+    this.addAll(arg);
+  }
 };
 javascript.util.ArrayList.prototype = new javascript.util.List();
 
@@ -27,6 +33,16 @@ javascript.util.ArrayList.prototype.array = null;
 javascript.util.ArrayList.prototype.add = function(e) {
   this.array.push(e);
   return true;
+};
+
+/**
+ * @override
+ * @export
+ */
+javascript.util.ArrayList.prototype.addAll = function(c) {
+  for ( var i = c.iterator(); i.hasNext();) {
+    this.add(i.next());
+  }
 };
 
 /**
@@ -67,7 +83,8 @@ javascript.util.ArrayList.prototype.size = function() {
 
 /**
  * @implements {javascript.util.Iterator}
- * @param {javascript.util.ArrayList} arrayList
+ * @param {javascript.util.ArrayList}
+ *          arrayList
  * @constructor
  * @private
  * @export
