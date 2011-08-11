@@ -44,3 +44,11 @@ javascript.util.Collection.prototype.iterator = function() {};
  * @export
  */
 javascript.util.Collection.prototype.size = function() {};
+
+/**
+ * Returns an array containing all of the elements in this collection.
+ *
+ * @return {Array}
+ * @export
+ */
+javascript.util.Collection.prototype.toArray = function() {};

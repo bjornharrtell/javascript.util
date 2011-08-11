@@ -81,6 +81,20 @@ javascript.util.ArrayList.prototype.size = function() {
 };
 
 /**
+ * @override
+ * @export
+ */
+javascript.util.ArrayList.prototype.toArray = function() {
+  var array = [];
+  
+  for (var i=0; i<this.array.length; i++) {
+    array.push(this.array[i]);
+  };
+  
+  return array;
+};
+
+/**
  * @implements {javascript.util.Iterator}
  * @param {javascript.util.ArrayList}
  *          arrayList
