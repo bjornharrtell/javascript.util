@@ -4,7 +4,7 @@
  */
 
 /**
- * @see http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
+ * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeMap.html
  * 
  * @implements {javascript.util.Map}
  * @constructor

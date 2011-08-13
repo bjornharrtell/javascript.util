@@ -1,17 +1,15 @@
-describe('javascript.util.TreeMap', function() {
-  var treeMap;
-  var firstKey;
-  var secondKey;
+describe('javascript.util.TreeSet', function() {
+  var treeSet;
   var firstValue;
   var secondValue;
 
   it('can be constructed', function() {
-    treeMap = new javascript.util.TreeMap();
-    expect(treeMap).toBeDefined();
+    treeSet = new javascript.util.TreeSet();
+    expect(treeSet).toBeDefined();
   });
 
   it('one element can be put', function() {
-    firstKey = {
+    firstValue = {
       number : 2,
       compareTo : function(a) {
         if (this.number === a.number) {
@@ -23,15 +21,14 @@ describe('javascript.util.TreeMap', function() {
         }
       }
     };
-    firstValue = "firstValue";
 
-    treeMap.put(firstKey, firstValue);
+    treeSet.add(firstValue);
 
-    expect(treeMap.size()).toEqual(1);
+    expect(treeSet.size()).toEqual(1);
   });
 
   it('second element can be put', function() {
-    secondKey = {
+    secondValue = {
         number : 1,
         compareTo : function(a) {
           if (this.number === a.number) {
@@ -43,15 +40,14 @@ describe('javascript.util.TreeMap', function() {
           }
         }
       };
-    secondValue = "secondValue";
 
-    treeMap.put(secondKey, secondValue);
+    treeSet.add(secondValue);
 
-    expect(treeMap.size()).toEqual(2);
+    expect(treeSet.size()).toEqual(2);
   });
 
-  it('second element should be enumerated as first because of natural key order', function() {
-    var iterator = treeMap.values().iterator();
+  it('second element should be enumerated as first because of natural value order', function() {
+    var iterator = treeSet.iterator();
     var e = iterator.next();
 
     expect(e).toEqual(secondValue);

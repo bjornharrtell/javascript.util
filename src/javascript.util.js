@@ -98,7 +98,7 @@ javascript.util = {};
 /**
  * @export
  */
-javascript.util.version = '0.4.0';
+javascript.util.version = '0.5.0';
 
 /**
  * @param {string=}
@@ -150,3 +150,20 @@ javascript.util.NoSuchElementException.prototype = new Error();
  * @export
  */
 javascript.util.NoSuchElementException.prototype.name = 'NoSuchElementException';
+
+/**
+ * @param {string=}
+ *          message Optional message.
+ * @extends {Error}
+ * @constructor
+ * @export
+ */
+javascript.util.EmptyStackException = function(message) {
+  this.message = message || '';
+};
+javascript.util.EmptyStackException.prototype = new Error();
+/**
+ * @type {string}
+ * @export
+ */
+javascript.util.EmptyStackException.prototype.name = 'EmptyStackException';
