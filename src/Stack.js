@@ -97,3 +97,17 @@ javascript.util.Stack.prototype.search = function(o) {
 javascript.util.Stack.prototype.size = function() {
   return this.array.length;
 };
+
+/**
+ * @override
+ * @export
+ */
+javascript.util.Stack.prototype.toArray = function() {
+  var array = [];
+  
+  for (var i=0; i<this.array.length; i++) {
+    array.push(this.array[i]);
+  };
+  
+  return array;
+};
