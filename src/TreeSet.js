@@ -11,6 +11,10 @@
  */
 javascript.util.TreeSet = function() {
   this.array = [];
+  
+  if (arguments[0] instanceof javascript.util.Collection) {
+    this.addAll(arguments[0]);
+  }
 };
 
 /**
@@ -52,6 +56,17 @@ javascript.util.TreeSet.prototype.add = function(o) {
   
   this.array.push(o);
   
+  return true;
+};
+
+/**
+ * @override
+ * @export
+ */
+javascript.util.TreeSet.prototype.addAll = function(c) {
+  for ( var i = c.iterator(); i.hasNext();) {
+    this.add(i.next());
+  }
   return true;
 };
 

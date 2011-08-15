@@ -46,3 +46,14 @@ javascript.util.Arrays.sort = function() {
     return;
   }
 };
+
+/**
+ * @export
+ */
+javascript.util.Arrays.asList = function(array) {
+  var arrayList = new javascript.util.ArrayList();
+  for (var i=0; i<array.length; i++) {
+    arrayList.add(array[i]);
+  }
+  return arrayList;
+};
