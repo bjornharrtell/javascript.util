@@ -95,6 +95,24 @@ javascript.util.ArrayList.prototype.toArray = function() {
 };
 
 /**
+ * @override
+ * @export
+ */
+javascript.util.ArrayList.prototype.remove = function(o){
+  var found = false;
+
+  for(var i=0; i<this.array.length; i++){
+    if(this.array[i] === o){
+      this.array.splice(i,1);
+      found = true;
+      break;
+    }
+  }
+
+  return found;
+};
+
+/**
  * @implements {javascript.util.Iterator}
  * @param {javascript.util.ArrayList}
  *          arrayList
