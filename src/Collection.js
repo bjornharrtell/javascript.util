@@ -52,3 +52,13 @@ javascript.util.Collection.prototype.size = function() {};
  * @export
  */
 javascript.util.Collection.prototype.toArray = function() {};
+
+/**
+  * Removes a single instance of the specified element from this collection if it is present. (optional)
+  *
+  * @param {Object}
+  *         o
+  * @return {boolean}
+  * @export
+  */
+javascript.util.Collection.prototype.remove = function(o) {};

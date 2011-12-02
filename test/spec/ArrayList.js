@@ -3,6 +3,7 @@ describe('javascript.util.ArrayList', function() {
   var iterator;
   var first;
   var second;
+  var toBeRemoved;
   
   it('can be constructed', function() {
     arrayList = new javascript.util.ArrayList();
@@ -59,6 +60,13 @@ describe('javascript.util.ArrayList', function() {
       count++;
     }
     expect(count).toEqual(2);
+  });
+
+  it('can remove an item', function() {
+    var count = arrayList.size();
+    arrayList.add(toBeRemoved);
+    arrayList.remove(toBeRemoved);
+    expect(arrayList.size()).toEqual(count);
   });
 });
 
