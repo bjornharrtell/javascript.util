@@ -23,10 +23,9 @@ javascript.util.Arrays.sort = function() {
   } else if (arguments.length === 3) {
     t = a.slice(arguments[1], arguments[2]);
     t.sort();
-    var r = a.slice(0, arguments[1]).concat(t,
-        a.slice(arguments[2], a.length));
+    var r = a.slice(0, arguments[1]).concat(t, a.slice(arguments[2], a.length));
     a.splice(0, a.length);
-    for (i = 0; i<r.length; i++) {
+    for (i = 0; i < r.length; i++) {
       a.push(r[i]);
     }
     return;
@@ -37,10 +36,9 @@ javascript.util.Arrays.sort = function() {
       return comparator['compare'](a, b);
     };
     t.sort(compare);
-    r = a.slice(0, arguments[1]).concat(t,
-        a.slice(arguments[2], a.length));
+    r = a.slice(0, arguments[1]).concat(t, a.slice(arguments[2], a.length));
     a.splice(0, a.length);
-    for (i = 0; i<r.length; i++) {
+    for (i = 0; i < r.length; i++) {
       a.push(r[i]);
     }
     return;
@@ -52,7 +50,7 @@ javascript.util.Arrays.sort = function() {
  */
 javascript.util.Arrays.asList = function(array) {
   var arrayList = new javascript.util.ArrayList();
-  for (var i=0; i<array.length; i++) {
+  for ( var i = 0, len = array.length; i < len; i++) {
     arrayList.add(array[i]);
   }
   return arrayList;

@@ -105,7 +105,7 @@ javascript.util.Stack.prototype.size = function() {
 javascript.util.Stack.prototype.toArray = function() {
   var array = [];
   
-  for (var i=0; i<this.array.length; i++) {
+  for (var i=0, len=this.array.length ; i<len; i++) {
     array.push(this.array[i]);
   };
   

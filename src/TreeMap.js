@@ -25,7 +25,7 @@ javascript.util.TreeMap.prototype.array = null;
  * @export
  */
 javascript.util.TreeMap.prototype.get = function(key) {
-  for (var i = 0; i<this.array.length; i++) {
+  for (var i = 0, len=this.array.length ; i<len; i++) {
     var e = this.array[i];
     if (e.key['compareTo'](key) === 0) {
       return e.value;
@@ -52,7 +52,7 @@ javascript.util.TreeMap.prototype.put = function(key, value) {
       value: value
     };
   
-  for (var i = 0; i<this.array.length; i++) {
+  for (var i = 0, len=this.array.length ; i<len; i++) {
     e = this.array[i];
     if (e.key['compareTo'](key) === 1) {
       this.array.splice(i, 0, newElement);
@@ -74,7 +74,7 @@ javascript.util.TreeMap.prototype.put = function(key, value) {
  */
 javascript.util.TreeMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
-  for ( var i = 0; i < this.array.length; i++) {
+  for ( var i = 0, len=this.array.length ; i<len; i++) {
     arrayList.add(this.array[i].value);
   }
   return arrayList;

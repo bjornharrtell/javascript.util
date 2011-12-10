@@ -86,11 +86,12 @@ javascript.util.ArrayList.prototype.size = function() {
  */
 javascript.util.ArrayList.prototype.toArray = function() {
   var array = [];
-  
-  for (var i=0; i<this.array.length; i++) {
+
+  for ( var i = 0, len=this.array.length ; i<len; i++) {
     array.push(this.array[i]);
-  };
-  
+  }
+  ;
+
   return array;
 };
 
@@ -98,12 +99,12 @@ javascript.util.ArrayList.prototype.toArray = function() {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.remove = function(o){
+javascript.util.ArrayList.prototype.remove = function(o) {
   var found = false;
 
-  for(var i=0; i<this.array.length; i++){
-    if(this.array[i] === o){
-      this.array.splice(i,1);
+  for ( var i = 0, len = this.array.length; i < len; i++) {
+    if (this.array[i] === o) {
+      this.array.splice(i, 1);
       found = true;
       break;
     }

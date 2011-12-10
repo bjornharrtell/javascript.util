@@ -28,7 +28,7 @@ javascript.util.TreeSet.prototype.array = null;
  * @export
  */
 javascript.util.TreeSet.prototype.contains = function(o) {
-  for (var i = 0; i<this.array.length; i++) {
+  for (var i = 0, len=this.array.length ; i<len; i++) {
     var e = this.array[i];
     if (e['compareTo'](o) === 0) {
       return true;
@@ -46,7 +46,7 @@ javascript.util.TreeSet.prototype.add = function(o) {
     return false;
   }
   
-  for (var i = 0; i<this.array.length; i++) {
+  for (var i = 0, len=this.array.length ; i<len; i++) {
     var e = this.array[i];
     if (e['compareTo'](o) === 1) {
       this.array.splice(i, 0, o);
@@ -94,7 +94,7 @@ javascript.util.TreeSet.prototype.isEmpty = function() {
 javascript.util.TreeSet.prototype.toArray = function() {
   var array = [];
   
-  for (var i=0; i<this.array.length; i++) {
+  for (var i=0, len=this.array.length ; i<len; i++) {
     array.push(this.array[i]);
   };
   
