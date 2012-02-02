@@ -2,12 +2,10 @@
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Arrays.html
  * 
  * @constructor
- * @export
  */
 javascript.util.Arrays = function() {};
 
 /**
- * @export
  */
 javascript.util.Arrays.sort = function() {
   var a = arguments[0], i, t, comparator, compare;
@@ -46,7 +44,6 @@ javascript.util.Arrays.sort = function() {
 };
 
 /**
- * @export
  */
 javascript.util.Arrays.asList = function(array) {
   var arrayList = new javascript.util.ArrayList();

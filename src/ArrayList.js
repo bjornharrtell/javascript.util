@@ -7,7 +7,6 @@
  * 
  * @implements {javascript.util.List}
  * @constructor
- * @export
  */
 javascript.util.ArrayList = function() {
   this.array = [];
@@ -16,7 +15,8 @@ javascript.util.ArrayList = function() {
     this.addAll(arguments[0]);
   }
 };
-javascript.util.ArrayList.prototype = new javascript.util.List();
+
+javascript.util.ArrayList.prototype = new javascript.util.List;
 
 /**
  * @type {Array}
@@ -26,7 +26,6 @@ javascript.util.ArrayList.prototype.array = null;
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.add = function(e) {
   this.array.push(e);
@@ -35,7 +34,6 @@ javascript.util.ArrayList.prototype.add = function(e) {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.addAll = function(c) {
   for ( var i = c.iterator(); i.hasNext();) {
@@ -46,7 +44,6 @@ javascript.util.ArrayList.prototype.addAll = function(c) {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.iterator = function() {
   return new javascript.util.ArrayList.Iterator(this);
@@ -54,7 +51,6 @@ javascript.util.ArrayList.prototype.iterator = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.get = function(index) {
   if (index < 0 || index >= this.size()) {
@@ -66,7 +62,6 @@ javascript.util.ArrayList.prototype.get = function(index) {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.isEmpty = function() {
   return this.array.length === 0;
@@ -74,7 +69,6 @@ javascript.util.ArrayList.prototype.isEmpty = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.size = function() {
   return this.array.length;
@@ -82,12 +76,11 @@ javascript.util.ArrayList.prototype.size = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.toArray = function() {
   var array = [];
 
-  for ( var i = 0, len=this.array.length ; i<len; i++) {
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     array.push(this.array[i]);
   }
   ;
@@ -97,7 +90,6 @@ javascript.util.ArrayList.prototype.toArray = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.prototype.remove = function(o) {
   var found = false;
@@ -119,7 +111,6 @@ javascript.util.ArrayList.prototype.remove = function(o) {
  *          arrayList
  * @constructor
  * @private
- * @export
  */
 javascript.util.ArrayList.Iterator = function(arrayList) {
   this.arrayList = arrayList;
@@ -139,7 +130,6 @@ javascript.util.ArrayList.Iterator.prototype.position = 0;
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.Iterator.prototype.next = function() {
   if (this.position === this.arrayList.size()) {
@@ -150,7 +140,6 @@ javascript.util.ArrayList.Iterator.prototype.next = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.Iterator.prototype.hasNext = function() {
   if (this.position < this.arrayList.size()) {
@@ -161,7 +150,6 @@ javascript.util.ArrayList.Iterator.prototype.hasNext = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.ArrayList.Iterator.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();

@@ -7,15 +7,15 @@
  * 
  * @implements {javascript.util.SortedSet}
  * @constructor
- * @export
  */
 javascript.util.TreeSet = function() {
   this.array = [];
-  
+
   if (arguments[0] instanceof javascript.util.Collection) {
     this.addAll(arguments[0]);
   }
 };
+javascript.util.TreeSet.prototype = new javascript.util.SortedSet;
 
 /**
  * @type {Array}
@@ -25,10 +25,9 @@ javascript.util.TreeSet.prototype.array = null;
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.prototype.contains = function(o) {
-  for (var i = 0, len=this.array.length ; i<len; i++) {
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     var e = this.array[i];
     if (e['compareTo'](o) === 0) {
       return true;
@@ -39,29 +38,27 @@ javascript.util.TreeSet.prototype.contains = function(o) {
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.prototype.add = function(o) {
   if (this.contains(o)) {
     return false;
   }
-  
-  for (var i = 0, len=this.array.length ; i<len; i++) {
+
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     var e = this.array[i];
     if (e['compareTo'](o) === 1) {
       this.array.splice(i, 0, o);
       return true;
     }
   }
-  
+
   this.array.push(o);
-  
+
   return true;
 };
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.prototype.addAll = function(c) {
   for ( var i = c.iterator(); i.hasNext();) {
@@ -70,10 +67,16 @@ javascript.util.TreeSet.prototype.addAll = function(c) {
   return true;
 };
 
+/**
+ * @override
+ * @returns {boolean}
+ */
+javascript.util.TreeSet.prototype.remove = function(o) {
+  throw new javascript.util.OperationNotSupported();
+};
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.prototype.size = function() {
   return this.array.length;
@@ -81,7 +84,6 @@ javascript.util.TreeSet.prototype.size = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.prototype.isEmpty = function() {
   return this.array.length === 0;
@@ -89,21 +91,19 @@ javascript.util.TreeSet.prototype.isEmpty = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.prototype.toArray = function() {
   var array = [];
-  
-  for (var i=0, len=this.array.length ; i<len; i++) {
+
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     array.push(this.array[i]);
-  };
-  
+  }
+
   return array;
 };
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.prototype.iterator = function() {
   return new javascript.util.TreeSet.Iterator(this);
@@ -115,7 +115,6 @@ javascript.util.TreeSet.prototype.iterator = function() {
  *          treeSet
  * @constructor
  * @private
- * @export
  */
 javascript.util.TreeSet.Iterator = function(treeSet) {
   this.treeSet = treeSet;
@@ -135,7 +134,6 @@ javascript.util.TreeSet.Iterator.prototype.position = 0;
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.Iterator.prototype.next = function() {
   if (this.position === this.treeSet.size()) {
@@ -146,7 +144,6 @@ javascript.util.TreeSet.Iterator.prototype.next = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.Iterator.prototype.hasNext = function() {
   if (this.position < this.treeSet.size()) {
@@ -157,7 +154,6 @@ javascript.util.TreeSet.Iterator.prototype.hasNext = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeSet.Iterator.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();

@@ -7,12 +7,13 @@
  * 
  * @implements {javascript.util.List}
  * @constructor
- * @export
+ * 
  */
 javascript.util.Stack = function() {
   this.array = [];
 };
-javascript.util.Stack.prototype = new javascript.util.List();
+
+javascript.util.Stack.prototype = new javascript.util.List;
 
 /**
  * @type {Array}
@@ -23,7 +24,6 @@ javascript.util.Stack.prototype.array = null;
 /**
  * Pushes an item onto the top of this stack.
  * 
- * @export
  */
 javascript.util.Stack.prototype.push = function(e) {
   this.array.push(e);
@@ -33,7 +33,6 @@ javascript.util.Stack.prototype.push = function(e) {
 /**
  * Pushes an item onto the top of this stack.
  * 
- * @export
  */
 javascript.util.Stack.prototype.pop = function(e) {
   if (this.array.length === 0) {
@@ -47,7 +46,7 @@ javascript.util.Stack.prototype.pop = function(e) {
  * Looks at the object at the top of this stack without removing it from the
  * stack.
  * 
- * @export
+ * 
  */
 javascript.util.Stack.prototype.peek = function() {
   if (this.array.length === 0) {
@@ -62,7 +61,6 @@ javascript.util.Stack.prototype.peek = function() {
  * 
  * @return {boolean} true if and only if this stack contains no items; false
  *         otherwise.
- * @export
  */
 javascript.util.Stack.prototype.empty = function(e) {
   if (this.array.length === 0) {
@@ -84,7 +82,6 @@ javascript.util.Stack.prototype.empty = function(e) {
  * @return {number} the 1-based position from the top of the stack where the
  *         object is located; the return value -1 indicates that the object is
  *         not on the stack.
- * @export
  */
 javascript.util.Stack.prototype.search = function(o) {
   return this.array.indexOf(o);
@@ -92,7 +89,7 @@ javascript.util.Stack.prototype.search = function(o) {
 
 /**
  * @override
- * @export
+ * 
  */
 javascript.util.Stack.prototype.size = function() {
   return this.array.length;
@@ -100,14 +97,13 @@ javascript.util.Stack.prototype.size = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.Stack.prototype.toArray = function() {
   var array = [];
-  
-  for (var i=0, len=this.array.length ; i<len; i++) {
+
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     array.push(this.array[i]);
-  };
-  
+  }
+
   return array;
 };

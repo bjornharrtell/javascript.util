@@ -7,9 +7,9 @@
  * 
  * @extends {javascript.util.Collection}
  * @interface
- * @export
  */
 javascript.util.Set = function() {};
+javascript.util.Set.prototype = new javascript.util.Collection;
 
 /**
  * Returns true if this set contains the specified element. More formally,
@@ -19,6 +19,5 @@ javascript.util.Set = function() {};
  * @param {Object}
  *          o
  * @return {boolean}
- * @export
  */
 javascript.util.Set.prototype.contains = function(o) {};

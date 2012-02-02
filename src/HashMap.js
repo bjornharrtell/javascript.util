@@ -5,14 +5,15 @@
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
- *
+ * 
  * @implements {javascript.util.Map}
  * @constructor
- * @export
+ * 
  */
 javascript.util.HashMap = function() {
   this.object = {};
 };
+javascript.util.HashMap.prototype = new javascript.util.Map;
 
 /**
  * @type {Object}
@@ -22,7 +23,6 @@ javascript.util.HashMap.prototype.object = null;
 
 /**
  * @override
- * @export
  */
 javascript.util.HashMap.prototype.get = function(key) {
   return this.object[key] || null;
@@ -30,7 +30,6 @@ javascript.util.HashMap.prototype.get = function(key) {
 
 /**
  * @override
- * @export
  */
 javascript.util.HashMap.prototype.put = function(key, value) {
   this.object[key] = value;
@@ -39,11 +38,10 @@ javascript.util.HashMap.prototype.put = function(key, value) {
 
 /**
  * @override
- * @export
  */
 javascript.util.HashMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
-  for (var key in this.object) {
+  for ( var key in this.object) {
     if (this.object.hasOwnProperty(key)) {
       arrayList.add(this.object[key]);
     }
@@ -53,7 +51,6 @@ javascript.util.HashMap.prototype.values = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.HashMap.prototype.size = function() {
   return this.values().size();

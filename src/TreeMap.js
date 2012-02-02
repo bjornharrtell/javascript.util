@@ -8,11 +8,12 @@
  * 
  * @implements {javascript.util.Map}
  * @constructor
- * @export
+ * 
  */
 javascript.util.TreeMap = function() {
   this.array = [];
 };
+javascript.util.TreeMap.prototype = new javascript.util.Map;
 
 /**
  * @type {Array}
@@ -22,10 +23,9 @@ javascript.util.TreeMap.prototype.array = null;
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeMap.prototype.get = function(key) {
-  for (var i = 0, len=this.array.length ; i<len; i++) {
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     var e = this.array[i];
     if (e.key['compareTo'](key) === 0) {
       return e.value;
@@ -36,45 +36,43 @@ javascript.util.TreeMap.prototype.get = function(key) {
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeMap.prototype.put = function(key, value) {
   var e = this.get(key);
-  
+
   if (e) {
     var oldValue = e.value;
     e.value = value;
     return oldValue;
   }
-  
+
   var newElement = {
-      key: key,
-      value: value
-    };
-  
-  for (var i = 0, len=this.array.length ; i<len; i++) {
+    key : key,
+    value : value
+  };
+
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     e = this.array[i];
     if (e.key['compareTo'](key) === 1) {
       this.array.splice(i, 0, newElement);
       return null;
     }
   }
-  
+
   this.array.push({
-    key: key,
-    value: value
+    key : key,
+    value : value
   });
-  
+
   return null;
 };
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
-  for ( var i = 0, len=this.array.length ; i<len; i++) {
+  for ( var i = 0, len = this.array.length; i < len; i++) {
     arrayList.add(this.array[i].value);
   }
   return arrayList;
@@ -82,7 +80,6 @@ javascript.util.TreeMap.prototype.values = function() {
 
 /**
  * @override
- * @export
  */
 javascript.util.TreeMap.prototype.size = function() {
   return this.values().size();

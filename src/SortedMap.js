@@ -7,6 +7,6 @@
  *
  * @extends {javascript.util.Map}
  * @interface
- * @export
  */
 javascript.util.SortedMap = function() {};
+javascript.util.SortedMap.prototype = new javascript.util.Map;

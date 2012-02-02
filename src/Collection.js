@@ -4,61 +4,66 @@
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Collection.html
- *
+ * 
  * @interface
- * @export
  */
 javascript.util.Collection = function() {};
 
 /**
  * Ensures that this collection contains the specified element (optional
  * operation).
- *
+ * 
  * @param {Object}
  *          o
  * @return {boolean}
- * @export
  */
 javascript.util.Collection.prototype.add = function(o) {};
 
 /**
- * Returns true if this collection contains no elements.
- *
+ * Appends all of the elements in the specified collection to the end of this
+ * list, in the order that they are returned by the specified collection's
+ * iterator (optional operation).
+ * 
+ * @param {javascript.util.Collection}
+ *          c
  * @return {boolean}
- * @export
+ */
+javascript.util.Collection.prototype.addAll = function(c) {};
+
+/**
+ * Returns true if this collection contains no elements.
+ * 
+ * @return {boolean}
  */
 javascript.util.Collection.prototype.isEmpty = function() {};
 
 /**
  * Returns an iterator over the elements in this collection.
- *
+ * 
  * @return {javascript.util.Iterator}
- * @export
  */
 javascript.util.Collection.prototype.iterator = function() {};
 
 /**
  * Returns an iterator over the elements in this collection.
- *
+ * 
  * @return {number}
- * @export
  */
 javascript.util.Collection.prototype.size = function() {};
 
 /**
  * Returns an array containing all of the elements in this collection.
- *
+ * 
  * @return {Array}
- * @export
  */
 javascript.util.Collection.prototype.toArray = function() {};
 
 /**
-  * Removes a single instance of the specified element from this collection if it is present. (optional)
-  *
-  * @param {Object}
-  *         o
-  * @return {boolean}
-  * @export
-  */
+ * Removes a single instance of the specified element from this collection if it
+ * is present. (optional)
+ * 
+ * @param {Object}
+ *          o
+ * @return {boolean}
+ */
 javascript.util.Collection.prototype.remove = function(o) {};
