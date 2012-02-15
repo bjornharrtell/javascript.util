@@ -1,0 +1,29 @@
+{
+    "name": "javascript.util",
+    "description": "javascript.util is a port of selected parts of java.util to JavaScript",
+    "version": "0.0.1",
+    "author": "Björn Harrtell <bjorn.harrtell@gmail.com>",
+    "keywords": [ "java", "util", "collection" ],
+    "licenses" : [
+        {
+            "type": "???",
+            "url": "https://raw.github.com/bjornharrtell/javascript.util/master/license-notice.txt"
+        }
+    ],
+
+    "dependencies": {
+    },
+    "devDependencies": {
+        "jasmine-node": "1.0.21"
+    },
+    "directories": {
+        "lib": "./src",
+        "test": "./test"
+    },
+    "main": "index.js",
+    "engines": { "node": ">= 0.6.0" },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/bjornharrtell/javascript.util.git"
+    }
+}
