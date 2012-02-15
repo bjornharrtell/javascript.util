@@ -1,13 +1,13 @@
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Arrays.html
- * 
+ *
  * @constructor
  */
-javascript.util.Arrays = function() {};
+function Arrays() {};
 
 /**
  */
-javascript.util.Arrays.sort = function() {
+Arrays.sort = function() {
   var a = arguments[0], i, t, comparator, compare;
   if (arguments.length === 1) {
     a.sort();
@@ -45,10 +45,12 @@ javascript.util.Arrays.sort = function() {
 
 /**
  */
-javascript.util.Arrays.asList = function(array) {
+Arrays.asList = function(array) {
   var arrayList = new javascript.util.ArrayList();
   for ( var i = 0, len = array.length; i < len; i++) {
     arrayList.add(array[i]);
   }
   return arrayList;
 };
+
+module.exports = Arrays;

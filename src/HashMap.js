@@ -3,35 +3,38 @@
  * @requires ArrayList.js
  */
 
+var Map = require('./Map');
+var ArrayList = require('./ArrayList');
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
- * 
+ *
  * @implements {javascript.util.Map}
  * @constructor
- * 
+ *
  */
-javascript.util.HashMap = function() {
+function HashMap() {
   this.object = {};
 };
-javascript.util.HashMap.prototype = new javascript.util.Map;
+HashMap.prototype = new Map;
 
 /**
  * @type {Object}
  * @private
  */
-javascript.util.HashMap.prototype.object = null;
+HashMap.prototype.object = null;
 
 /**
  * @override
  */
-javascript.util.HashMap.prototype.get = function(key) {
+HashMap.prototype.get = function(key) {
   return this.object[key] || null;
 };
 
 /**
  * @override
  */
-javascript.util.HashMap.prototype.put = function(key, value) {
+HashMap.prototype.put = function(key, value) {
   this.object[key] = value;
   return value;
 };
@@ -39,7 +42,7 @@ javascript.util.HashMap.prototype.put = function(key, value) {
 /**
  * @override
  */
-javascript.util.HashMap.prototype.values = function() {
+HashMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
   for ( var key in this.object) {
     if (this.object.hasOwnProperty(key)) {
@@ -52,6 +55,8 @@ javascript.util.HashMap.prototype.values = function() {
 /**
  * @override
  */
-javascript.util.HashMap.prototype.size = function() {
+HashMap.prototype.size = function() {
   return this.values().size();
 };
+
+module.exports = HashMap;
