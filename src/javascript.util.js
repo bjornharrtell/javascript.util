@@ -2,65 +2,30 @@ var javascript = {};
 javascript.util = {};
 javascript.util.version = '0.9.0';
 
+javascript.util.ArrayList = require('./ArrayList');
+javascript.util.Arrays = require('./Arrays');
+javascript.util.Collection = require('./Collection');
+javascript.util.EmptyStackException = require('./EmptyStackException');
+javascript.util.HashMap = require('./HashMap');
+javascript.util.IndexOutOfBoundsException = require('./IndexOutOfBoundsException');
+javascript.util.Iterator = require('./Iterator');
+javascript.util.List = require('./List');
+javascript.util.Map = require('./Map');
+javascript.util.NoSuchElementException = require('./NoSuchElementException');
+javascript.util.OperationNotSupported = require('./OperationNotSupported');
+javascript.util.Set = require('./Set');
+javascript.util.SortedMap = require('./SortedMap');
+javascript.util.SortedSet = require('./SortedSet');
+javascript.util.Stack = require('./Stack');
+javascript.util.TreeMap = require('./TreeMap');
+javascript.util.TreeSet = require('./TreeSet');
+
 // assume this script is run in a function with context as first argument
 this['javascript'] = javascript;
-
-/**
- * @param {string=}
- *          message Optional message.
- * @extends {Error}
- * @constructor
- */
-javascript.util.OperationNotSupported = function(message) {
-  this.message = message || '';
-};
-javascript.util.OperationNotSupported.prototype = new Error();
-/**
- * @type {string}
- */
-javascript.util.OperationNotSupported.prototype.name = 'OperationNotSupported';
-
-/**
- * @param {string=}
- *          message Optional message.
- * @extends {Error}
- * @constructor
- */
-javascript.util.IndexOutOfBoundsException = function(message) {
-  this.message = message || '';
-};
-javascript.util.IndexOutOfBoundsException.prototype = new Error();
-/**
- * @type {string}
- */
-javascript.util.IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException';
-
-/**
- * @param {string=}
- *          message Optional message.
- * @extends {Error}
- * @constructor
- */
-javascript.util.NoSuchElementException = function(message) {
-  this.message = message || '';
-};
-javascript.util.NoSuchElementException.prototype = new Error();
-/**
- * @type {string}
- */
-javascript.util.NoSuchElementException.prototype.name = 'NoSuchElementException';
-
-/**
- * @param {string=}
- *          message Optional message.
- * @extends {Error}
- * @constructor
- */
-javascript.util.EmptyStackException = function(message) {
-  this.message = message || '';
-};
-javascript.util.EmptyStackException.prototype = new Error();
-/**
- * @type {string}
- */
-javascript.util.EmptyStackException.prototype.name = 'EmptyStackException';
+var g;
+if (typeof window !== 'undefined') {
+    g = window;
+} else {
+    g = global;
+}
+g.javascript = javascript;

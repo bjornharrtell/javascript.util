@@ -1,42 +1,44 @@
 /**
  * @requires List.js
  */
+var List = require('./List');
+var EmptyStackException = require('./EmptyStackException');
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Stack.html
- * 
+ *
  * @implements {javascript.util.List}
  * @constructor
- * 
+ *
  */
-javascript.util.Stack = function() {
+function Stack() {
   this.array = [];
 };
 
-javascript.util.Stack.prototype = new javascript.util.List;
+Stack.prototype = new List;
 
 /**
  * @type {Array}
  * @private
  */
-javascript.util.Stack.prototype.array = null;
+Stack.prototype.array = null;
 
 /**
  * Pushes an item onto the top of this stack.
- * 
+ *
  */
-javascript.util.Stack.prototype.push = function(e) {
+Stack.prototype.push = function(e) {
   this.array.push(e);
   return e;
 };
 
 /**
  * Pushes an item onto the top of this stack.
- * 
+ *
  */
-javascript.util.Stack.prototype.pop = function(e) {
+Stack.prototype.pop = function(e) {
   if (this.array.length === 0) {
-    throw new javascript.util.EmptyStackException();
+    throw new EmptyStackException();
   }
 
   return this.array.pop();
@@ -45,12 +47,11 @@ javascript.util.Stack.prototype.pop = function(e) {
 /**
  * Looks at the object at the top of this stack without removing it from the
  * stack.
- * 
- * 
+ *
  */
-javascript.util.Stack.prototype.peek = function() {
+Stack.prototype.peek = function() {
   if (this.array.length === 0) {
-    throw new javascript.util.EmptyStackException();
+    throw new EmptyStackException();
   }
 
   return this.array[this.array.length - 1];
@@ -58,11 +59,11 @@ javascript.util.Stack.prototype.peek = function() {
 
 /**
  * Tests if this stack is empty.
- * 
+ *
  * @return {boolean} true if and only if this stack contains no items; false
  *         otherwise.
  */
-javascript.util.Stack.prototype.empty = function(e) {
+Stack.prototype.empty = function(e) {
   if (this.array.length === 0) {
     return true;
   } else {
@@ -76,29 +77,29 @@ javascript.util.Stack.prototype.empty = function(e) {
  * top of the stack of the occurrence nearest the top of the stack; the topmost
  * item on the stack is considered to be at distance 1. The equals method is
  * used to compare o to the items in this stack.
- * 
+ *
  * NOTE: does not currently actually use equals. (=== is used)
- * 
+ *
  * @return {number} the 1-based position from the top of the stack where the
  *         object is located; the return value -1 indicates that the object is
  *         not on the stack.
  */
-javascript.util.Stack.prototype.search = function(o) {
+Stack.prototype.search = function(o) {
   return this.array.indexOf(o);
 };
 
 /**
  * @override
- * 
+ *
  */
-javascript.util.Stack.prototype.size = function() {
+Stack.prototype.size = function() {
   return this.array.length;
 };
 
 /**
  * @override
  */
-javascript.util.Stack.prototype.toArray = function() {
+Stack.prototype.toArray = function() {
   var array = [];
 
   for ( var i = 0, len = this.array.length; i < len; i++) {
@@ -107,3 +108,5 @@ javascript.util.Stack.prototype.toArray = function() {
 
   return array;
 };
+
+module.exports = Stack;

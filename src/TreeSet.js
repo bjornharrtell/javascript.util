@@ -1,32 +1,36 @@
 /**
  * @requires SortedSet.js
  */
+var Collection = require('./Collection');
+var SortedSet = require('./SortedSet');
+var OperationNotSupported = require('./OperationNotSupported');
+var NoSuchElementException = require('./NoSuchElementException');
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeSet.html
- * 
+ *
  * @implements {javascript.util.SortedSet}
  * @constructor
  */
-javascript.util.TreeSet = function() {
+function TreeSet() {
   this.array = [];
 
-  if (arguments[0] instanceof javascript.util.Collection) {
+  if (arguments[0] instanceof Collection) {
     this.addAll(arguments[0]);
   }
 };
-javascript.util.TreeSet.prototype = new javascript.util.SortedSet;
+TreeSet.prototype = new SortedSet;
 
 /**
  * @type {Array}
  * @private
  */
-javascript.util.TreeSet.prototype.array = null;
+TreeSet.prototype.array = null;
 
 /**
  * @override
  */
-javascript.util.TreeSet.prototype.contains = function(o) {
+TreeSet.prototype.contains = function(o) {
   for ( var i = 0, len = this.array.length; i < len; i++) {
     var e = this.array[i];
     if (e['compareTo'](o) === 0) {
@@ -39,7 +43,7 @@ javascript.util.TreeSet.prototype.contains = function(o) {
 /**
  * @override
  */
-javascript.util.TreeSet.prototype.add = function(o) {
+TreeSet.prototype.add = function(o) {
   if (this.contains(o)) {
     return false;
   }
@@ -60,7 +64,7 @@ javascript.util.TreeSet.prototype.add = function(o) {
 /**
  * @override
  */
-javascript.util.TreeSet.prototype.addAll = function(c) {
+TreeSet.prototype.addAll = function(c) {
   for ( var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
@@ -71,28 +75,28 @@ javascript.util.TreeSet.prototype.addAll = function(c) {
  * @override
  * @returns {boolean}
  */
-javascript.util.TreeSet.prototype.remove = function(o) {
-  throw new javascript.util.OperationNotSupported();
+TreeSet.prototype.remove = function(o) {
+  throw new OperationNotSupported();
 };
 
 /**
  * @override
  */
-javascript.util.TreeSet.prototype.size = function() {
+TreeSet.prototype.size = function() {
   return this.array.length;
 };
 
 /**
  * @override
  */
-javascript.util.TreeSet.prototype.isEmpty = function() {
+TreeSet.prototype.isEmpty = function() {
   return this.array.length === 0;
 };
 
 /**
  * @override
  */
-javascript.util.TreeSet.prototype.toArray = function() {
+TreeSet.prototype.toArray = function() {
   var array = [];
 
   for ( var i = 0, len = this.array.length; i < len; i++) {
@@ -105,7 +109,7 @@ javascript.util.TreeSet.prototype.toArray = function() {
 /**
  * @override
  */
-javascript.util.TreeSet.prototype.iterator = function() {
+TreeSet.prototype.iterator = function() {
   return new javascript.util.TreeSet.Iterator(this);
 };
 
@@ -116,7 +120,7 @@ javascript.util.TreeSet.prototype.iterator = function() {
  * @constructor
  * @private
  */
-javascript.util.TreeSet.Iterator = function(treeSet) {
+TreeSet.Iterator = function(treeSet) {
   this.treeSet = treeSet;
 };
 
@@ -124,20 +128,20 @@ javascript.util.TreeSet.Iterator = function(treeSet) {
  * @type {javascript.util.TreeSet}
  * @private
  */
-javascript.util.TreeSet.Iterator.prototype.treeSet = null;
+TreeSet.Iterator.prototype.treeSet = null;
 
 /**
  * @type {number}
  * @private
  */
-javascript.util.TreeSet.Iterator.prototype.position = 0;
+TreeSet.Iterator.prototype.position = 0;
 
 /**
  * @override
  */
-javascript.util.TreeSet.Iterator.prototype.next = function() {
+TreeSet.Iterator.prototype.next = function() {
   if (this.position === this.treeSet.size()) {
-    throw new javascript.util.NoSuchElementException();
+    throw new NoSuchElementException();
   }
   return this.treeSet.array[this.position++];
 };
@@ -145,7 +149,7 @@ javascript.util.TreeSet.Iterator.prototype.next = function() {
 /**
  * @override
  */
-javascript.util.TreeSet.Iterator.prototype.hasNext = function() {
+TreeSet.Iterator.prototype.hasNext = function() {
   if (this.position < this.treeSet.size()) {
     return true;
   }
@@ -155,6 +159,8 @@ javascript.util.TreeSet.Iterator.prototype.hasNext = function() {
 /**
  * @override
  */
-javascript.util.TreeSet.Iterator.prototype.remove = function() {
+TreeSet.Iterator.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();
 };
+
+module.exports = TreeSet;
