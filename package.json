@@ -1,7 +1,7 @@
 {
     "name": "javascript.util",
     "description": "javascript.util is a port of selected parts of java.util to JavaScript",
-    "version": "0.0.1",
+    "version": "0.10.0",
     "author": "Björn Harrtell <bjorn.harrtell@gmail.com>",
     "keywords": [ "java", "util", "collection" ],
     "licenses" : [

@@ -1,6 +1,6 @@
 var javascript = {};
 javascript.util = {};
-javascript.util.version = '0.9.0';
+javascript.util.version = '0.10.0';
 
 javascript.util.ArrayList = require('./ArrayList');
 javascript.util.Arrays = require('./Arrays');
