@@ -6,6 +6,31 @@ javascript.util can be used in browsers or as a node js module.
 // TODO: describe "selected parts"
 // TODO: generate API docs
 
+Usage
+=====
+
+Browsers
+--------
+
+Simply include javascript.util.js in your page.
+
+Node JS
+-------
+
+Using NPM a trunk version of javascript.util can be installed with the following:
+
+```bash
+    npm install git://github.com/bjornharrtell/javascript.util.git
+```
+
+A simple code example using javascript.util:
+
+```javascript
+	var ArrayList = require("javascript.util").ArrayList;
+	var array = new ArrayList();
+	array.add(1);
+```
+
 Development environment
 =======================
 
