@@ -3,3 +3,19 @@ main purpose is to ease porting Java code to JavaScript.
 
 // TODO: describe "selected parts"
 // TODO: generate API docs
+
+Development environment
+=======================
+
+// TODO
+
+Unit tests
+----------
+
+Can be run in browser using /test/SpecRunner.html
+
+Can be run at command line using runtests which is a jasmine-node test runner. Use runtests as follows:
+
+./runtests test --matchall
+
+NOTE: jasmine-node trunk version is required at the moment.
