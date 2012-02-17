@@ -89,7 +89,6 @@ ArrayList.prototype.toArray = function() {
   for ( var i = 0, len = this.array.length; i < len; i++) {
     array.push(this.array[i]);
   }
-  ;
 
   return array;
 };
