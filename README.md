@@ -50,10 +50,6 @@ Unit tests
 
 Can be run in browser using /test/SpecRunner-release.html or /test/SpecRunner-debug.html
 
-Can be run at command line using jasmine-node.
-
-A custom jasmine-node test runner is available:
-
-./runtests test --matchall
+Can be run at command line using jasmine-node. Included runtests scrips will run all tests.
 
 NOTE: jasmine-node trunk version is required at the moment.
