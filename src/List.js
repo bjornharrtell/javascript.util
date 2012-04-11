@@ -22,4 +22,11 @@ List.prototype = new Collection;
  */
 List.prototype.get = function(index) {};
 
+/**
+ * Returns true if this collection contains no elements.
+ *
+ * @return {boolean} true if this collection contains no elements
+ */
+List.prototype.isEmpty = function() {};
+
 module.exports = List;

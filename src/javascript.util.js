@@ -14,6 +14,7 @@ javascript.util.Map = require('./Map');
 javascript.util.NoSuchElementException = require('./NoSuchElementException');
 javascript.util.OperationNotSupported = require('./OperationNotSupported');
 javascript.util.Set = require('./Set');
+javascript.util.HashSet = require('./HashSet');
 javascript.util.SortedMap = require('./SortedMap');
 javascript.util.SortedSet = require('./SortedSet');
 javascript.util.Stack = require('./Stack');

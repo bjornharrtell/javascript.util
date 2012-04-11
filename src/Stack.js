@@ -71,6 +71,10 @@ Stack.prototype.empty = function(e) {
   }
 };
 
+Stack.prototype.isEmpty = function() {
+  return this.empty();
+};
+
 /**
  * Returns the 1-based position where an object is on this stack. If the object
  * o occurs as an item in this stack, this method returns the distance from the

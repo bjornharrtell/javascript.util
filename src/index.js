@@ -6,6 +6,7 @@ module.exports.Iterator = require('./Iterator');
 module.exports.List = require('./List');
 module.exports.Map = require('./Map');
 module.exports.Set = require('./Set');
+module.exports.HashSet = require('./HashSet');
 module.exports.SortedMap = require('./SortedMap');
 module.exports.SortedSet = require('./SortedSet');
 module.exports.Stack = require('./Stack');

@@ -2,11 +2,11 @@
     "name": "javascript.util",
     "description": "javascript.util is a port of selected parts of java.util to JavaScript",
     "version": "0.10.0",
-    "author": "Björn Harrtell <bjorn.harrtell@gmail.com>",
+    "author": "Björn Harrtell <bjorn@wololo.org>",
     "keywords": [ "java", "util", "collection" ],
     "licenses" : [
         {
-            "type": "???",
+            "type": "MIT License",
             "url": "https://raw.github.com/bjornharrtell/javascript.util/master/license-notice.txt"
         }
     ],

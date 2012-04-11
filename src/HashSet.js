@@ -1,39 +1,40 @@
 /**
- * @requires SortedSet.js
+ * @requires Set.js
  */
 var Collection = require('./Collection');
-var SortedSet = require('./SortedSet');
+var Set = require('./Set');
 var OperationNotSupported = require('./OperationNotSupported');
 var NoSuchElementException = require('./NoSuchElementException');
 
+
 /**
- * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeSet.html
+ * @see http://docs.oracle.com/javase/6/docs/api/java/util/HashSet.html
  *
- * @implements {javascript.util.SortedSet}
- * @constructor
+ * @extends {javascript.util.Set}
+ * @interface
  */
-function TreeSet() {
+function HashSet() {
   this.array = [];
 
   if (arguments[0] instanceof Collection) {
     this.addAll(arguments[0]);
   }
 };
-TreeSet.prototype = new SortedSet;
+HashSet.prototype = new Set;
 
 /**
  * @type {Array}
  * @private
  */
-TreeSet.prototype.array = null;
+HashSet.prototype.array = null;
 
 /**
  * @override
  */
-TreeSet.prototype.contains = function(o) {
+HashSet.prototype.contains = function(o) {
   for ( var i = 0, len = this.array.length; i < len; i++) {
     var e = this.array[i];
-    if (e['compareTo'](o) === 0) {
+    if (e === o) {
       return true;
     }
   }
@@ -43,17 +44,9 @@ TreeSet.prototype.contains = function(o) {
 /**
  * @override
  */
-TreeSet.prototype.add = function(o) {
+HashSet.prototype.add = function(o) {
   if (this.contains(o)) {
     return false;
-  }
-
-  for ( var i = 0, len = this.array.length; i < len; i++) {
-    var e = this.array[i];
-    if (e['compareTo'](o) === 1) {
-      this.array.splice(i, 0, o);
-      return true;
-    }
   }
 
   this.array.push(o);
@@ -64,7 +57,7 @@ TreeSet.prototype.add = function(o) {
 /**
  * @override
  */
-TreeSet.prototype.addAll = function(c) {
+HashSet.prototype.addAll = function(c) {
   for ( var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
@@ -75,28 +68,28 @@ TreeSet.prototype.addAll = function(c) {
  * @override
  * @returns {boolean}
  */
-TreeSet.prototype.remove = function(o) {
+HashSet.prototype.remove = function(o) {
   throw new OperationNotSupported();
 };
 
 /**
  * @override
  */
-TreeSet.prototype.size = function() {
+HashSet.prototype.size = function() {
   return this.array.length;
 };
 
 /**
  * @override
  */
-TreeSet.prototype.isEmpty = function() {
+HashSet.prototype.isEmpty = function() {
   return this.array.length === 0;
 };
 
 /**
  * @override
  */
-TreeSet.prototype.toArray = function() {
+HashSet.prototype.toArray = function() {
   var array = [];
 
   for ( var i = 0, len = this.array.length; i < len; i++) {
@@ -109,48 +102,48 @@ TreeSet.prototype.toArray = function() {
 /**
  * @override
  */
-TreeSet.prototype.iterator = function() {
-  return new TreeSet.Iterator(this);
+HashSet.prototype.iterator = function() {
+  return new HashSet.Iterator(this);
 };
 
 /**
  * @implements {javascript.util.Iterator}
- * @param {javascript.util.TreeSet}
- *          treeSet
+ * @param {javascript.util.HashSet}
+ *          HashSet
  * @constructor
  * @private
  */
-TreeSet.Iterator = function(treeSet) {
-  this.treeSet = treeSet;
+HashSet.Iterator = function(hashSet) {
+  this.hashSet = hashSet;
 };
 
 /**
- * @type {javascript.util.TreeSet}
+ * @type {javascript.util.HashSet}
  * @private
  */
-TreeSet.Iterator.prototype.treeSet = null;
+HashSet.Iterator.prototype.hashSet = null;
 
 /**
  * @type {number}
  * @private
  */
-TreeSet.Iterator.prototype.position = 0;
+HashSet.Iterator.prototype.position = 0;
 
 /**
  * @override
  */
-TreeSet.Iterator.prototype.next = function() {
-  if (this.position === this.treeSet.size()) {
+HashSet.Iterator.prototype.next = function() {
+  if (this.position === this.hashSet.size()) {
     throw new NoSuchElementException();
   }
-  return this.treeSet.array[this.position++];
+  return this.hashSet.array[this.position++];
 };
 
 /**
  * @override
  */
-TreeSet.Iterator.prototype.hasNext = function() {
-  if (this.position < this.treeSet.size()) {
+HashSet.Iterator.prototype.hasNext = function() {
+  if (this.position < this.hashSet.size()) {
     return true;
   }
   return false;
@@ -159,8 +152,8 @@ TreeSet.Iterator.prototype.hasNext = function() {
 /**
  * @override
  */
-TreeSet.Iterator.prototype.remove = function() {
+HashSet.Iterator.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();
 };
 
-module.exports = TreeSet;
+module.exports = HashSet;

@@ -49,7 +49,7 @@ describe('javascript.util.ArrayList', function() {
       iterator.next();
     }
     catch (e) {
-      expect(e instanceof javascript.util.NoSuchElementException).toBeTruthy();
+      expect(e.name).toEqual('NoSuchElementException');
     }
   });
   
