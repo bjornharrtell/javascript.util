@@ -51,6 +51,15 @@ ArrayList.prototype.addAll = function(c) {
 /**
  * @override
  */
+ArrayList.prototype.set = function(index, element) {
+  var oldElement = this.array[index];
+  this.array[index] = element;
+  return oldElement;
+};
+
+/**
+ * @override
+ */
 ArrayList.prototype.iterator = function() {
   return new ArrayList.Iterator(this);
 };
