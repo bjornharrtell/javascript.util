@@ -2,9 +2,11 @@
  * @requires Map.js
  * @requires ArrayList.js
  */
+ 
+(function() {
 
-var Map = require('./Map');
-var ArrayList = require('./ArrayList');
+var Map = javascript.util.Map;
+var ArrayList = javascript.util.ArrayList;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
@@ -59,4 +61,6 @@ HashMap.prototype.size = function() {
   return this.values().size();
 };
 
-module.exports = HashMap;
+javascript.util.HashMap = HashMap;
+
+})();

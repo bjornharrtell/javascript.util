@@ -1,7 +1,10 @@
 /**
  * @requires Set.js
  */
-var Set = require('./Set');
+ 
+(function() {
+
+var Set = javascript.util.Set;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/SortedSet.html
@@ -12,4 +15,6 @@ var Set = require('./Set');
 function SortedSet() {};
 SortedSet.prototype = new Set;
 
-module.exports = SortedSet;
+javascript.util.SortedSet = SortedSet;
+
+})();

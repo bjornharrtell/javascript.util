@@ -1,3 +1,5 @@
+(function() {
+
 /**
  * @param {string=}
  *          message Optional message.
@@ -14,4 +16,6 @@ OperationNotSupported.prototype = new Error();
  */
 OperationNotSupported.prototype.name = 'OperationNotSupported';
 
-module.exports = OperationNotSupported;
+javascript.util.OperationNotSupported = OperationNotSupported;
+
+})();

@@ -2,11 +2,13 @@
  * @requires List.js
  */
 
-var Collection = require('./Collection');
-var List = require('./List');
-var IndexOutOfBoundsException = require('./IndexOutOfBoundsException');
-var NoSuchElementException = require('./NoSuchElementException');
-var OperationNotSupported = require('./OperationNotSupported');
+(function() {
+
+var Collection = javascript.util.Collection;
+var List = javascript.util.List;
+var OperationNotSupported = javascript.util.OperationNotSupported;
+var NoSuchElementException = javascript.util.NoSuchElementException;
+var IndexOutOfBoundsException = javascript.util.IndexOutOfBoundsException;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/ArrayList.html
@@ -169,4 +171,6 @@ ArrayList.Iterator.prototype.remove = function() {
   throw new OperationNotSupported();
 };
 
-module.exports = ArrayList;
+javascript.util.ArrayList = ArrayList;
+
+})();

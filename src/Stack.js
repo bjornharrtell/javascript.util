@@ -1,8 +1,11 @@
 /**
  * @requires List.js
  */
-var List = require('./List');
-var EmptyStackException = require('./EmptyStackException');
+
+(function() {
+
+var List = javascript.util.List;
+var EmptyStackException = javascript.util.EmptyStackException;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Stack.html
@@ -113,4 +116,6 @@ Stack.prototype.toArray = function() {
   return array;
 };
 
-module.exports = Stack;
+javascript.util.Stack = Stack;
+
+})();

@@ -1,10 +1,13 @@
 /**
  * @requires Set.js
  */
-var Collection = require('./Collection');
-var Set = require('./Set');
-var OperationNotSupported = require('./OperationNotSupported');
-var NoSuchElementException = require('./NoSuchElementException');
+
+(function() {
+
+var Collection = javascript.util.Collection;
+var Set = javascript.util.Set;
+var OperationNotSupported = javascript.util.OperationNotSupported;
+var NoSuchElementException = javascript.util.NoSuchElementException;
 
 
 /**
@@ -156,4 +159,6 @@ HashSet.Iterator.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();
 };
 
-module.exports = HashSet;
+javascript.util.HashSet = HashSet;
+
+})();

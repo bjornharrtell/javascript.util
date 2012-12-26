@@ -1,3 +1,5 @@
+(function() {
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Map.html
  *
@@ -41,4 +43,6 @@ Map.prototype.size = function() {};
  */
 Map.prototype.values = function() {};
 
-module.exports = Map;
+javascript.util.Map = Map;
+
+})();

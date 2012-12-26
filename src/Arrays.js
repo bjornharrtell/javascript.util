@@ -1,3 +1,5 @@
+(function() {
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Arrays.html
  *
@@ -53,4 +55,6 @@ Arrays.asList = function(array) {
   return arrayList;
 };
 
-module.exports = Arrays;
+javascript.util.Arrays = Arrays;
+
+})();

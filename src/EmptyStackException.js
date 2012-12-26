@@ -1,3 +1,5 @@
+(function() {
+
 /**
  * @param {string=}
  *          message Optional message.
@@ -14,4 +16,6 @@ EmptyStackException.prototype = new Error();
  */
 EmptyStackException.prototype.name = 'EmptyStackException';
 
-module.exports = EmptyStackException;
+javascript.util.EmptyStackException = EmptyStackException;
+
+})();

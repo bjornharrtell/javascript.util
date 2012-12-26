@@ -1,3 +1,2 @@
-javascript = {};
-javascript.util = require("../../src");
+javascript = require("../../");
 

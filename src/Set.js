@@ -1,7 +1,10 @@
 /**
  * @requires Collection.js
  */
-var Collection = require('./Collection');
+
+(function() {
+
+var Collection = javascript.util.Collection;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Set.html
@@ -23,4 +26,6 @@ Set.prototype = new Collection;
  */
 Set.prototype.contains = function(o) {};
 
-module.exports = Set;
+javascript.util.Set = Set;
+
+})();

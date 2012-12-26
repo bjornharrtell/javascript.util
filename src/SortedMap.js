@@ -1,7 +1,10 @@
 /**
  * @requires Map.js
  */
-var Map = require('./Map');
+ 
+(function() {
+ 
+var Map = javascript.util.Map;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/SortedMap.html
@@ -12,4 +15,6 @@ var Map = require('./Map');
 function SortedMap() {};
 SortedMap.prototype = new Map;
 
-module.exports = SortedMap;
+javascript.util.SortedMap = SortedMap;
+
+})();

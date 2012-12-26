@@ -1,3 +1,5 @@
+(function() {
+
 /**
  * @param {string=}
  *          message Optional message.
@@ -14,4 +16,6 @@ NoSuchElementException.prototype = new Error();
  */
 NoSuchElementException.prototype.name = 'NoSuchElementException';
 
-module.exports = NoSuchElementException;
+javascript.util.NoSuchElementException = NoSuchElementException;
+
+})();

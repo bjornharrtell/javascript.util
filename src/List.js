@@ -1,8 +1,10 @@
 /**
  * @requires Collection.js
  */
+ 
+(function() {
 
-var Collection = require('./Collection');
+var Collection = javascript.util.Collection;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/List.html
@@ -41,4 +43,6 @@ List.prototype.set = function(index, element) {};
  */
 List.prototype.isEmpty = function() {};
 
-module.exports = List;
+javascript.util.List = List;
+
+})();

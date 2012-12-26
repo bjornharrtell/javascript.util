@@ -1,3 +1,5 @@
+(function() {
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Iterator.html
  * @interface
@@ -24,4 +26,6 @@ Iterator.prototype.next = function() {};
  */
 Iterator.prototype.remove = function() {};
 
-module.exports = Iterator;
+javascript.util.Iterator = Iterator;
+
+})();

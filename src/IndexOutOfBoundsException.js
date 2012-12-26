@@ -1,3 +1,5 @@
+(function() {
+
 /**
  * @param {string=}
  *          message Optional message.
@@ -14,4 +16,6 @@ IndexOutOfBoundsException.prototype = new Error();
  */
 IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException';
 
-module.exports = IndexOutOfBoundsException;
+javascript.util.IndexOutOfBoundsException = IndexOutOfBoundsException;
+
+})();

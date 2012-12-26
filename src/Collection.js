@@ -1,8 +1,10 @@
 /**
  * @requires Iterator.js
  */
+ 
+(function() {
 
-var Iterator = require('./Iterator');
+var Iterator = javascript.util.Iterator;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Collection.html
@@ -70,4 +72,6 @@ Collection.prototype.toArray = function() {};
  */
 Collection.prototype.remove = function(o) {};
 
-module.exports = Collection;
+javascript.util.Collection = Collection;
+
+})();

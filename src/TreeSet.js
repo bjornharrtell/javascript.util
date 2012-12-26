@@ -1,10 +1,13 @@
 /**
  * @requires SortedSet.js
  */
-var Collection = require('./Collection');
-var SortedSet = require('./SortedSet');
-var OperationNotSupported = require('./OperationNotSupported');
-var NoSuchElementException = require('./NoSuchElementException');
+
+(function() {
+
+var Collection = javascript.util.Collection;
+var SortedSet = javascript.util.SortedSet;
+var OperationNotSupported = javascript.util.OperationNotSupported;
+var NoSuchElementException = javascript.util.NoSuchElementException;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeSet.html
@@ -163,4 +166,6 @@ TreeSet.Iterator.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();
 };
 
-module.exports = TreeSet;
+javascript.util.TreeSet = TreeSet;
+
+})();

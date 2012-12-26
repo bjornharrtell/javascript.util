@@ -2,9 +2,12 @@
  * @requires SortedMap.js
  * @requires ArrayList.js
  */
-var Map = require('./Map');
-var SortedMap = require('./SortedMap');
-var ArrayList = require('./ArrayList');
+
+(function() {
+
+var Map = javascript.util.Map;
+var SortedMap = javascript.util.SortedMap;
+var ArrayList = javascript.util.ArrayList;
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeMap.html
@@ -88,4 +91,6 @@ TreeMap.prototype.size = function() {
   return this.values().size();
 };
 
-module.exports = TreeMap;
+javascript.util.TreeMap = TreeMap;
+
+})();
