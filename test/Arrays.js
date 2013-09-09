@@ -1,15 +1,17 @@
+var expect = require('chai').expect
+
 describe('javascript.util.Arrays', function() {
   it('can sort an array of numbers', function() {
     var array = [5,4,3,2,1];
     javascript.util.Arrays.sort(array);
-    expect(array[0]).toEqual(1);
+    expect(array[0]).to.equal(1);
   });
   
   it('can sort part of an array of numbers', function() {
     var array = [5,4,3,2,1];
     javascript.util.Arrays.sort(array, 1, 4);
-    expect(array[0]).toEqual(5);
-    expect(array[1]).toEqual(2);
+    expect(array[0]).to.equal(5);
+    expect(array[1]).to.equal(2);
   });
   
   it('can sort an array of numbers with a comparator', function() {
@@ -23,7 +25,7 @@ describe('javascript.util.Arrays', function() {
     
     var array = [5,4,3,2,1];
     javascript.util.Arrays.sort(array, comparator);
-    expect(array[0]).toEqual(1);
+    expect(array[0]).to.equal(1);
   });
   
   it('can sort part of an array of numbers with a comparator', function() {
@@ -37,8 +39,8 @@ describe('javascript.util.Arrays', function() {
     
     var array = [5,4,3,2,1];
     javascript.util.Arrays.sort(array, 1, 4, comparator);
-    expect(array[0]).toEqual(5);
-    expect(array[1]).toEqual(2);
+    expect(array[0]).to.equal(5);
+    expect(array[1]).to.equal(2);
   });
   
 });

@@ -1,3 +1,5 @@
+var expect = require('chai').expect
+
 describe('javascript.util.TreeMap', function() {
   var treeMap;
   var firstKey;
@@ -7,7 +9,7 @@ describe('javascript.util.TreeMap', function() {
 
   it('can be constructed', function() {
     treeMap = new javascript.util.TreeMap();
-    expect(treeMap).toBeDefined();
+    expect(treeMap).to.exist;
   });
 
   it('one element can be put', function() {
@@ -27,7 +29,7 @@ describe('javascript.util.TreeMap', function() {
 
     treeMap.put(firstKey, firstValue);
 
-    expect(treeMap.size()).toEqual(1);
+    expect(treeMap.size()).to.equal(1);
   });
 
   it('second element can be put', function() {
@@ -47,14 +49,14 @@ describe('javascript.util.TreeMap', function() {
 
     treeMap.put(secondKey, secondValue);
 
-    expect(treeMap.size()).toEqual(2);
+    expect(treeMap.size()).to.equal(2);
   });
 
   it('second element should be enumerated as first because of natural key order', function() {
     var iterator = treeMap.values().iterator();
     var e = iterator.next();
 
-    expect(e).toEqual(secondValue);
+    expect(e).to.equal(secondValue);
   });
 
 });

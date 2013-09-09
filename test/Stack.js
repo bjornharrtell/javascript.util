@@ -1,3 +1,5 @@
+var expect = require('chai').expect
+
 describe('javascript.util.Stack', function() {
   var stack;
   var first;
@@ -5,7 +7,7 @@ describe('javascript.util.Stack', function() {
   
   it('can be constructed', function() {
     stack = new javascript.util.Stack();
-    expect(stack).toBeDefined();
+    expect(stack).to.exist;
   });
   
   it('one element can be appended', function() {
@@ -13,7 +15,7 @@ describe('javascript.util.Stack', function() {
   
     stack.push(first);
     
-    expect(stack.size()).toEqual(1);
+    expect(stack.size()).to.equal(1);
   });
   
   it('another element can be appended', function() {
@@ -21,25 +23,25 @@ describe('javascript.util.Stack', function() {
 
     stack.push(second);
     
-    expect(stack.size()).toEqual(2);
+    expect(stack.size()).to.equal(2);
   });
   
   it('can be peeked', function() {
     var e = stack.peek();
     
-    expect(e).toBe(second);
+    expect(e).to.equal(second);
   });
   
   it('can be searched', function() {
     var index = stack.search(first);
     
-    expect(index).toBe(index);
+    expect(index).to.equal(index);
   });
   
-  it('can be poped', function() {
+  it('can be popped', function() {
     stack.pop();
     
-    expect(stack.size()).toEqual(1);
+    expect(stack.size()).to.equal(1);
   });
 });
 

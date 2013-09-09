@@ -1,3 +1,5 @@
+var expect = require('chai').expect
+
 describe('javascript.util.ArrayList', function() {
   var arrayList;
   var iterator;
@@ -7,7 +9,7 @@ describe('javascript.util.ArrayList', function() {
   
   it('can be constructed', function() {
     arrayList = new javascript.util.ArrayList();
-    expect(arrayList).toBeDefined();
+    expect(arrayList).to.exist;
   });
   
   it('one element can be appended', function() {
@@ -15,7 +17,7 @@ describe('javascript.util.ArrayList', function() {
   
     arrayList.add(first);
     
-    expect(arrayList.size()).toEqual(1);
+    expect(arrayList.size()).to.equal(1);
   });
   
   it('another element can be appended', function() {
@@ -23,25 +25,25 @@ describe('javascript.util.ArrayList', function() {
 
     arrayList.add(second);
     
-    expect(arrayList.size()).toEqual(2);
+    expect(arrayList.size()).to.equal(2);
   });
   
   it('can be iterated', function() {
     iterator = arrayList.iterator();
        
-    expect(iterator.next()).toBe(first);
+    expect(iterator.next()).to.equal(first);
   });
   
   it('iterator should report more elements available', function() {
-    expect(iterator.hasNext()).toBeTruthy();
+    expect(iterator.hasNext()).to.be.true;
   });
   
   it('can be iterated again', function() {
-    expect(iterator.next()).toBe(second);
+    expect(iterator.next()).to.equal(second);
   });
   
   it('iterator should report no more elements available', function() {
-    expect(iterator.hasNext()).toBeFalsy();
+    expect(iterator.hasNext()).to.be.false;
   });
   
   it('throws when iterating beyond end', function() {
@@ -49,7 +51,7 @@ describe('javascript.util.ArrayList', function() {
       iterator.next();
     }
     catch (e) {
-      expect(e.name).toEqual('NoSuchElementException');
+      expect(e.name).to.equal('NoSuchElementException');
     }
   });
   
@@ -59,14 +61,14 @@ describe('javascript.util.ArrayList', function() {
       var e = i.next();
       count++;
     }
-    expect(count).toEqual(2);
+    expect(count).to.equal(2);
   });
 
   it('can remove an item', function() {
     var count = arrayList.size();
     arrayList.add(toBeRemoved);
     arrayList.remove(toBeRemoved);
-    expect(arrayList.size()).toEqual(count);
+    expect(arrayList.size()).to.equal(count);
   });
 });
 
