@@ -1,12 +1,13 @@
-var expect = require('chai').expect
+var expect = require('chai').expect;
+var TreeSet = require('../lib/TreeSet');
 
-describe('javascript.util.TreeSet', function() {
+describe('TreeSet', function() {
   var treeSet;
   var firstValue;
   var secondValue;
 
   it('can be constructed', function() {
-    treeSet = new javascript.util.TreeSet();
+    treeSet = new TreeSet();
     expect(treeSet).to.exist;
   });
 

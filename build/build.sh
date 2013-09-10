@@ -1,2 +1,2 @@
 #!/bin/sh
-jsbuild full.cfg -v -o ../lib
+webmake ../lib/browser.js javascript.util.js

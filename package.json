@@ -1,7 +1,7 @@
 {
   "name": "javascript.util",
   "description": "javascript.util is a port of selected parts of java.util to JavaScript",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "author": "Björn Harrtell <bjorn@wololo.org>",
   "keywords": [ "java", "util", "collection" ],
   "licenses" : [{
@@ -15,7 +15,6 @@
     "mocha": "*",
     "chai": "*"
   },
-  "main": "./lib/javascript.util.js",
   "engines": { "node": ">= 0.6.0" },
   "repository": {
     "type": "git",

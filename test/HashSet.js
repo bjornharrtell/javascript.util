@@ -1,10 +1,11 @@
-var expect = require('chai').expect
+var expect = require('chai').expect;
+var HashSet = require('../lib/HashSet');
 
-describe('javascript.util.HashSet', function() {
+describe('HashSet', function() {
   var hashSet;
 
   it('can be constructed', function() {
-    hashSet = new javascript.util.HashSet();
+    hashSet = new HashSet();
     expect(hashSet).to.exist;
   });
 

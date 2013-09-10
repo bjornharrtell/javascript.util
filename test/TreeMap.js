@@ -1,6 +1,7 @@
-var expect = require('chai').expect
+var expect = require('chai').expect;
+var TreeMap = require('../lib/TreeMap');
 
-describe('javascript.util.TreeMap', function() {
+describe('TreeMap', function() {
   var treeMap;
   var firstKey;
   var secondKey;
@@ -8,7 +9,7 @@ describe('javascript.util.TreeMap', function() {
   var secondValue;
 
   it('can be constructed', function() {
-    treeMap = new javascript.util.TreeMap();
+    treeMap = new TreeMap();
     expect(treeMap).to.exist;
   });
 

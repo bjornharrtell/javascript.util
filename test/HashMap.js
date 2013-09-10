@@ -1,4 +1,6 @@
-var expect = require('chai').expect
+var expect = require('chai').expect;
+var Collection = require('../lib/Collection');
+var HashMap = require('../lib/HashMap');
 
 describe('javascript.util.HashMap', function() {
   var hashMap;
@@ -8,7 +10,7 @@ describe('javascript.util.HashMap', function() {
   var secondValue;
   
   it('can be constructed', function() {
-    hashMap = new javascript.util.HashMap();
+    hashMap = new HashMap();
     expect(hashMap).to.exist;
   });
   
@@ -30,7 +32,7 @@ describe('javascript.util.HashMap', function() {
   it('all elements can be retrieved', function() {
     var values = hashMap.values();
        
-    expect(values instanceof javascript.util.Collection).to.be.true;
+    expect(values instanceof Collection).to.be.true;
   });
   
 });

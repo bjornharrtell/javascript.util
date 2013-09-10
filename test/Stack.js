@@ -1,12 +1,13 @@
-var expect = require('chai').expect
+var expect = require('chai').expect;
+var Stack = require('../lib/Stack');
 
-describe('javascript.util.Stack', function() {
+describe('Stack', function() {
   var stack;
   var first;
   var second;
   
   it('can be constructed', function() {
-    stack = new javascript.util.Stack();
+    stack = new Stack();
     expect(stack).to.exist;
   });
   

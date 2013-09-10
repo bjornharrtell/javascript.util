@@ -1,6 +1,7 @@
-var expect = require('chai').expect
+var expect = require('chai').expect;
+var ArrayList = require('../lib/ArrayList');
 
-describe('javascript.util.ArrayList', function() {
+describe('ArrayList', function() {
   var arrayList;
   var iterator;
   var first;
@@ -8,7 +9,7 @@ describe('javascript.util.ArrayList', function() {
   var toBeRemoved;
   
   it('can be constructed', function() {
-    arrayList = new javascript.util.ArrayList();
+    arrayList = new ArrayList();
     expect(arrayList).to.exist;
   });
   
