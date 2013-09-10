@@ -1,10 +1,10 @@
 javascript.util is a port of selected parts of java.util to JavaScript which
 main purpose is to ease porting Java code to JavaScript.
 
-javascript.util can be used in browsers or as a node js module.
+javascript.util can be used in browsers or as a Node JS module.
 
-// TODO: describe "selected parts"
-// TODO: generate API docs
+* TODO: describe "selected parts"
+* TODO: generate API docs
 
 Usage
 =====
@@ -34,22 +34,18 @@ A simple code example using javascript.util:
 Development environment
 =======================
 
-Ubuntu or similar is assumed.
+Linux or similar is assumed.
 
 Dependencies
 ------------
 
-* nodejs
-* npm
-* browserify
-* uglify-js
-* jasmine-node
+* Node JS
+* mocha (for tests)
+* chai (for tests)
+* webmake (for browser build)
+* Closure compiler (for browser build)
 
 Unit tests
 ----------
 
-Can be run in browser using /test/SpecRunner-release.html or /test/SpecRunner-debug.html
-
-Can be run at command line using jasmine-node. Included runtests.sh script will run all tests.
-
-NOTE: jasmine-node trunk version is required at the moment.
+Can be run at command line using mocha.
