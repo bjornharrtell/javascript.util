@@ -12,7 +12,7 @@ Usage
 Browsers
 --------
 
-Simply include javascript.util.js in your page.
+Simply include [javascript.util.js](https://github.com/bjornharrtell/javascript.util/releases/download/v0.11.0/javascript.util.js) in your page.
 
 Node JS
 -------
