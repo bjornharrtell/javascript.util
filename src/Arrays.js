@@ -1,13 +1,17 @@
+goog.provide('javascript.util.Arrays');
+
+goog.require('javascript.util.ArrayList');
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Arrays.html
  *
  * @constructor
  */
-function Arrays() {};
+javascript.util.Arrays = function() {};
 
 /**
  */
-Arrays.sort = function() {
+javascript.util.Arrays.sort = function() {
   var a = arguments[0], i, t, comparator, compare;
   if (arguments.length === 1) {
     a.sort();
@@ -44,13 +48,14 @@ Arrays.sort = function() {
 };
 
 /**
+ * @param {Array} array
+ * @return {javascript.util.ArrayList}
  */
-Arrays.asList = function(array) {
+javascript.util.Arrays.asList = function(array) {
   var arrayList = new javascript.util.ArrayList();
-  for ( var i = 0, len = array.length; i < len; i++) {
+  for (var i = 0, len = array.length; i < len; i++) {
     arrayList.add(array[i]);
   }
   return arrayList;
 };
 
-module.exports = Arrays;

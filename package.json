@@ -1,20 +1,39 @@
 {
   "name": "javascript.util",
   "description": "javascript.util is a port of selected parts of java.util to JavaScript",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "author": "Björn Harrtell <bjorn@wololo.org>",
-  "keywords": [ "java", "javascript", "util", "collection" ],
-  "licenses" : [{
-    "type": "MIT License",
-    "url": "https://raw.github.com/bjornharrtell/javascript.util/master/license-notice.txt"
-  }],
+  "keywords": [
+    "java",
+    "javascript",
+    "util",
+    "collection"
+  ],
+  "licenses": [
+    {
+      "type": "MIT License",
+      "url": "https://raw.github.com/bjornharrtell/javascript.util/master/license-notice.txt"
+    }
+  ],
   "devDependencies": {
-    "mocha": "*",
-    "chai": "*"
+    "bower": "^1.3.12",
+    "chai": "^1.0.2",
+    "closure-linter-wrapper": "^0.2.9",
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-closure-tools": "^0.9.7",
+    "grunt-gjslint": "^0.1.5",
+    "mocha": "^2.0.0"
   },
-  "engines": { "node": ">= 0.6.0" },
+  "scripts": {
+    "test": "mocha",
+    "install": "bower"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/bjornharrtell/javascript.util.git"
-    }
+  }
 }

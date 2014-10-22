@@ -1,4 +1,6 @@
-var Set = require('./Set');
+goog.provide('javascript.util.SortedSet');
+
+goog.require('javascript.util.Set');
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/SortedSet.html
@@ -6,7 +8,4 @@ var Set = require('./Set');
  * @extends {javascript.util.Set}
  * @interface
  */
-function SortedSet() {};
-SortedSet.prototype = new Set;
-
-module.exports = SortedSet;
+javascript.util.SortedSet = function() {};

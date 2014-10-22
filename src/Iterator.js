@@ -1,28 +1,26 @@
+goog.provide('javascript.util.Iterator');
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Iterator.html
  * @interface
  */
-function Iterator() {};
+javascript.util.Iterator = function() {};
 
 /**
  * Returns true if the iteration has more elements.
- *
  * @return {boolean}
  */
-Iterator.prototype.hasNext = function() {};
+javascript.util.Iterator.prototype.hasNext = function() {};
 
 /**
  * Returns the next element in the iteration.
- *
  * @return {Object}
  */
-Iterator.prototype.next = function() {};
+javascript.util.Iterator.prototype.next = function() {};
 
 /**
  * Removes from the underlying collection the last element returned by the
  * iterator (optional operation).
  */
-Iterator.prototype.remove = function() {};
-
-module.exports = Iterator;
+javascript.util.Iterator.prototype.remove = function() {};
 

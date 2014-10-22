@@ -1,38 +1,34 @@
-var Collection = require('./Collection');
+goog.provide('javascript.util.List');
+
+goog.require('javascript.util.Collection');
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/List.html
- * 
+ *
  * @extends {javascript.util.Collection}
  * @interface
  */
-function List() {};
-List.prototype = new Collection;
+javascript.util.List = function() {};
 
 /**
  * Returns the element at the specified position in this list.
- * 
  * @param {number} index
  * @return {Object}
  */
-List.prototype.get = function(index) {};
+javascript.util.List.prototype.get = function(index) {};
 
 /**
  * Replaces the element at the specified position in this list with the
  * specified element (optional operation).
- * 
  * @param {number} index
- * @param {Object} element to be stored at the specified position
- * @return {Object} the element previously at the specified position
+ * @param {Object} e
+ * @return {Object}
  */
-List.prototype.set = function(index, element) {};
+javascript.util.List.prototype.set = function(index, e) {};
 
 /**
  * Returns true if this collection contains no elements.
- * 
- * @return {boolean} true if this collection contains no elements
+ * @return {boolean}
  */
-List.prototype.isEmpty = function() {};
-
-module.exports = List;
+javascript.util.List.prototype.isEmpty = function() {};
 
