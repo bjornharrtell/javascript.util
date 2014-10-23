@@ -14,7 +14,7 @@ Usage
 Browsers
 --------
 
-Simply include [javascript.util.js](https://github.com/bjornharrtell/javascript.util/releases/download/v0.11.0/javascript.util.js) in your page.
+Simply include [javascript.util-0.12.0.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.0/javascript.util-0.12.0.min.js) in your page.
 
 Node JS
 -------
@@ -28,7 +28,8 @@ Using NPM a trunk version of javascript.util can be installed with the following
 A simple code example using javascript.util:
 
 ```javascript
-	var ArrayList = require("javascript.util").ArrayList;
+    require("javascript.util");
+	var ArrayList = javascript.util.ArrayList;
 	var array = new ArrayList();
 	array.add(1);
 ```
