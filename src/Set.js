@@ -6,9 +6,11 @@ goog.require('javascript.util.Collection');
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Set.html
  *
  * @extends {javascript.util.Collection}
- * @interface
+ * @constructor
+ * @export
  */
 javascript.util.Set = function() {};
+javascript.util.Set.prototype = new javascript.util.Collection();
 
 /**
  * Returns true if this set contains the specified element. More formally,
@@ -17,5 +19,5 @@ javascript.util.Set = function() {};
  * @param {Object} e
  * @return {boolean}
  */
-javascript.util.Set.prototype.contains = function(e) {};
+javascript.util.Set.prototype.contains = goog.abstractMethod;
 

@@ -6,7 +6,9 @@ goog.require('javascript.util.List');
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Stack.html
  *
+ * @extends {javascript.util.List}
  * @constructor
+ * @export
  */
 javascript.util.Stack = function() {
   this.array_ = [];
@@ -22,6 +24,7 @@ javascript.util.Stack.prototype.array_ = null;
  * Pushes an item onto the top of this stack.
  * @param {Object} e
  * @return {Object}
+ * @export
  */
 javascript.util.Stack.prototype.push = function(e) {
   this.array_.push(e);
@@ -32,6 +35,7 @@ javascript.util.Stack.prototype.push = function(e) {
  * Pushes an item onto the top of this stack.
  * @param {Object} e
  * @return {Object}
+ * @export
  */
 javascript.util.Stack.prototype.pop = function(e) {
   if (this.array_.length === 0) {
@@ -45,6 +49,7 @@ javascript.util.Stack.prototype.pop = function(e) {
  * Looks at the object at the top of this stack without removing it from the
  * stack.
  * @return {Object}
+ * @export
  */
 javascript.util.Stack.prototype.peek = function() {
   if (this.array_.length === 0) {
@@ -58,6 +63,7 @@ javascript.util.Stack.prototype.peek = function() {
  * Tests if this stack is empty.
  * @return {boolean} true if and only if this stack contains no items; false
  *         otherwise.
+ * @export
  */
 javascript.util.Stack.prototype.empty = function() {
   if (this.array_.length === 0) {
@@ -69,6 +75,7 @@ javascript.util.Stack.prototype.empty = function() {
 
 /**
  * @return {boolean}
+ * @export
  */
 javascript.util.Stack.prototype.isEmpty = function() {
   return this.empty();
@@ -87,6 +94,7 @@ javascript.util.Stack.prototype.isEmpty = function() {
  * @return {number} the 1-based position from the top of the stack where the
  *         object is located; the return value -1 indicates that the object is
  *         not on the stack.
+ * @export
  */
 javascript.util.Stack.prototype.search = function(o) {
   return this.array_.indexOf(o);
@@ -94,6 +102,7 @@ javascript.util.Stack.prototype.search = function(o) {
 
 /**
  * @return {number}
+ * @export
  */
 javascript.util.Stack.prototype.size = function() {
   return this.array_.length;
@@ -101,6 +110,7 @@ javascript.util.Stack.prototype.size = function() {
 
 /**
  * @return {Array}
+ * @export
  */
 javascript.util.Stack.prototype.toArray = function() {
   var array = [];

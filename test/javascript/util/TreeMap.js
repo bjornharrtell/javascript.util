@@ -1,5 +1,6 @@
-var expect = require('chai').expect;
-var TreeMap = require('../lib/TreeMap');
+goog.require('javascript.util.TreeMap');
+
+var TreeMap = javascript.util.TreeMap;
 
 describe('TreeMap', function() {
   var treeMap;

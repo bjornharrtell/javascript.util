@@ -26,7 +26,7 @@
     "mocha": "^2.0.0"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "./runtests.sh",
     "install": "bower"
   },
   "engines": {

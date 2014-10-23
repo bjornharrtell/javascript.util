@@ -6,16 +6,18 @@ goog.require('javascript.util.Collection');
  * @see http://download.oracle.com/javase/6/docs/api/java/util/List.html
  *
  * @extends {javascript.util.Collection}
- * @interface
+ * @constructor
+ * @export
  */
 javascript.util.List = function() {};
+javascript.util.List.prototype = new javascript.util.Collection();
 
 /**
  * Returns the element at the specified position in this list.
  * @param {number} index
  * @return {Object}
  */
-javascript.util.List.prototype.get = function(index) {};
+javascript.util.List.prototype.get = goog.abstractMethod;
 
 /**
  * Replaces the element at the specified position in this list with the
@@ -24,11 +26,11 @@ javascript.util.List.prototype.get = function(index) {};
  * @param {Object} e
  * @return {Object}
  */
-javascript.util.List.prototype.set = function(index, e) {};
+javascript.util.List.prototype.set = goog.abstractMethod;
 
 /**
  * Returns true if this collection contains no elements.
  * @return {boolean}
  */
-javascript.util.List.prototype.isEmpty = function() {};
+javascript.util.List.prototype.isEmpty = goog.abstractMethod;
 

@@ -1,5 +1,6 @@
-var expect = require('chai').expect;
-var ArrayList = require('../lib/ArrayList');
+goog.require('javascript.util.ArrayList');
+
+var ArrayList = javascript.util.ArrayList;
 
 describe('ArrayList', function() {
   var arrayList;

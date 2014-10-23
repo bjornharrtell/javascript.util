@@ -5,11 +5,12 @@ goog.require('javascript.util.ArrayList');
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/HashMap.html
  *
- * @implements {javascript.util.Map}
+ * @extends {javascript.util.Map}
  * @constructor
+ * @export
  */
 javascript.util.HashMap = function() {
-  this.object = {};
+  this.object_ = {};
 };
 
 /**
@@ -20,6 +21,7 @@ javascript.util.HashMap.prototype.object_ = null;
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashMap.prototype.get = function(key) {
   return this.object_[key] || null;
@@ -27,6 +29,7 @@ javascript.util.HashMap.prototype.get = function(key) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashMap.prototype.put = function(key, value) {
   this.object_[key] = value;
@@ -35,6 +38,7 @@ javascript.util.HashMap.prototype.put = function(key, value) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
@@ -48,6 +52,7 @@ javascript.util.HashMap.prototype.values = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashMap.prototype.size = function() {
   return this.values().size();

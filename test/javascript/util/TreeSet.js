@@ -1,5 +1,6 @@
-var expect = require('chai').expect;
-var TreeSet = require('../lib/TreeSet');
+goog.require('javascript.util.TreeSet');
+
+var TreeSet = javascript.util.TreeSet;
 
 describe('TreeSet', function() {
   var treeSet;

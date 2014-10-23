@@ -7,12 +7,14 @@ goog.require('javascript.util.SortedMap');
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeMap.html
  *
- * @implements {javascript.util.Map}
+ * @extends {javascript.util.Map}
  * @constructor
+ * @export
  */
 javascript.util.TreeMap = function() {
   this.array_ = [];
 };
+javascript.util.TreeMap.prototype = new javascript.util.Map();
 
 /**
  * @type {Array}
@@ -22,6 +24,7 @@ javascript.util.TreeMap.prototype.array_ = null;
 
 /**
  * @override
+ * @export
  */
 javascript.util.TreeMap.prototype.get = function(key) {
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -35,6 +38,7 @@ javascript.util.TreeMap.prototype.get = function(key) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.TreeMap.prototype.put = function(key, value) {
   var e = this.get(key);
@@ -68,6 +72,7 @@ javascript.util.TreeMap.prototype.put = function(key, value) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.TreeMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
@@ -79,6 +84,7 @@ javascript.util.TreeMap.prototype.values = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.TreeMap.prototype.size = function() {
   return this.values().size();

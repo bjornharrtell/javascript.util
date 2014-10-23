@@ -1,5 +1,6 @@
-var expect = require('chai').expect;
-var Arrays = require('../lib/Arrays');
+goog.require('javascript.util.Arrays');
+
+var Arrays = javascript.util.Arrays;
 
 describe('Arrays', function() {
   it('can sort an array of numbers', function() {

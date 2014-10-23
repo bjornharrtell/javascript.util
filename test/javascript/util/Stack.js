@@ -1,5 +1,6 @@
-var expect = require('chai').expect;
-var Stack = require('../lib/Stack');
+goog.require('javascript.util.Stack');
+
+var Stack = javascript.util.Stack;
 
 describe('Stack', function() {
   var stack;

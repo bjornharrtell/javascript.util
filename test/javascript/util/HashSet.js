@@ -1,5 +1,6 @@
-var expect = require('chai').expect;
-var HashSet = require('../lib/HashSet');
+goog.require('javascript.util.HashSet');
+
+var HashSet = javascript.util.HashSet;
 
 describe('HashSet', function() {
   var hashSet;
@@ -25,6 +26,15 @@ describe('HashSet', function() {
     hashSet.add(2);
 
     expect(hashSet.size()).to.equal(2);
+  });
+  
+  it('iteration can be for looped', function() {
+    var count = 0;
+    for (var i = hashSet.iterator(); i.hasNext();) {
+      var e = i.next();
+      count++;
+    }
+    expect(count).to.equal(2);
   });
 
 });

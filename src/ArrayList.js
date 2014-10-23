@@ -6,12 +6,12 @@ goog.require('javascript.util.List');
 goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
 
-
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/ArrayList.html
  *
- * @implements {javascript.util.List}
+ * @extends {javascript.util.List}
  * @constructor
+ * @export
  */
 javascript.util.ArrayList = function() {
   this.array_ = [];
@@ -20,6 +20,7 @@ javascript.util.ArrayList = function() {
     this.addAll(arguments[0]);
   }
 };
+javascript.util.ArrayList.prototype = new javascript.util.List();
 
 /**
  * @type {Array}
@@ -29,6 +30,7 @@ javascript.util.ArrayList.prototype.array_ = null;
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.add = function(e) {
   this.array_.push(e);
@@ -37,6 +39,7 @@ javascript.util.ArrayList.prototype.add = function(e) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.addAll = function(c) {
   for (var i = c.iterator(); i.hasNext();) {
@@ -47,6 +50,7 @@ javascript.util.ArrayList.prototype.addAll = function(c) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.set = function(index, element) {
   var oldElement = this.array_[index];
@@ -56,6 +60,7 @@ javascript.util.ArrayList.prototype.set = function(index, element) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.iterator = function() {
   return new javascript.util.ArrayList.Iterator_(this);
@@ -63,6 +68,7 @@ javascript.util.ArrayList.prototype.iterator = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.get = function(index) {
   if (index < 0 || index >= this.size()) {
@@ -74,6 +80,7 @@ javascript.util.ArrayList.prototype.get = function(index) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.isEmpty = function() {
   return this.array_.length === 0;
@@ -81,6 +88,7 @@ javascript.util.ArrayList.prototype.isEmpty = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.size = function() {
   return this.array_.length;
@@ -88,6 +96,7 @@ javascript.util.ArrayList.prototype.size = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.toArray = function() {
   var array = [];
@@ -101,6 +110,7 @@ javascript.util.ArrayList.prototype.toArray = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.prototype.remove = function(o) {
   var found = false;
@@ -117,14 +127,15 @@ javascript.util.ArrayList.prototype.remove = function(o) {
 };
 
 /**
- * @implements {javascript.util.Iterator}
+ * @extends {javascript.util.Iterator}
  * @param {javascript.util.ArrayList}
  *          arrayList
  * @constructor
  * @private
+ * @export
  */
 javascript.util.ArrayList.Iterator_ = function(arrayList) {
-  this.arrayList = arrayList;
+  this.arrayList_ = arrayList;
 };
 
 /**
@@ -141,6 +152,7 @@ javascript.util.ArrayList.Iterator_.prototype.position_ = 0;
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.Iterator_.prototype.next = function() {
   if (this.position_ === this.arrayList_.size()) {
@@ -151,6 +163,7 @@ javascript.util.ArrayList.Iterator_.prototype.next = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.Iterator_.prototype.hasNext = function() {
   if (this.position_ < this.arrayList_.size()) {
@@ -162,6 +175,7 @@ javascript.util.ArrayList.Iterator_.prototype.hasNext = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.ArrayList.Iterator_.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();

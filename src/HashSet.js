@@ -8,11 +8,12 @@ goog.require('javascript.util.Set');
 /**
  * @see http://docs.oracle.com/javase/6/docs/api/java/util/HashSet.html
  *
- * @implements {javascript.util.Set}
+ * @extends {javascript.util.Set}
  * @constructor
+ * @export
  */
 javascript.util.HashSet = function() {
-  this.array = [];
+  this.array_ = [];
 
   if (arguments[0] instanceof javascript.util.Collection) {
     this.addAll(arguments[0]);
@@ -27,6 +28,7 @@ javascript.util.HashSet.prototype.array_ = null;
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.prototype.contains = function(o) {
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -40,6 +42,7 @@ javascript.util.HashSet.prototype.contains = function(o) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.prototype.add = function(o) {
   if (this.contains(o)) {
@@ -53,6 +56,7 @@ javascript.util.HashSet.prototype.add = function(o) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.prototype.addAll = function(c) {
   for (var i = c.iterator(); i.hasNext();) {
@@ -63,6 +67,7 @@ javascript.util.HashSet.prototype.addAll = function(c) {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.prototype.remove = function(o) {
   throw new javascript.util.OperationNotSupported();
@@ -77,6 +82,7 @@ javascript.util.HashSet.prototype.size = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.prototype.isEmpty = function() {
   return this.array_.length === 0;
@@ -84,11 +90,12 @@ javascript.util.HashSet.prototype.isEmpty = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.prototype.toArray = function() {
   var array = [];
 
-  for (var i = 0, len = this.array.length; i < len; i++) {
+  for (var i = 0, len = this.array_.length; i < len; i++) {
     array.push(this.array_[i]);
   }
 
@@ -97,16 +104,18 @@ javascript.util.HashSet.prototype.toArray = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.prototype.iterator = function() {
   return new javascript.util.HashSet.Iterator_(this);
 };
 
 /**
- * @implements {javascript.util.Iterator}
+ * @extends {javascript.util.Iterator}
  * @param {javascript.util.HashSet} hashSet
  * @constructor
  * @private
+ * @export
  */
 javascript.util.HashSet.Iterator_ = function(hashSet) {
   this.hashSet_ = hashSet;
@@ -126,16 +135,18 @@ javascript.util.HashSet.Iterator_.prototype.position_ = 0;
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.Iterator_.prototype.next = function() {
   if (this.position_ === this.hashSet_.size()) {
     throw new javascript.util.NoSuchElementException();
   }
-  return this.hashSet_.array[this.position_++];
+  return this.hashSet_.array_[this.position_++];
 };
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.Iterator_.prototype.hasNext = function() {
   if (this.position_ < this.hashSet_.size()) {
@@ -147,6 +158,7 @@ javascript.util.HashSet.Iterator_.prototype.hasNext = function() {
 
 /**
  * @override
+ * @export
  */
 javascript.util.HashSet.Iterator_.prototype.remove = function() {
   throw new javascript.util.OperationNotSupported();

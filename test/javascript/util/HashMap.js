@@ -1,6 +1,8 @@
-var expect = require('chai').expect;
-var Collection = require('../lib/Collection');
-var HashMap = require('../lib/HashMap');
+goog.require('javascript.util.Collection');
+goog.require('javascript.util.HashMap');
+
+var Collection = javascript.util.Collection;
+var HashMap = javascript.util.HashMap;
 
 describe('javascript.util.HashMap', function() {
   var hashMap;
@@ -31,7 +33,6 @@ describe('javascript.util.HashMap', function() {
   
   it('all elements can be retrieved', function() {
     var values = hashMap.values();
-       
     expect(values instanceof Collection).to.be.true;
   });
   
