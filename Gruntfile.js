@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                 }
             },
             browser: {
-                src: ['src/*.js',
+                src: ['src/javascript/**/*.js',
                     'lib/closure-library/closure/goog/**/*.js',
                     '!lib/closure-library/closure/goog/**/*_test.js',
                     '!lib/closure-library/closure/goog/**/*_perf.js',
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
                 TEMPcompilerOpts: {
                     only_closure_dependencies: false,
                 },
-                src: ['src/*.js',
+                src: ['src/javascript/**/*.js',
                     'lib/closure-library/closure/goog/**/*.js',
                     '!lib/closure-library/closure/goog/**/*_test.js',
                     '!lib/closure-library/closure/goog/**/*_perf.js',
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                     'lib/closure-library/third_party/closure/goog/**/*.js',
                     '!lib/closure-library/third_party/closure/goog/**/*_test.js',
                     '!lib/closure-library/third_party/closure/goog/**/*_perf.js',
-                    'src/node/*.js'
+                    'src/node.js'
                 ],
                 dest: 'dist/javascript.util-node.js'
             }
