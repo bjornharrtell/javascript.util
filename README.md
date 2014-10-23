@@ -3,6 +3,8 @@ main purpose is to ease porting Java code to JavaScript.
 
 javascript.util can be used in browsers or as a Node JS module.
 
+[![Build Status](https://travis-ci.org/bjornharrtell/javascript.util.svg)](https://travis-ci.org/bjornharrtell/javascript.util)
+
 * TODO: describe "selected parts"
 * TODO: generate API docs
 
