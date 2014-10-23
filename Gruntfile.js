@@ -81,7 +81,21 @@ module.exports = function(grunt) {
                     '!lib/closure-library/third_party/closure/goog/**/*_perf.js',
                     'src/node/*.js'
                 ],
-                dest: 'dist/javascript.util-nodejs.js'
+                dest: 'dist/javascript.util-node.js'
+            }
+        },
+
+        concat: {
+            options: {
+                separator: ';',
+            },
+            browser: {
+                src: ['license-notice.txt', 'dist/javascript.util.js'],
+                dest: 'dist/javascript.util-<%= pkg.version %>.min.js',
+            },
+            node: {
+                src: ['license-notice.txt', 'dist/javascript.util-node.js'],
+                dest: 'dist/javascript.util-node-<%= pkg.version %>.min.js',
             }
         },
 
@@ -94,11 +108,13 @@ module.exports = function(grunt) {
                 dest: 'deps.js'
             }
         }
+        
     });
 
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-closure-tools');
     grunt.loadNpmTasks('grunt-gjslint');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['bower', 'gjslint', 'closureDepsWriter', 'closureCompiler']);
+    grunt.registerTask('default', ['bower', 'gjslint', 'closureDepsWriter', 'closureCompiler', 'concat']);
 }
