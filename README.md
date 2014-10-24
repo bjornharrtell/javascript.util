@@ -14,7 +14,7 @@ Usage
 Browsers
 --------
 
-Simply include [javascript.util-0.12.0.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.0/javascript.util-0.12.0.min.js) in your page.
+Simply include [javascript.util-0.12.1.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.0/javascript.util-0.12.1.min.js) in your page.
 
 Node JS
 -------
