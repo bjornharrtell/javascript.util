@@ -2,6 +2,8 @@ goog.provide('javascript.util.List');
 
 goog.require('javascript.util.Collection');
 
+
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/List.html
  *
@@ -9,8 +11,8 @@ goog.require('javascript.util.Collection');
  * @constructor
  * @export
  */
-javascript.util.List = function() {};
-javascript.util.List.prototype = new javascript.util.Collection();
+javascript.util.List = function() { };
+goog.inherits(javascript.util.List, javascript.util.Collection);
 
 /**
  * Returns the element at the specified position in this list.
@@ -18,6 +20,7 @@ javascript.util.List.prototype = new javascript.util.Collection();
  * @return {Object}
  */
 javascript.util.List.prototype.get = goog.abstractMethod;
+
 
 /**
  * Replaces the element at the specified position in this list with the
@@ -27,6 +30,7 @@ javascript.util.List.prototype.get = goog.abstractMethod;
  * @return {Object}
  */
 javascript.util.List.prototype.set = goog.abstractMethod;
+
 
 /**
  * Returns true if this collection contains no elements.

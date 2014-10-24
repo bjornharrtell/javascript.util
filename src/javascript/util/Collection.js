@@ -2,6 +2,8 @@ goog.provide('javascript.util.Collection');
 
 goog.require('javascript.util.Iterator');
 
+
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Collection.html
  *
@@ -10,6 +12,7 @@ goog.require('javascript.util.Iterator');
  */
 javascript.util.Collection = function() {};
 
+
 /**
  * Ensures that this collection contains the specified element (optional
  * operation).
@@ -17,6 +20,7 @@ javascript.util.Collection = function() {};
  * @return {boolean}
  */
 javascript.util.Collection.prototype.add = goog.abstractMethod;
+
 
 /**
  * Appends all of the elements in the specified collection to the end of this
@@ -27,11 +31,13 @@ javascript.util.Collection.prototype.add = goog.abstractMethod;
  */
 javascript.util.Collection.prototype.addAll = goog.abstractMethod;
 
+
 /**
  * Returns true if this collection contains no elements.
  * @return {boolean}
  */
 javascript.util.Collection.prototype.isEmpty = goog.abstractMethod;
+
 
 /**
  * Returns an iterator over the elements in this collection.
@@ -39,17 +45,20 @@ javascript.util.Collection.prototype.isEmpty = goog.abstractMethod;
  */
 javascript.util.Collection.prototype.iterator = goog.abstractMethod;
 
+
 /**
  * Returns an iterator over the elements in this collection.
  * @return {number}
  */
 javascript.util.Collection.prototype.size = goog.abstractMethod;
 
+
 /**
  * Returns an array containing all of the elements in this collection.
  * @return {Array}
  */
 javascript.util.Collection.prototype.toArray = goog.abstractMethod;
+
 
 /**
  * Removes a single instance of the specified element from this collection if it

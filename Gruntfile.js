@@ -53,7 +53,11 @@ module.exports = function(grunt) {
                         'javascript.util.TreeSet'
                     ],
                     output_wrapper: '"(function(){%output%}).call(this);"'
-                }
+                },
+                execOpts: {
+                    maxBuffer: 999999 * 1024
+                },
+                TieredCompilation: true
             },
             browser: {
                 src: ['src/javascript/**/*.js',

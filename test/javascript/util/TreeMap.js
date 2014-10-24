@@ -59,6 +59,10 @@ describe('TreeMap', function() {
     var e = iterator.next();
 
     expect(e).to.equal(secondValue);
+    
+    e = iterator.next();
+
+    expect(e).to.equal(firstValue);
   });
 
 });

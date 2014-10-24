@@ -4,7 +4,7 @@ goog.require('javascript.util.HashMap');
 var Collection = javascript.util.Collection;
 var HashMap = javascript.util.HashMap;
 
-describe('javascript.util.HashMap', function() {
+describe('HashMap', function() {
   var hashMap;
   var firstKey;
   var secondKey;

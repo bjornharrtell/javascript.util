@@ -3,6 +3,8 @@ goog.provide('javascript.util.Stack');
 goog.require('javascript.util.EmptyStackException');
 goog.require('javascript.util.List');
 
+
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Stack.html
  *
@@ -13,12 +15,15 @@ goog.require('javascript.util.List');
 javascript.util.Stack = function() {
   this.array_ = [];
 };
+goog.inherits(javascript.util.Stack, javascript.util.List);
+
 
 /**
  * @type {Array}
  * @private
  */
 javascript.util.Stack.prototype.array_ = null;
+
 
 /**
  * Pushes an item onto the top of this stack.
@@ -30,6 +35,7 @@ javascript.util.Stack.prototype.push = function(e) {
   this.array_.push(e);
   return e;
 };
+
 
 /**
  * Pushes an item onto the top of this stack.
@@ -45,6 +51,7 @@ javascript.util.Stack.prototype.pop = function(e) {
   return this.array_.pop();
 };
 
+
 /**
  * Looks at the object at the top of this stack without removing it from the
  * stack.
@@ -58,6 +65,7 @@ javascript.util.Stack.prototype.peek = function() {
 
   return this.array_[this.array_.length - 1];
 };
+
 
 /**
  * Tests if this stack is empty.
@@ -73,6 +81,7 @@ javascript.util.Stack.prototype.empty = function() {
   }
 };
 
+
 /**
  * @return {boolean}
  * @export
@@ -80,6 +89,7 @@ javascript.util.Stack.prototype.empty = function() {
 javascript.util.Stack.prototype.isEmpty = function() {
   return this.empty();
 };
+
 
 /**
  * Returns the 1-based position where an object is on this stack. If the object
@@ -100,6 +110,7 @@ javascript.util.Stack.prototype.search = function(o) {
   return this.array_.indexOf(o);
 };
 
+
 /**
  * @return {number}
  * @export
@@ -107,6 +118,7 @@ javascript.util.Stack.prototype.search = function(o) {
 javascript.util.Stack.prototype.size = function() {
   return this.array_.length;
 };
+
 
 /**
  * @return {Array}

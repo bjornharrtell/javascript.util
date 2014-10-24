@@ -1,5 +1,7 @@
 goog.provide('javascript.util.IndexOutOfBoundsException');
 
+
+
 /**
  * @param {string=} message Optional message
  * @extends {Error}
@@ -7,9 +9,10 @@ goog.provide('javascript.util.IndexOutOfBoundsException');
  * @export
  */
 javascript.util.IndexOutOfBoundsException = function(message) {
-    this.message = message || '';
+  this.message = message || '';
 };
 javascript.util.IndexOutOfBoundsException.prototype = new Error();
+
 
 /**
  * @type {string}

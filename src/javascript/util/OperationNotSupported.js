@@ -1,5 +1,7 @@
 goog.provide('javascript.util.OperationNotSupported');
 
+
+
 /**
  * @param {string=} message Optional message
  * @extends {Error}
@@ -9,6 +11,7 @@ javascript.util.OperationNotSupported = function(message) {
   this.message = message || '';
 };
 javascript.util.OperationNotSupported.prototype = new Error();
+
 
 /**
  * @type {string}

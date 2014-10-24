@@ -1,74 +1,171 @@
 goog.provide('javascript.util.TreeMap');
 
 goog.require('javascript.util.ArrayList');
-goog.require('javascript.util.Map');
 goog.require('javascript.util.SortedMap');
+
+goog.scope(function() {
+
+
+/**
+ * @type {number}
+ */
+var BLACK = 0;
+
+
+/**
+ * @type {number}
+ */
+var RED = 1;
+
+var colorOf = function(p) { return (p == null ? BLACK : p.color); };
+var parentOf = function(p) { return (p == null ? null : p.parent); };
+var setColor = function(p, c) { if (p !== null) p.color = c; };
+var leftOf = function(p) { return (p == null ? null : p.left); };
+var rightOf = function(p) { return (p == null ? null : p.right); };
+
+
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeMap.html
  *
- * @extends {javascript.util.Map}
+ * @extends {javascript.util.SortedMap}
  * @constructor
  * @export
  */
 javascript.util.TreeMap = function() {
-  this.array_ = [];
+  this.root_ = null;
+  this.size_ = 0;
 };
-javascript.util.TreeMap.prototype = new javascript.util.Map();
+goog.inherits(javascript.util.TreeMap, javascript.util.SortedMap);
+
 
 /**
- * @type {Array}
+ * @type {Object}
  * @private
  */
-javascript.util.TreeMap.prototype.array_ = null;
+javascript.util.TreeMap.prototype.root_;
+
+
+/**
+ * @type {number}
+ * @private
+ */
+javascript.util.TreeMap.prototype.size_;
+
 
 /**
  * @override
  * @export
  */
 javascript.util.TreeMap.prototype.get = function(key) {
-  for (var i = 0, len = this.array_.length; i < len; i++) {
-    var e = this.array_[i];
-    if (e.key['compareTo'](key) === 0) {
-      return e.value;
+  var p = this.root_;
+  while (p !== null) {
+    var cmp = key['compareTo'](p.key);
+    if (cmp < 0) {
+      p = p.left;
+    } else if (cmp > 0) {
+      p = p.right;
+    } else {
+      return p.value;
     }
   }
   return null;
 };
+
 
 /**
  * @override
  * @export
  */
 javascript.util.TreeMap.prototype.put = function(key, value) {
-  var e = this.get(key);
-
-  if (e) {
-    var oldValue = e.value;
-    e.value = value;
-    return oldValue;
+  if (this.root_ === null) {
+    this.root_ = {
+      key: key,
+      value: value,
+      left: null,
+      right: null,
+      parent: null,
+      color: BLACK
+    };
+    this.size_ = 1;
+    return null;
   }
-
-  var newElement = {
-    key: key,
-    value: value
-  };
-
-  for (var i = 0, len = this.array_.length; i < len; i++) {
-    e = this.array_[i];
-    if (e.key['compareTo'](key) === 1) {
-      this.array_.splice(i, 0, newElement);
-      return null;
+  var t = this.root_, parent, cmp;
+  do {
+    parent = t;
+    cmp = key['compareTo'](t.key);
+    if (cmp < 0) {
+      t = t.left;
+    } else if (cmp > 0) {
+      t = t.right;
+    } else {
+      var oldValue = t.value;
+      t.value = value;
+      return oldValue;
     }
-  }
-
-  this.array_.push({
+  } while (t !== null);
+  var e = {
     key: key,
-    value: value
-  });
-
+    left: null,
+    right: null,
+    value: value,
+    parent: parent,
+    color: BLACK
+  };
+  if (cmp < 0) {
+    parent.left = e;
+  } else {
+    parent.right = e;
+  }
+  this.fixAfterInsertion(e);
+  this.size_++;
   return null;
 };
+
+
+/**
+ * @param {Object} x
+ */
+javascript.util.TreeMap.prototype.fixAfterInsertion = function(x) {
+  x.color = RED;
+  while (x != null && x != this.root_ && x.parent.color == RED) {
+    if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
+      var y = rightOf(parentOf(parentOf(x)));
+      if (colorOf(y) == RED) {
+        setColor(parentOf(x), BLACK);
+        setColor(y, BLACK);
+        setColor(parentOf(parentOf(x)), RED);
+        x = parentOf(parentOf(x));
+      } else {
+        if (x == rightOf(parentOf(x))) {
+          x = parentOf(x);
+          this.rotateLeft(x);
+        }
+        setColor(parentOf(x), BLACK);
+        setColor(parentOf(parentOf(x)), RED);
+        this.rotateRight(parentOf(parentOf(x)));
+      }
+    } else {
+      var y = leftOf(parentOf(parentOf(x)));
+      if (colorOf(y) == RED) {
+        setColor(parentOf(x), BLACK);
+        setColor(y, BLACK);
+        setColor(parentOf(parentOf(x)), RED);
+        x = parentOf(parentOf(x));
+      } else {
+        if (x == leftOf(parentOf(x))) {
+          x = parentOf(x);
+          this.rotateRight(x);
+        }
+        setColor(parentOf(x), BLACK);
+        setColor(parentOf(parentOf(x)), RED);
+        this.rotateLeft(parentOf(parentOf(x)));
+      }
+    }
+  }
+  this.root_.color = BLACK;
+};
+
 
 /**
  * @override
@@ -76,16 +173,104 @@ javascript.util.TreeMap.prototype.put = function(key, value) {
  */
 javascript.util.TreeMap.prototype.values = function() {
   var arrayList = new javascript.util.ArrayList();
-  for (var i = 0, len = this.array_.length; i < len; i++) {
-    arrayList.add(this.array_[i].value);
+  var p = this.getFirstEntry();
+  if (p !== null) {
+    arrayList.add(p.value);
+    while ((p = javascript.util.TreeMap.successor(p)) !== null) {
+      arrayList.add(p.value);
+    }
   }
   return arrayList;
 };
+
+
+/**
+ * @param {Object} p
+ */
+javascript.util.TreeMap.prototype.rotateLeft = function(p) {
+  if (p != null) {
+    var r = p.right;
+    p.right = r.left;
+    if (r.left != null)
+      r.left.parent = p;
+    r.parent = p.parent;
+    if (p.parent == null)
+      this.root_ = r;
+    else if (p.parent.left == p)
+      p.parent.left = r;
+    else
+      p.parent.right = r;
+    r.left = p;
+    p.parent = r;
+  }
+};
+
+
+/**
+ * @param {Object} p
+ */
+javascript.util.TreeMap.prototype.rotateRight = function(p) {
+  if (p != null) {
+    var l = p.left;
+    p.left = l.right;
+    if (l.right != null) l.right.parent = p;
+    l.parent = p.parent;
+    if (p.parent == null)
+      this.root_ = l;
+    else if (p.parent.right == p)
+      p.parent.right = l;
+    else p.parent.left = l;
+    l.right = p;
+    p.parent = l;
+  }
+};
+
+
+/**
+ * @return {Object}
+ */
+javascript.util.TreeMap.prototype.getFirstEntry = function() {
+  var p = this.root_;
+  if (p != null) {
+    while (p.left != null) {
+      p = p.left;
+    }
+  }
+  return p;
+};
+
+
+/**
+ * @param {Object} t
+ * @return {Object}
+ */
+javascript.util.TreeMap.successor = function(t) {
+  if (t === null)
+    return null;
+  else if (t.right !== null) {
+    var p = t.right;
+    while (p.left !== null) {
+      p = p.left;
+    }
+    return p;
+  } else {
+    var p = t.parent;
+    var ch = t;
+    while (p !== null && ch === p.right) {
+      ch = p;
+      p = p.parent;
+    }
+    return p;
+  }
+};
+
 
 /**
  * @override
  * @export
  */
 javascript.util.TreeMap.prototype.size = function() {
-  return this.values().size();
+  return this.size_;
 };
+
+});  // goog.scope

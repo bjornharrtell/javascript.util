@@ -5,6 +5,8 @@ goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
 goog.require('javascript.util.SortedSet');
 
+
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/TreeSet.html
  *
@@ -19,13 +21,14 @@ javascript.util.TreeSet = function() {
     this.addAll(arguments[0]);
   }
 };
-javascript.util.TreeSet.prototype = new javascript.util.SortedSet();
+goog.inherits(javascript.util.TreeSet, javascript.util.SortedSet);
 
 /**
  * @type {Array}
  * @private
  */
 javascript.util.TreeSet.prototype.array_ = null;
+
 
 /**
  * @override
@@ -40,6 +43,7 @@ javascript.util.TreeSet.prototype.contains = function(o) {
   }
   return false;
 };
+
 
 /**
  * @override
@@ -63,6 +67,7 @@ javascript.util.TreeSet.prototype.add = function(o) {
   return true;
 };
 
+
 /**
  * @override
  * @export
@@ -74,6 +79,7 @@ javascript.util.TreeSet.prototype.addAll = function(c) {
   return true;
 };
 
+
 /**
  * @override
  * @export
@@ -81,6 +87,7 @@ javascript.util.TreeSet.prototype.addAll = function(c) {
 javascript.util.TreeSet.prototype.remove = function(e) {
   throw new javascript.util.OperationNotSupported();
 };
+
 
 /**
  * @override
@@ -90,6 +97,7 @@ javascript.util.TreeSet.prototype.size = function() {
   return this.array_.length;
 };
 
+
 /**
  * @override
  * @export
@@ -97,6 +105,7 @@ javascript.util.TreeSet.prototype.size = function() {
 javascript.util.TreeSet.prototype.isEmpty = function() {
   return this.array_.length === 0;
 };
+
 
 /**
  * @override
@@ -112,6 +121,7 @@ javascript.util.TreeSet.prototype.toArray = function() {
   return array;
 };
 
+
 /**
  * @override
  * @export
@@ -119,6 +129,8 @@ javascript.util.TreeSet.prototype.toArray = function() {
 javascript.util.TreeSet.prototype.iterator = function() {
   return new javascript.util.TreeSet.Iterator_(this);
 };
+
+
 
 /**
  * @extends {javascript.util.Iterator}
@@ -131,17 +143,20 @@ javascript.util.TreeSet.Iterator_ = function(treeSet) {
   this.treeSet_ = treeSet;
 };
 
+
 /**
  * @type {javascript.util.TreeSet}
  * @private
  */
 javascript.util.TreeSet.Iterator_.prototype.treeSet_ = null;
 
+
 /**
  * @type {number}
  * @private
  */
 javascript.util.TreeSet.Iterator_.prototype.position_ = 0;
+
 
 /**
  * @override
@@ -154,6 +169,7 @@ javascript.util.TreeSet.Iterator_.prototype.next = function() {
   return this.treeSet_.array_[this.position_++];
 };
 
+
 /**
  * @override
  * @export
@@ -165,6 +181,7 @@ javascript.util.TreeSet.Iterator_.prototype.hasNext = function() {
     return false;
   }
 };
+
 
 /**
  * @override

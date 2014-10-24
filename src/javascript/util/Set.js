@@ -2,6 +2,8 @@ goog.provide('javascript.util.Set');
 
 goog.require('javascript.util.Collection');
 
+
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Set.html
  *
@@ -10,7 +12,8 @@ goog.require('javascript.util.Collection');
  * @export
  */
 javascript.util.Set = function() {};
-javascript.util.Set.prototype = new javascript.util.Collection();
+goog.inherits(javascript.util.Set, javascript.util.Collection);
+
 
 /**
  * Returns true if this set contains the specified element. More formally,

@@ -5,6 +5,8 @@ goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
 goog.require('javascript.util.Set');
 
+
+
 /**
  * @see http://docs.oracle.com/javase/6/docs/api/java/util/HashSet.html
  *
@@ -20,11 +22,13 @@ javascript.util.HashSet = function() {
   }
 };
 
+
 /**
  * @type {Array}
  * @private
  */
 javascript.util.HashSet.prototype.array_ = null;
+
 
 /**
  * @override
@@ -40,6 +44,7 @@ javascript.util.HashSet.prototype.contains = function(o) {
   return false;
 };
 
+
 /**
  * @override
  * @export
@@ -54,6 +59,7 @@ javascript.util.HashSet.prototype.add = function(o) {
   return true;
 };
 
+
 /**
  * @override
  * @export
@@ -65,6 +71,7 @@ javascript.util.HashSet.prototype.addAll = function(c) {
   return true;
 };
 
+
 /**
  * @override
  * @export
@@ -73,12 +80,14 @@ javascript.util.HashSet.prototype.remove = function(o) {
   throw new javascript.util.OperationNotSupported();
 };
 
+
 /**
  * @override
  */
 javascript.util.HashSet.prototype.size = function() {
   return this.array_.length;
 };
+
 
 /**
  * @override
@@ -87,6 +96,7 @@ javascript.util.HashSet.prototype.size = function() {
 javascript.util.HashSet.prototype.isEmpty = function() {
   return this.array_.length === 0;
 };
+
 
 /**
  * @override
@@ -102,6 +112,7 @@ javascript.util.HashSet.prototype.toArray = function() {
   return array;
 };
 
+
 /**
  * @override
  * @export
@@ -109,6 +120,8 @@ javascript.util.HashSet.prototype.toArray = function() {
 javascript.util.HashSet.prototype.iterator = function() {
   return new javascript.util.HashSet.Iterator_(this);
 };
+
+
 
 /**
  * @extends {javascript.util.Iterator}
@@ -121,17 +134,20 @@ javascript.util.HashSet.Iterator_ = function(hashSet) {
   this.hashSet_ = hashSet;
 };
 
+
 /**
  * @type {javascript.util.HashSet}
  * @private
  */
 javascript.util.HashSet.Iterator_.prototype.hashSet_ = null;
 
+
 /**
  * @type {number}
  * @private
  */
 javascript.util.HashSet.Iterator_.prototype.position_ = 0;
+
 
 /**
  * @override
@@ -144,6 +160,7 @@ javascript.util.HashSet.Iterator_.prototype.next = function() {
   return this.hashSet_.array_[this.position_++];
 };
 
+
 /**
  * @override
  * @export
@@ -155,6 +172,7 @@ javascript.util.HashSet.Iterator_.prototype.hasNext = function() {
     return false;
   }
 };
+
 
 /**
  * @override

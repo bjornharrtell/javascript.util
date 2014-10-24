@@ -2,6 +2,8 @@ goog.provide('javascript.util.Arrays');
 
 goog.require('javascript.util.ArrayList');
 
+
+
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Arrays.html
  *
@@ -9,6 +11,7 @@ goog.require('javascript.util.ArrayList');
  * @export
  */
 javascript.util.Arrays = function() {};
+
 
 /**
  * @export
@@ -48,6 +51,7 @@ javascript.util.Arrays.sort = function() {
     return;
   }
 };
+
 
 /**
  * @param {Array} array
