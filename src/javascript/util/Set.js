@@ -2,6 +2,10 @@ goog.provide('javascript.util.Set');
 
 goog.require('javascript.util.Collection');
 
+goog.scope(function() {
+
+var Collection = javascript.util.Collection;
+
 
 
 /**
@@ -12,7 +16,8 @@ goog.require('javascript.util.Collection');
  * @export
  */
 javascript.util.Set = function() {};
-goog.inherits(javascript.util.Set, javascript.util.Collection);
+var Set = javascript.util.Set;
+goog.inherits(Set, Collection);
 
 
 /**
@@ -22,5 +27,6 @@ goog.inherits(javascript.util.Set, javascript.util.Collection);
  * @param {Object} e
  * @return {boolean}
  */
-javascript.util.Set.prototype.contains = goog.abstractMethod;
+Set.prototype.contains = goog.abstractMethod;
 
+});  // goog.scope

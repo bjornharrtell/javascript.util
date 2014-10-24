@@ -1,5 +1,7 @@
 goog.provide('javascript.util.IndexOutOfBoundsException');
 
+goog.scope(function() {
+
 
 
 /**
@@ -11,11 +13,12 @@ goog.provide('javascript.util.IndexOutOfBoundsException');
 javascript.util.IndexOutOfBoundsException = function(message) {
   this.message = message || '';
 };
-javascript.util.IndexOutOfBoundsException.prototype = new Error();
+var IndexOutOfBoundsException = javascript.util.IndexOutOfBoundsException;
+goog.inherits(IndexOutOfBoundsException, Error);
 
 
 /**
  * @type {string}
  */
-javascript.util.IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException';
-
+IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException';
+});  // goog.scope

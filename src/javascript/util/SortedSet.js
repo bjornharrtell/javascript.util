@@ -2,6 +2,10 @@ goog.provide('javascript.util.SortedSet');
 
 goog.require('javascript.util.Set');
 
+goog.scope(function() {
+
+var Set = javascript.util.Set;
+
 
 
 /**
@@ -12,4 +16,7 @@ goog.require('javascript.util.Set');
  * @export
  */
 javascript.util.SortedSet = function() {};
-goog.inherits(javascript.util.SortedSet, javascript.util.Set);
+var SortedSet = javascript.util.SortedSet;
+goog.inherits(SortedSet, Set);
+
+});  // goog.scope

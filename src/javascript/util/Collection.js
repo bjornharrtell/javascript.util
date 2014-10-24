@@ -2,6 +2,10 @@ goog.provide('javascript.util.Collection');
 
 goog.require('javascript.util.Iterator');
 
+goog.scope(function() {
+
+var Iterator = javascript.util.Iterator;
+
 
 
 /**
@@ -11,6 +15,7 @@ goog.require('javascript.util.Iterator');
  * @export
  */
 javascript.util.Collection = function() {};
+var Collection = javascript.util.Collection;
 
 
 /**
@@ -19,7 +24,7 @@ javascript.util.Collection = function() {};
  * @param {Object} e
  * @return {boolean}
  */
-javascript.util.Collection.prototype.add = goog.abstractMethod;
+Collection.prototype.add = goog.abstractMethod;
 
 
 /**
@@ -29,35 +34,35 @@ javascript.util.Collection.prototype.add = goog.abstractMethod;
  * @param {javascript.util.Collection} c
  * @return {boolean}
  */
-javascript.util.Collection.prototype.addAll = goog.abstractMethod;
+Collection.prototype.addAll = goog.abstractMethod;
 
 
 /**
  * Returns true if this collection contains no elements.
  * @return {boolean}
  */
-javascript.util.Collection.prototype.isEmpty = goog.abstractMethod;
+Collection.prototype.isEmpty = goog.abstractMethod;
 
 
 /**
  * Returns an iterator over the elements in this collection.
  * @return {javascript.util.Iterator}
  */
-javascript.util.Collection.prototype.iterator = goog.abstractMethod;
+Collection.prototype.iterator = goog.abstractMethod;
 
 
 /**
  * Returns an iterator over the elements in this collection.
  * @return {number}
  */
-javascript.util.Collection.prototype.size = goog.abstractMethod;
+Collection.prototype.size = goog.abstractMethod;
 
 
 /**
  * Returns an array containing all of the elements in this collection.
  * @return {Array}
  */
-javascript.util.Collection.prototype.toArray = goog.abstractMethod;
+Collection.prototype.toArray = goog.abstractMethod;
 
 
 /**
@@ -66,5 +71,6 @@ javascript.util.Collection.prototype.toArray = goog.abstractMethod;
  * @param {Object} e
  * @return {boolean}
  */
-javascript.util.Collection.prototype.remove = goog.abstractMethod;
+Collection.prototype.remove = goog.abstractMethod;
 
+});  // goog.scope

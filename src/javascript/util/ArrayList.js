@@ -6,6 +6,14 @@ goog.require('javascript.util.List');
 goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
 
+goog.scope(function() {
+
+var Collection = javascript.util.Collection;
+var IndexOutOfBoundsException = javascript.util.IndexOutOfBoundsException;
+var List = javascript.util.List;
+var NoSuchElementException = javascript.util.NoSuchElementException;
+var OperationNotSupported = javascript.util.OperationNotSupported;
+
 
 
 /**
@@ -18,24 +26,26 @@ goog.require('javascript.util.OperationNotSupported');
 javascript.util.ArrayList = function() {
   this.array_ = [];
 
-  if (arguments[0] instanceof javascript.util.Collection) {
+  if (arguments[0] instanceof Collection) {
     this.addAll(arguments[0]);
   }
 };
-goog.inherits(javascript.util.ArrayList, javascript.util.List);
+var ArrayList = javascript.util.ArrayList;
+goog.inherits(ArrayList, List);
+
 
 /**
  * @type {Array}
  * @private
  */
-javascript.util.ArrayList.prototype.array_ = null;
+ArrayList.prototype.array_ = null;
 
 
 /**
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.add = function(e) {
+ArrayList.prototype.add = function(e) {
   this.array_.push(e);
   return true;
 };
@@ -45,7 +55,7 @@ javascript.util.ArrayList.prototype.add = function(e) {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.addAll = function(c) {
+ArrayList.prototype.addAll = function(c) {
   for (var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
@@ -57,7 +67,7 @@ javascript.util.ArrayList.prototype.addAll = function(c) {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.set = function(index, element) {
+ArrayList.prototype.set = function(index, element) {
   var oldElement = this.array_[index];
   this.array_[index] = element;
   return oldElement;
@@ -68,8 +78,8 @@ javascript.util.ArrayList.prototype.set = function(index, element) {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.iterator = function() {
-  return new javascript.util.ArrayList.Iterator_(this);
+ArrayList.prototype.iterator = function() {
+  return new Iterator_(this);
 };
 
 
@@ -77,9 +87,9 @@ javascript.util.ArrayList.prototype.iterator = function() {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.get = function(index) {
+ArrayList.prototype.get = function(index) {
   if (index < 0 || index >= this.size()) {
-    throw new javascript.util.IndexOutOfBoundsException();
+    throw new IndexOutOfBoundsException();
   }
 
   return this.array_[index];
@@ -90,7 +100,7 @@ javascript.util.ArrayList.prototype.get = function(index) {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.isEmpty = function() {
+ArrayList.prototype.isEmpty = function() {
   return this.array_.length === 0;
 };
 
@@ -99,7 +109,7 @@ javascript.util.ArrayList.prototype.isEmpty = function() {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.size = function() {
+ArrayList.prototype.size = function() {
   return this.array_.length;
 };
 
@@ -108,7 +118,7 @@ javascript.util.ArrayList.prototype.size = function() {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.toArray = function() {
+ArrayList.prototype.toArray = function() {
   var array = [];
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -123,7 +133,7 @@ javascript.util.ArrayList.prototype.toArray = function() {
  * @override
  * @export
  */
-javascript.util.ArrayList.prototype.remove = function(o) {
+ArrayList.prototype.remove = function(o) {
   var found = false;
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -147,7 +157,7 @@ javascript.util.ArrayList.prototype.remove = function(o) {
  * @private
  * @export
  */
-javascript.util.ArrayList.Iterator_ = function(arrayList) {
+var Iterator_ = function(arrayList) {
   this.arrayList_ = arrayList;
 };
 
@@ -156,23 +166,23 @@ javascript.util.ArrayList.Iterator_ = function(arrayList) {
  * @type {javascript.util.ArrayList}
  * @private
  */
-javascript.util.ArrayList.Iterator_.prototype.arrayList_ = null;
+Iterator_.prototype.arrayList_ = null;
 
 
 /**
  * @type {number}
  * @private
  */
-javascript.util.ArrayList.Iterator_.prototype.position_ = 0;
+Iterator_.prototype.position_ = 0;
 
 
 /**
  * @override
  * @export
  */
-javascript.util.ArrayList.Iterator_.prototype.next = function() {
+Iterator_.prototype.next = function() {
   if (this.position_ === this.arrayList_.size()) {
-    throw new javascript.util.NoSuchElementException();
+    throw new NoSuchElementException();
   }
   return this.arrayList_.get(this.position_++);
 };
@@ -182,7 +192,7 @@ javascript.util.ArrayList.Iterator_.prototype.next = function() {
  * @override
  * @export
  */
-javascript.util.ArrayList.Iterator_.prototype.hasNext = function() {
+Iterator_.prototype.hasNext = function() {
   if (this.position_ < this.arrayList_.size()) {
     return true;
   } else {
@@ -195,7 +205,9 @@ javascript.util.ArrayList.Iterator_.prototype.hasNext = function() {
  * @override
  * @export
  */
-javascript.util.ArrayList.Iterator_.prototype.remove = function() {
-  throw new javascript.util.OperationNotSupported();
+Iterator_.prototype.remove = function() {
+  throw new OperationNotSupported();
 };
+
+});  // goog.scope
 

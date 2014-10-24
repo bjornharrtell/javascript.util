@@ -1,5 +1,7 @@
 goog.provide('javascript.util.EmptyStackException');
 
+goog.scope(function() {
+
 
 
 /**
@@ -11,11 +13,13 @@ goog.provide('javascript.util.EmptyStackException');
 javascript.util.EmptyStackException = function(message) {
   this.message = message || '';
 };
-javascript.util.EmptyStackException.prototype = new Error();
+var EmptyStackException = javascript.util.EmptyStackException;
+goog.inherits(EmptyStackException, Error);
 
 
 /**
  * @type {string}
  */
-javascript.util.EmptyStackException.prototype.name = 'EmptyStackException';
+EmptyStackException.prototype.name = 'EmptyStackException';
 
+});  // goog.scope

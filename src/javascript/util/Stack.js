@@ -3,6 +3,11 @@ goog.provide('javascript.util.Stack');
 goog.require('javascript.util.EmptyStackException');
 goog.require('javascript.util.List');
 
+goog.scope(function() {
+
+var EmptyStackException = javascript.util.EmptyStackException;
+var List = javascript.util.List;
+
 
 
 /**
@@ -15,14 +20,15 @@ goog.require('javascript.util.List');
 javascript.util.Stack = function() {
   this.array_ = [];
 };
-goog.inherits(javascript.util.Stack, javascript.util.List);
+var Stack = javascript.util.Stack;
+goog.inherits(Stack, List);
 
 
 /**
  * @type {Array}
  * @private
  */
-javascript.util.Stack.prototype.array_ = null;
+Stack.prototype.array_ = null;
 
 
 /**
@@ -31,7 +37,7 @@ javascript.util.Stack.prototype.array_ = null;
  * @return {Object}
  * @export
  */
-javascript.util.Stack.prototype.push = function(e) {
+Stack.prototype.push = function(e) {
   this.array_.push(e);
   return e;
 };
@@ -43,9 +49,9 @@ javascript.util.Stack.prototype.push = function(e) {
  * @return {Object}
  * @export
  */
-javascript.util.Stack.prototype.pop = function(e) {
+Stack.prototype.pop = function(e) {
   if (this.array_.length === 0) {
-    throw new javascript.util.EmptyStackException();
+    throw new EmptyStackException();
   }
 
   return this.array_.pop();
@@ -58,9 +64,9 @@ javascript.util.Stack.prototype.pop = function(e) {
  * @return {Object}
  * @export
  */
-javascript.util.Stack.prototype.peek = function() {
+Stack.prototype.peek = function() {
   if (this.array_.length === 0) {
-    throw new javascript.util.EmptyStackException();
+    throw new EmptyStackException();
   }
 
   return this.array_[this.array_.length - 1];
@@ -73,7 +79,7 @@ javascript.util.Stack.prototype.peek = function() {
  *         otherwise.
  * @export
  */
-javascript.util.Stack.prototype.empty = function() {
+Stack.prototype.empty = function() {
   if (this.array_.length === 0) {
     return true;
   } else {
@@ -86,7 +92,7 @@ javascript.util.Stack.prototype.empty = function() {
  * @return {boolean}
  * @export
  */
-javascript.util.Stack.prototype.isEmpty = function() {
+Stack.prototype.isEmpty = function() {
   return this.empty();
 };
 
@@ -106,7 +112,7 @@ javascript.util.Stack.prototype.isEmpty = function() {
  *         not on the stack.
  * @export
  */
-javascript.util.Stack.prototype.search = function(o) {
+Stack.prototype.search = function(o) {
   return this.array_.indexOf(o);
 };
 
@@ -115,7 +121,7 @@ javascript.util.Stack.prototype.search = function(o) {
  * @return {number}
  * @export
  */
-javascript.util.Stack.prototype.size = function() {
+Stack.prototype.size = function() {
   return this.array_.length;
 };
 
@@ -124,7 +130,7 @@ javascript.util.Stack.prototype.size = function() {
  * @return {Array}
  * @export
  */
-javascript.util.Stack.prototype.toArray = function() {
+Stack.prototype.toArray = function() {
   var array = [];
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -134,3 +140,4 @@ javascript.util.Stack.prototype.toArray = function() {
   return array;
 };
 
+});  // goog.scope

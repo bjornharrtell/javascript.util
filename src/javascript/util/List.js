@@ -14,6 +14,7 @@ goog.require('javascript.util.Collection');
 javascript.util.List = function() { };
 goog.inherits(javascript.util.List, javascript.util.Collection);
 
+
 /**
  * Returns the element at the specified position in this list.
  * @param {number} index

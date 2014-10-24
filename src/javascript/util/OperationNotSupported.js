@@ -1,5 +1,7 @@
 goog.provide('javascript.util.OperationNotSupported');
 
+goog.scope(function() {
+
 
 
 /**
@@ -10,11 +12,12 @@ goog.provide('javascript.util.OperationNotSupported');
 javascript.util.OperationNotSupported = function(message) {
   this.message = message || '';
 };
-javascript.util.OperationNotSupported.prototype = new Error();
+var OperationNotSupported = javascript.util.OperationNotSupported;
+goog.inherits(OperationNotSupported, Error);
 
 
 /**
  * @type {string}
  */
-javascript.util.OperationNotSupported.prototype.name = 'OperationNotSupported';
-
+OperationNotSupported.prototype.name = 'OperationNotSupported';
+});  // goog.scope

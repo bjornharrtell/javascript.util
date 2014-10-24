@@ -1,6 +1,12 @@
 goog.provide('javascript.util.HashMap');
 
 goog.require('javascript.util.ArrayList');
+goog.require('javascript.util.Map');
+
+goog.scope(function() {
+
+var ArrayList = javascript.util.ArrayList;
+var Map = javascript.util.Map;
 
 
 
@@ -14,20 +20,22 @@ goog.require('javascript.util.ArrayList');
 javascript.util.HashMap = function() {
   this.object_ = {};
 };
+var HashMap = javascript.util.HashMap;
+goog.inherits(HashMap, Map);
 
 
 /**
  * @type {Object}
  * @private
  */
-javascript.util.HashMap.prototype.object_ = null;
+HashMap.prototype.object_ = null;
 
 
 /**
  * @override
  * @export
  */
-javascript.util.HashMap.prototype.get = function(key) {
+HashMap.prototype.get = function(key) {
   return this.object_[key] || null;
 };
 
@@ -36,7 +44,7 @@ javascript.util.HashMap.prototype.get = function(key) {
  * @override
  * @export
  */
-javascript.util.HashMap.prototype.put = function(key, value) {
+HashMap.prototype.put = function(key, value) {
   this.object_[key] = value;
   return value;
 };
@@ -46,8 +54,8 @@ javascript.util.HashMap.prototype.put = function(key, value) {
  * @override
  * @export
  */
-javascript.util.HashMap.prototype.values = function() {
-  var arrayList = new javascript.util.ArrayList();
+HashMap.prototype.values = function() {
+  var arrayList = new ArrayList();
   for (var key in this.object_) {
     if (this.object_.hasOwnProperty(key)) {
       arrayList.add(this.object_[key]);
@@ -61,7 +69,8 @@ javascript.util.HashMap.prototype.values = function() {
  * @override
  * @export
  */
-javascript.util.HashMap.prototype.size = function() {
+HashMap.prototype.size = function() {
   return this.values().size();
 };
 
+});  // goog.scope

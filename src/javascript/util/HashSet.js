@@ -5,6 +5,13 @@ goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
 goog.require('javascript.util.Set');
 
+goog.scope(function() {
+
+var Collection = javascript.util.Collection;
+var NoSuchElementException = javascript.util.NoSuchElementException;
+var OperationNotSupported = javascript.util.OperationNotSupported;
+var Set = javascript.util.Set;
+
 
 
 /**
@@ -17,24 +24,26 @@ goog.require('javascript.util.Set');
 javascript.util.HashSet = function() {
   this.array_ = [];
 
-  if (arguments[0] instanceof javascript.util.Collection) {
+  if (arguments[0] instanceof Collection) {
     this.addAll(arguments[0]);
   }
 };
+var HashSet = javascript.util.HashSet;
+goog.inherits(HashSet, Set);
 
 
 /**
  * @type {Array}
  * @private
  */
-javascript.util.HashSet.prototype.array_ = null;
+HashSet.prototype.array_ = null;
 
 
 /**
  * @override
  * @export
  */
-javascript.util.HashSet.prototype.contains = function(o) {
+HashSet.prototype.contains = function(o) {
   for (var i = 0, len = this.array_.length; i < len; i++) {
     var e = this.array_[i];
     if (e === o) {
@@ -49,7 +58,7 @@ javascript.util.HashSet.prototype.contains = function(o) {
  * @override
  * @export
  */
-javascript.util.HashSet.prototype.add = function(o) {
+HashSet.prototype.add = function(o) {
   if (this.contains(o)) {
     return false;
   }
@@ -64,7 +73,7 @@ javascript.util.HashSet.prototype.add = function(o) {
  * @override
  * @export
  */
-javascript.util.HashSet.prototype.addAll = function(c) {
+HashSet.prototype.addAll = function(c) {
   for (var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
@@ -76,7 +85,7 @@ javascript.util.HashSet.prototype.addAll = function(c) {
  * @override
  * @export
  */
-javascript.util.HashSet.prototype.remove = function(o) {
+HashSet.prototype.remove = function(o) {
   throw new javascript.util.OperationNotSupported();
 };
 
@@ -84,7 +93,7 @@ javascript.util.HashSet.prototype.remove = function(o) {
 /**
  * @override
  */
-javascript.util.HashSet.prototype.size = function() {
+HashSet.prototype.size = function() {
   return this.array_.length;
 };
 
@@ -93,7 +102,7 @@ javascript.util.HashSet.prototype.size = function() {
  * @override
  * @export
  */
-javascript.util.HashSet.prototype.isEmpty = function() {
+HashSet.prototype.isEmpty = function() {
   return this.array_.length === 0;
 };
 
@@ -102,7 +111,7 @@ javascript.util.HashSet.prototype.isEmpty = function() {
  * @override
  * @export
  */
-javascript.util.HashSet.prototype.toArray = function() {
+HashSet.prototype.toArray = function() {
   var array = [];
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -117,8 +126,8 @@ javascript.util.HashSet.prototype.toArray = function() {
  * @override
  * @export
  */
-javascript.util.HashSet.prototype.iterator = function() {
-  return new javascript.util.HashSet.Iterator_(this);
+HashSet.prototype.iterator = function() {
+  return new Iterator_(this);
 };
 
 
@@ -130,7 +139,7 @@ javascript.util.HashSet.prototype.iterator = function() {
  * @private
  * @export
  */
-javascript.util.HashSet.Iterator_ = function(hashSet) {
+var Iterator_ = function(hashSet) {
   this.hashSet_ = hashSet;
 };
 
@@ -139,23 +148,23 @@ javascript.util.HashSet.Iterator_ = function(hashSet) {
  * @type {javascript.util.HashSet}
  * @private
  */
-javascript.util.HashSet.Iterator_.prototype.hashSet_ = null;
+Iterator_.prototype.hashSet_ = null;
 
 
 /**
  * @type {number}
  * @private
  */
-javascript.util.HashSet.Iterator_.prototype.position_ = 0;
+Iterator_.prototype.position_ = 0;
 
 
 /**
  * @override
  * @export
  */
-javascript.util.HashSet.Iterator_.prototype.next = function() {
+Iterator_.prototype.next = function() {
   if (this.position_ === this.hashSet_.size()) {
-    throw new javascript.util.NoSuchElementException();
+    throw new NoSuchElementException();
   }
   return this.hashSet_.array_[this.position_++];
 };
@@ -165,7 +174,7 @@ javascript.util.HashSet.Iterator_.prototype.next = function() {
  * @override
  * @export
  */
-javascript.util.HashSet.Iterator_.prototype.hasNext = function() {
+Iterator_.prototype.hasNext = function() {
   if (this.position_ < this.hashSet_.size()) {
     return true;
   } else {
@@ -178,7 +187,9 @@ javascript.util.HashSet.Iterator_.prototype.hasNext = function() {
  * @override
  * @export
  */
-javascript.util.HashSet.Iterator_.prototype.remove = function() {
-  throw new javascript.util.OperationNotSupported();
+Iterator_.prototype.remove = function() {
+  throw new OperationNotSupported();
 };
+
+});  // goog.scope
 
