@@ -1,3 +1,5 @@
+# javascript.util
+
 javascript.util is a port of selected parts of java.util to JavaScript which
 main purpose is to ease porting Java code to JavaScript.
 
@@ -8,47 +10,43 @@ javascript.util can be used in browsers or as a Node JS module.
 * TODO: describe "selected parts"
 * TODO: generate API docs
 
-Usage
-=====
+## Usage
 
-Browsers
---------
+### Browsers
 
-Simply include [javascript.util-0.12.0.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.0/javascript.util-0.12.0.min.js) in your page.
+Simply include [javascript.util-0.12.1.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.1/javascript.util-0.12.1.min.js) in your page.
 
-Node JS
--------
+### Node JS
 
-Using NPM a trunk version of javascript.util can be installed with the following:
+Install latest released version:
 
 ```bash
-    npm install git://github.com/bjornharrtell/javascript.util.git
+    npm install javascript.util
 ```
 
-A simple code example using javascript.util:
+A simple Node JS code example using javascript.util:
 
 ```javascript
     require("javascript.util");
-	var ArrayList = javascript.util.ArrayList;
-	var array = new ArrayList();
-	array.add(1);
+    var ArrayList = javascript.util.ArrayList;
+    var array = new ArrayList();
+    array.add(1);
 ```
 
-Development environment
-=======================
+## Development environment
 
 Linux or similar is assumed.
 
-Dependencies
-------------
+### Dependencies
 
 * Node JS
 * mocha (for tests)
 * chai (for tests)
-* webmake (for browser build)
-* Closure compiler (for browser build)
+* bower (for dependencies)
+* grunt (for builds)
 
-Unit tests
-----------
+### Unit tests
 
-Can be run at command line using mocha.
+```bash
+    npm test
+```
