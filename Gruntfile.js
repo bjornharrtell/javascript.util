@@ -69,7 +69,7 @@ module.exports = function(grunt) {
                     '!lib/closure-library/third_party/closure/goog/**/*_test.js',
                     '!lib/closure-library/third_party/closure/goog/**/*_perf.js'
                 ],
-                dest: 'dist/javascript.util.js'
+                dest: 'build/javascript.util.js'
             },
             node: {
                 TEMPcompilerOpts: {
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
                     '!lib/closure-library/third_party/closure/goog/**/*_perf.js',
                     'src/node.js'
                 ],
-                dest: 'dist/javascript.util-node.js'
+                dest: 'build/javascript.util-node.js'
             }
         },
 
@@ -94,12 +94,12 @@ module.exports = function(grunt) {
                 separator: ';',
             },
             browser: {
-                src: ['license-notice.txt', 'dist/javascript.util.js'],
-                dest: 'dist/javascript.util-<%= pkg.version %>.min.js',
+                src: ['license-notice.txt', 'build/javascript.util.js'],
+                dest: 'dist/javascript.util.min.js',
             },
             node: {
-                src: ['license-notice.txt', 'dist/javascript.util-node.js'],
-                dest: 'dist/javascript.util-node-<%= pkg.version %>.min.js',
+                src: ['license-notice.txt', 'build/javascript.util-node.js'],
+                dest: 'dist/javascript.util-node.min.js',
             }
         },
 
