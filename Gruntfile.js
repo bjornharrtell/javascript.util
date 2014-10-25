@@ -120,5 +120,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-gjslint');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['bower', 'gjslint', 'closureDepsWriter', 'closureCompiler', 'concat']);
+    grunt.registerTask('default', ['bower', 'gjslint', 'closureDepsWriter']);
+    grunt.registerTask('dist', ['bower', 'gjslint', 'closureDepsWriter', 'closureCompiler', 'concat']);
 }
