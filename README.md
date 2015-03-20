@@ -13,7 +13,7 @@ javascript.util can be used in browsers or as a Node JS module.
 
 ### Browsers
 
-Simply include [javascript.util.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.6/javascript.util.min.js) on your page.
+Simply include [javascript.util.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.7/javascript.util.min.js) on your page.
 
 ### Node JS
 
