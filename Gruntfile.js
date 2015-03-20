@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         gjslint: {
             options: {
                 flags: [
-                    '--disable 110'
+                    '--disable 110,222'
                 ],
                 reporter: {
                     name: 'console'

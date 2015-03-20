@@ -22,7 +22,7 @@
         "cleverLinks": true,
         "monospaceLinks": true,
         "default": {
-            "outputSourceFiles": true
+            "outputSourceFiles": false
         },
         "applicationName": "javascript.util"
     }
