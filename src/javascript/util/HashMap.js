@@ -20,22 +20,21 @@ var Map = javascript.util.Map;
 javascript.util.HashMap = function() {
   this.object_ = {};
 };
-var HashMap = javascript.util.HashMap;
-goog.inherits(HashMap, Map);
+goog.inherits(javascript.util.HashMap, Map);
 
 
 /**
  * @type {Object}
  * @private
  */
-HashMap.prototype.object_ = null;
+javascript.util.HashMap.prototype.object_ = null;
 
 
 /**
  * @override
  * @export
  */
-HashMap.prototype.get = function(key) {
+javascript.util.HashMap.prototype.get = function(key) {
   return this.object_[key] || null;
 };
 
@@ -44,7 +43,7 @@ HashMap.prototype.get = function(key) {
  * @override
  * @export
  */
-HashMap.prototype.put = function(key, value) {
+javascript.util.HashMap.prototype.put = function(key, value) {
   this.object_[key] = value;
   return value;
 };
@@ -54,7 +53,7 @@ HashMap.prototype.put = function(key, value) {
  * @override
  * @export
  */
-HashMap.prototype.values = function() {
+javascript.util.HashMap.prototype.values = function() {
   var arrayList = new ArrayList();
   for (var key in this.object_) {
     if (this.object_.hasOwnProperty(key)) {
@@ -69,7 +68,7 @@ HashMap.prototype.values = function() {
  * @override
  * @export
  */
-HashMap.prototype.size = function() {
+javascript.util.HashMap.prototype.size = function() {
   return this.values().size();
 };
 

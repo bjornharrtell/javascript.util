@@ -13,13 +13,12 @@ goog.scope(function() {
 javascript.util.EmptyStackException = function(message) {
   this.message = message || '';
 };
-var EmptyStackException = javascript.util.EmptyStackException;
-goog.inherits(EmptyStackException, Error);
+goog.inherits(javascript.util.EmptyStackException, Error);
 
 
 /**
  * @type {string}
  */
-EmptyStackException.prototype.name = 'EmptyStackException';
+javascript.util.EmptyStackException.prototype.name = 'EmptyStackException';
 
 });  // goog.scope

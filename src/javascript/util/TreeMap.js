@@ -39,29 +39,28 @@ javascript.util.TreeMap = function() {
   this.root_ = null;
   this.size_ = 0;
 };
-var TreeMap = javascript.util.TreeMap;
-goog.inherits(TreeMap, SortedMap);
+goog.inherits(javascript.util.TreeMap, SortedMap);
 
 
 /**
  * @type {Object}
  * @private
  */
-TreeMap.prototype.root_;
+javascript.util.TreeMap.prototype.root_;
 
 
 /**
  * @type {number}
  * @private
  */
-TreeMap.prototype.size_;
+javascript.util.TreeMap.prototype.size_;
 
 
 /**
  * @override
  * @export
  */
-TreeMap.prototype.get = function(key) {
+javascript.util.TreeMap.prototype.get = function(key) {
   var p = this.root_;
   while (p !== null) {
     var cmp = key['compareTo'](p.key);
@@ -81,7 +80,7 @@ TreeMap.prototype.get = function(key) {
  * @override
  * @export
  */
-TreeMap.prototype.put = function(key, value) {
+javascript.util.TreeMap.prototype.put = function(key, value) {
   if (this.root_ === null) {
     this.root_ = {
       key: key,
@@ -130,7 +129,7 @@ TreeMap.prototype.put = function(key, value) {
 /**
  * @param {Object} x
  */
-TreeMap.prototype.fixAfterInsertion = function(x) {
+javascript.util.TreeMap.prototype.fixAfterInsertion = function(x) {
   x.color = RED;
   while (x != null && x != this.root_ && x.parent.color == RED) {
     if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
@@ -175,7 +174,7 @@ TreeMap.prototype.fixAfterInsertion = function(x) {
  * @override
  * @export
  */
-TreeMap.prototype.values = function() {
+javascript.util.TreeMap.prototype.values = function() {
   var arrayList = new ArrayList();
   var p = this.getFirstEntry();
   if (p !== null) {
@@ -191,7 +190,7 @@ TreeMap.prototype.values = function() {
 /**
  * @param {Object} p
  */
-TreeMap.prototype.rotateLeft = function(p) {
+javascript.util.TreeMap.prototype.rotateLeft = function(p) {
   if (p != null) {
     var r = p.right;
     p.right = r.left;
@@ -213,7 +212,7 @@ TreeMap.prototype.rotateLeft = function(p) {
 /**
  * @param {Object} p
  */
-TreeMap.prototype.rotateRight = function(p) {
+javascript.util.TreeMap.prototype.rotateRight = function(p) {
   if (p != null) {
     var l = p.left;
     p.left = l.right;
@@ -233,7 +232,7 @@ TreeMap.prototype.rotateRight = function(p) {
 /**
  * @return {Object}
  */
-TreeMap.prototype.getFirstEntry = function() {
+javascript.util.TreeMap.prototype.getFirstEntry = function() {
   var p = this.root_;
   if (p != null) {
     while (p.left != null) {
@@ -248,7 +247,7 @@ TreeMap.prototype.getFirstEntry = function() {
  * @param {Object} t
  * @return {Object}
  */
-TreeMap.successor = function(t) {
+javascript.util.TreeMap.successor = function(t) {
   if (t === null)
     return null;
   else if (t.right !== null) {
@@ -273,7 +272,7 @@ TreeMap.successor = function(t) {
  * @override
  * @export
  */
-TreeMap.prototype.size = function() {
+javascript.util.TreeMap.prototype.size = function() {
   return this.size_;
 };
 

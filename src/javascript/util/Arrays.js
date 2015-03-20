@@ -15,13 +15,11 @@ var ArrayList = javascript.util.ArrayList;
  * @export
  */
 javascript.util.Arrays = function() {};
-var Arrays = javascript.util.Arrays;
-
 
 /**
  * @export
  */
-Arrays.sort = function() {
+javascript.util.Arrays.sort = function() {
   var a = arguments[0], i, t, comparator, compare;
   if (arguments.length === 1) {
     a.sort();
@@ -63,7 +61,7 @@ Arrays.sort = function() {
  * @return {javascript.util.ArrayList}
  * @export
  */
-Arrays.asList = function(array) {
+javascript.util.Arrays.asList = function(array) {
   var arrayList = new ArrayList();
   for (var i = 0, len = array.length; i < len; i++) {
     arrayList.add(array[i]);

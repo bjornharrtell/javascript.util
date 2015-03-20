@@ -15,8 +15,6 @@ var Iterator = javascript.util.Iterator;
  * @export
  */
 javascript.util.Collection = function() {};
-var Collection = javascript.util.Collection;
-
 
 /**
  * Ensures that this collection contains the specified element (optional
@@ -24,7 +22,7 @@ var Collection = javascript.util.Collection;
  * @param {Object} e
  * @return {boolean}
  */
-Collection.prototype.add = goog.abstractMethod;
+javascript.util.Collection.prototype.add = goog.abstractMethod;
 
 
 /**
@@ -34,35 +32,35 @@ Collection.prototype.add = goog.abstractMethod;
  * @param {javascript.util.Collection} c
  * @return {boolean}
  */
-Collection.prototype.addAll = goog.abstractMethod;
+javascript.util.Collection.prototype.addAll = goog.abstractMethod;
 
 
 /**
  * Returns true if this collection contains no elements.
  * @return {boolean}
  */
-Collection.prototype.isEmpty = goog.abstractMethod;
+javascript.util.Collection.prototype.isEmpty = goog.abstractMethod;
 
 
 /**
  * Returns an iterator over the elements in this collection.
  * @return {javascript.util.Iterator}
  */
-Collection.prototype.iterator = goog.abstractMethod;
+javascript.util.Collection.prototype.iterator = goog.abstractMethod;
 
 
 /**
  * Returns an iterator over the elements in this collection.
  * @return {number}
  */
-Collection.prototype.size = goog.abstractMethod;
+javascript.util.Collection.prototype.size = goog.abstractMethod;
 
 
 /**
  * Returns an array containing all of the elements in this collection.
  * @return {Array}
  */
-Collection.prototype.toArray = goog.abstractMethod;
+javascript.util.javascript.util.Collection.prototype.toArray = goog.abstractMethod;
 
 
 /**
@@ -71,6 +69,6 @@ Collection.prototype.toArray = goog.abstractMethod;
  * @param {Object} e
  * @return {boolean}
  */
-Collection.prototype.remove = goog.abstractMethod;
+javascript.util.Collection.prototype.remove = goog.abstractMethod;
 
 });  // goog.scope

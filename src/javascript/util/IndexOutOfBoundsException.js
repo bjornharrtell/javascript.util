@@ -13,12 +13,11 @@ goog.scope(function() {
 javascript.util.IndexOutOfBoundsException = function(message) {
   this.message = message || '';
 };
-var IndexOutOfBoundsException = javascript.util.IndexOutOfBoundsException;
-goog.inherits(IndexOutOfBoundsException, Error);
+goog.inherits(javascript.util.IndexOutOfBoundsException, Error);
 
 
 /**
  * @type {string}
  */
-IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException';
+javascript.util.IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException';
 });  // goog.scope

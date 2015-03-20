@@ -28,22 +28,21 @@ javascript.util.HashSet = function() {
     this.addAll(arguments[0]);
   }
 };
-var HashSet = javascript.util.HashSet;
-goog.inherits(HashSet, Set);
+goog.inherits(javascript.util.HashSet, Set);
 
 
 /**
  * @type {Array}
  * @private
  */
-HashSet.prototype.array_ = null;
+javascript.util.HashSet.prototype.array_ = null;
 
 
 /**
  * @override
  * @export
  */
-HashSet.prototype.contains = function(o) {
+javascript.util.HashSet.prototype.contains = function(o) {
   for (var i = 0, len = this.array_.length; i < len; i++) {
     var e = this.array_[i];
     if (e === o) {
@@ -58,7 +57,7 @@ HashSet.prototype.contains = function(o) {
  * @override
  * @export
  */
-HashSet.prototype.add = function(o) {
+javascript.util.HashSet.prototype.add = function(o) {
   if (this.contains(o)) {
     return false;
   }
@@ -73,7 +72,7 @@ HashSet.prototype.add = function(o) {
  * @override
  * @export
  */
-HashSet.prototype.addAll = function(c) {
+javascript.util.HashSet.prototype.addAll = function(c) {
   for (var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
@@ -85,7 +84,7 @@ HashSet.prototype.addAll = function(c) {
  * @override
  * @export
  */
-HashSet.prototype.remove = function(o) {
+javascript.util.HashSet.prototype.remove = function(o) {
   throw new javascript.util.OperationNotSupported();
 };
 
@@ -94,7 +93,7 @@ HashSet.prototype.remove = function(o) {
  * @override
  * @export
  */
-HashSet.prototype.size = function() {
+javascript.util.HashSet.prototype.size = function() {
   return this.array_.length;
 };
 
@@ -103,7 +102,7 @@ HashSet.prototype.size = function() {
  * @override
  * @export
  */
-HashSet.prototype.isEmpty = function() {
+javascript.util.HashSet.prototype.isEmpty = function() {
   return this.array_.length === 0;
 };
 
@@ -112,7 +111,7 @@ HashSet.prototype.isEmpty = function() {
  * @override
  * @export
  */
-HashSet.prototype.toArray = function() {
+javascript.util.HashSet.prototype.toArray = function() {
   var array = [];
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -127,7 +126,7 @@ HashSet.prototype.toArray = function() {
  * @override
  * @export
  */
-HashSet.prototype.iterator = function() {
+javascript.util.HashSet.prototype.iterator = function() {
   return new Iterator_(this);
 };
 

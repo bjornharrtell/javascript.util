@@ -12,12 +12,11 @@ goog.scope(function() {
 javascript.util.OperationNotSupported = function(message) {
   this.message = message || '';
 };
-var OperationNotSupported = javascript.util.OperationNotSupported;
-goog.inherits(OperationNotSupported, Error);
+goog.inherits(javascript.util.OperationNotSupported, Error);
 
 
 /**
  * @type {string}
  */
-OperationNotSupported.prototype.name = 'OperationNotSupported';
+javascript.util.OperationNotSupported.prototype.name = 'OperationNotSupported';
 });  // goog.scope

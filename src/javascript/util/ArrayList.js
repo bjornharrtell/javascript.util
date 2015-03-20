@@ -19,7 +19,7 @@ var OperationNotSupported = javascript.util.OperationNotSupported;
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/ArrayList.html
  *
- * @extends {javascript.util.List}
+ * @extends javascript.util.List
  * @constructor
  * @export
  */
@@ -52,7 +52,6 @@ ArrayList.prototype.add = function(e) {
 
 
 /**
- * @inheritDoc
  * @override
  * @export
  */

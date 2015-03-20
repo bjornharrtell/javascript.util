@@ -1,8 +1,5 @@
 goog.provide('javascript.util.Iterator');
 
-goog.scope(function() {
-
-
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Iterator.html
@@ -10,7 +7,6 @@ goog.scope(function() {
  * @export
  */
 javascript.util.Iterator = function() {};
-var Iterator = javascript.util.Iterator;
 
 
 /**
@@ -18,7 +14,7 @@ var Iterator = javascript.util.Iterator;
  * @return {boolean}
  * @export
  */
-Iterator.prototype.hasNext = goog.abstractMethod;
+javascript.util.Iterator.prototype.hasNext = goog.abstractMethod;
 
 
 /**
@@ -26,7 +22,7 @@ Iterator.prototype.hasNext = goog.abstractMethod;
  * @return {Object}
  * @export
  */
-Iterator.prototype.next = goog.abstractMethod;
+javascript.util.Iterator.prototype.next = goog.abstractMethod;
 
 
 /**
@@ -34,6 +30,4 @@ Iterator.prototype.next = goog.abstractMethod;
  * iterator (optional operation).
  * @export
  */
-Iterator.prototype.remove = goog.abstractMethod;
-
-});  // goog.scope
+javascript.util.Iterator.prototype.remove = goog.abstractMethod;

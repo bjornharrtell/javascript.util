@@ -20,15 +20,14 @@ var List = javascript.util.List;
 javascript.util.Stack = function() {
   this.array_ = [];
 };
-var Stack = javascript.util.Stack;
-goog.inherits(Stack, List);
+goog.inherits(javascript.util.Stack, List);
 
 
 /**
  * @type {Array}
  * @private
  */
-Stack.prototype.array_ = null;
+javascript.util.Stack.prototype.array_ = null;
 
 
 /**
@@ -37,7 +36,7 @@ Stack.prototype.array_ = null;
  * @return {Object}
  * @export
  */
-Stack.prototype.push = function(e) {
+javascript.util.Stack.prototype.push = function(e) {
   this.array_.push(e);
   return e;
 };
@@ -49,7 +48,7 @@ Stack.prototype.push = function(e) {
  * @return {Object}
  * @export
  */
-Stack.prototype.pop = function(e) {
+javascript.util.Stack.prototype.pop = function(e) {
   if (this.array_.length === 0) {
     throw new EmptyStackException();
   }
@@ -64,7 +63,7 @@ Stack.prototype.pop = function(e) {
  * @return {Object}
  * @export
  */
-Stack.prototype.peek = function() {
+javascript.util.Stack.prototype.peek = function() {
   if (this.array_.length === 0) {
     throw new EmptyStackException();
   }
@@ -79,7 +78,7 @@ Stack.prototype.peek = function() {
  *         otherwise.
  * @export
  */
-Stack.prototype.empty = function() {
+javascript.util.Stack.prototype.empty = function() {
   if (this.array_.length === 0) {
     return true;
   } else {
@@ -92,7 +91,7 @@ Stack.prototype.empty = function() {
  * @return {boolean}
  * @export
  */
-Stack.prototype.isEmpty = function() {
+javascript.util.Stack.prototype.isEmpty = function() {
   return this.empty();
 };
 
@@ -112,7 +111,7 @@ Stack.prototype.isEmpty = function() {
  *         not on the stack.
  * @export
  */
-Stack.prototype.search = function(o) {
+javascript.util.Stack.prototype.search = function(o) {
   return this.array_.indexOf(o);
 };
 
@@ -121,7 +120,7 @@ Stack.prototype.search = function(o) {
  * @return {number}
  * @export
  */
-Stack.prototype.size = function() {
+javascript.util.Stack.prototype.size = function() {
   return this.array_.length;
 };
 
@@ -130,7 +129,7 @@ Stack.prototype.size = function() {
  * @return {Array}
  * @export
  */
-Stack.prototype.toArray = function() {
+javascript.util.Stack.prototype.toArray = function() {
   var array = [];
 
   for (var i = 0, len = this.array_.length; i < len; i++) {

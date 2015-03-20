@@ -24,7 +24,7 @@
     "grunt-contrib-concat": "0.5.1",
     "grunt-gjslint": "0.1.6",
     "mocha": "2.2.1",
-    "grunt-jsdoc": "0.5.8",
+    "grunt-jsdoc": "beta",
     "grunt-gh-pages": "0.10.0"
   },
   "main": "index.js",

@@ -2,11 +2,6 @@ goog.provide('javascript.util.SortedMap');
 
 goog.require('javascript.util.Map');
 
-goog.scope(function() {
-
-var Map = javascript.util.Map;
-
-
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/SortedMap.html
@@ -16,7 +11,4 @@ var Map = javascript.util.Map;
  * @export
  */
 javascript.util.SortedMap = function() {};
-var SortedMap = javascript.util.SortedMap;
-goog.inherits(SortedMap, Map);
-
-});  // goog.scope
+goog.inherits(javascript.util.SortedMap, javascript.util.Map);

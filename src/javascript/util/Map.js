@@ -1,8 +1,5 @@
 goog.provide('javascript.util.Map');
 
-goog.scope(function() {
-
-
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Map.html
@@ -11,7 +8,6 @@ goog.scope(function() {
  * @export
  */
 javascript.util.Map = function() {};
-var Map = javascript.util.Map;
 
 
 /**
@@ -20,7 +16,7 @@ var Map = javascript.util.Map;
  * @param {Object} key
  * @return {Object}
  */
-Map.prototype.get = goog.abstractMethod;
+javascript.util.Map.prototype.get = goog.abstractMethod;
 
 
 /**
@@ -30,20 +26,19 @@ Map.prototype.get = goog.abstractMethod;
  * @param {Object} value
  * @return {Object}
  */
-Map.prototype.put = goog.abstractMethod;
+javascript.util.Map.prototype.put = goog.abstractMethod;
 
 
 /**
  * Returns the number of key-value mappings in this map.
  * @return {number}
  */
-Map.prototype.size = goog.abstractMethod;
+javascript.util.Map.prototype.size = goog.abstractMethod;
 
 
 /**
  * Returns a Collection view of the values contained in this map.
  * @return {javascript.util.Collection}
  */
-Map.prototype.values = goog.abstractMethod;
+javascript.util.Map.prototype.values = goog.abstractMethod;
 
-});  // goog.scope

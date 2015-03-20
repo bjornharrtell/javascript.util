@@ -13,12 +13,11 @@ goog.scope(function() {
 javascript.util.NoSuchElementException = function(message) {
   this.message = message || '';
 };
-var NoSuchElementException = javascript.util.NoSuchElementException;
-goog.inherits(NoSuchElementException, Error);
+goog.inherits(javascript.util.NoSuchElementException, Error);
 
 
 /**
  * @type {string}
  */
-NoSuchElementException.prototype.name = 'NoSuchElementException';
+javascript.util.NoSuchElementException.prototype.name = 'NoSuchElementException';
 });  // goog.scope

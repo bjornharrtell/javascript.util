@@ -2,11 +2,6 @@ goog.provide('javascript.util.Set');
 
 goog.require('javascript.util.Collection');
 
-goog.scope(function() {
-
-var Collection = javascript.util.Collection;
-
-
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Set.html
@@ -16,8 +11,7 @@ var Collection = javascript.util.Collection;
  * @export
  */
 javascript.util.Set = function() {};
-var Set = javascript.util.Set;
-goog.inherits(Set, Collection);
+goog.inherits(javascript.util.Set, javascript.util.Collection);
 
 
 /**
@@ -27,6 +21,4 @@ goog.inherits(Set, Collection);
  * @param {Object} e
  * @return {boolean}
  */
-Set.prototype.contains = goog.abstractMethod;
-
-});  // goog.scope
+javascript.util.Set.prototype.contains = goog.abstractMethod;

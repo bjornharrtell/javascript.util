@@ -28,22 +28,21 @@ javascript.util.TreeSet = function() {
     this.addAll(arguments[0]);
   }
 };
-var TreeSet = javascript.util.TreeSet;
-goog.inherits(TreeSet, SortedSet);
+goog.inherits(javascript.util.TreeSet, SortedSet);
 
 
 /**
  * @type {Array}
  * @private
  */
-TreeSet.prototype.array_ = null;
+javascript.util.TreeSet.prototype.array_ = null;
 
 
 /**
  * @override
  * @export
  */
-TreeSet.prototype.contains = function(o) {
+javascript.util.TreeSet.prototype.contains = function(o) {
   for (var i = 0, len = this.array_.length; i < len; i++) {
     var e = this.array_[i];
     if (e['compareTo'](o) === 0) {
@@ -58,7 +57,7 @@ TreeSet.prototype.contains = function(o) {
  * @override
  * @export
  */
-TreeSet.prototype.add = function(o) {
+javascript.util.TreeSet.prototype.add = function(o) {
   if (this.contains(o)) {
     return false;
   }
@@ -81,7 +80,7 @@ TreeSet.prototype.add = function(o) {
  * @override
  * @export
  */
-TreeSet.prototype.addAll = function(c) {
+javascript.util.TreeSet.prototype.addAll = function(c) {
   for (var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
@@ -102,7 +101,7 @@ javascript.util.TreeSet.prototype.remove = function(e) {
  * @override
  * @export
  */
-TreeSet.prototype.size = function() {
+javascript.util.TreeSet.prototype.size = function() {
   return this.array_.length;
 };
 
@@ -111,7 +110,7 @@ TreeSet.prototype.size = function() {
  * @override
  * @export
  */
-TreeSet.prototype.isEmpty = function() {
+javascript.util.TreeSet.prototype.isEmpty = function() {
   return this.array_.length === 0;
 };
 
@@ -120,7 +119,7 @@ TreeSet.prototype.isEmpty = function() {
  * @override
  * @export
  */
-TreeSet.prototype.toArray = function() {
+javascript.util.TreeSet.prototype.toArray = function() {
   var array = [];
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -135,7 +134,7 @@ TreeSet.prototype.toArray = function() {
  * @override
  * @export
  */
-TreeSet.prototype.iterator = function() {
+javascript.util.TreeSet.prototype.iterator = function() {
   return new Iterator_(this);
 };
 
