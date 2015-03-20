@@ -60,7 +60,7 @@ javascript.util.Collection.prototype.size = goog.abstractMethod;
  * Returns an array containing all of the elements in this collection.
  * @return {Array}
  */
-javascript.util.javascript.util.Collection.prototype.toArray = goog.abstractMethod;
+javascript.util.Collection.prototype.toArray = goog.abstractMethod;
 
 
 /**

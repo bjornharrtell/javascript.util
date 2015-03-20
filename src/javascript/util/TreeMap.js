@@ -179,7 +179,7 @@ javascript.util.TreeMap.prototype.values = function() {
   var p = this.getFirstEntry();
   if (p !== null) {
     arrayList.add(p.value);
-    while ((p = TreeMap.successor(p)) !== null) {
+    while ((p = javascript.util.TreeMap.successor(p)) !== null) {
       arrayList.add(p.value);
     }
   }

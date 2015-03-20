@@ -7,14 +7,13 @@ javascript.util can be used in browsers or as a Node JS module.
 
 [![Build Status](https://travis-ci.org/bjornharrtell/javascript.util.svg)](https://travis-ci.org/bjornharrtell/javascript.util)
 
-* TODO: describe "selected parts"
-* TODO: generate API docs
+[API docs](http://bjornharrtell.github.io/javascript.util/doc)
 
 ## Usage
 
 ### Browsers
 
-Simply include [javascript.util.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.5/javascript.util.min.js) in your page.
+Simply include [javascript.util.min.js](https://github.com/bjornharrtell/javascript.util/releases/download/0.12.5/javascript.util.min.js) on your page.
 
 ### Node JS
 
