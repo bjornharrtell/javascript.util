@@ -92,6 +92,7 @@ HashSet.prototype.remove = function(o) {
 
 /**
  * @override
+ * @export
  */
 HashSet.prototype.size = function() {
   return this.array_.length;

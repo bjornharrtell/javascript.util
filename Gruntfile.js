@@ -15,12 +15,49 @@ module.exports = function(grunt) {
                 src: ['src/**/*.js']
             }
         },
+        
+        jsdoc: {
+		    dist : {
+			    src: ['src/javascript'], 
+			    options: {
+			        configure: 'doc/conf.json',
+				    destination: 'dist/doc'
+			    }
+		    }
+	    },
 
         closureCompiler: {
             options: {
                 compilerFile: 'bower_components/closure-compiler/compiler.jar',
                 compilerOpts: {
                     compilation_level: 'ADVANCED',
+                    charset: 'UTF-8',
+                    generate_exports: true,
+                    manage_closure_dependencies: true,
+                    only_closure_dependencies: true,
+                    use_types_for_optimization: null,
+                    //warning_level: 'VERBOSE',
+                    //jscomp_off: ['visibility'],
+                    closure_entry_point: [
+                        'javascript.util.ArrayList',
+                        'javascript.util.Arrays',
+                        'javascript.util.Collection',
+                        'javascript.util.EmptyStackException',
+                        'javascript.util.HashMap',
+                        'javascript.util.HashSet',
+                        'javascript.util.IndexOutOfBoundsException',
+                        'javascript.util.Iterator',
+                        'javascript.util.List',
+                        'javascript.util.Map',
+                        'javascript.util.NoSuchElementException',
+                        'javascript.util.OperationNotSupported',
+                        'javascript.util.Set',
+                        'javascript.util.SortedMap',
+                        'javascript.util.SortedSet',
+                        'javascript.util.Stack',
+                        'javascript.util.TreeMap',
+                        'javascript.util.TreeSet'
+                    ],
                     output_wrapper: '"(function(){%output%}).call(this);"'
                 },
                 execOpts: {
@@ -29,14 +66,22 @@ module.exports = function(grunt) {
                 TieredCompilation: true
             },
             browser: {
-                src: ['src/javascript'],
+                src: [
+                    'src/javascript',
+                    'bower_components/closure-library/closure/goog/base.js',
+                ],
                 dest: 'build/javascript.util.js'
             },
             node: {
                 TEMPcompilerOpts: {
                     only_closure_dependencies: false,
+                    jscomp_off: ['undefinedNames', 'undefinedVars']
                 },
-                src: ['src/javascript', 'src/node.js' ],
+                src: [
+                    'src',
+                    'bower_components/closure-library/closure/goog/base.js',
+                    'src/node.js'
+                ],
                 dest: 'build/javascript.util-node.js'
             }
         },
@@ -63,14 +108,24 @@ module.exports = function(grunt) {
                 },
                 dest: 'deps.js'
             }
-        }
+        },
+        
+        'gh-pages': {
+            options: {
+                base: 'dist'
+            },
+            src: ['**']
+        },
         
     });
 
     grunt.loadNpmTasks('grunt-closure-tools');
     grunt.loadNpmTasks('grunt-gjslint');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-jsdoc');
+    grunt.loadNpmTasks('grunt-gh-pages');
 
     grunt.registerTask('default', ['gjslint', 'closureDepsWriter']);
-    grunt.registerTask('dist', ['default', 'closureCompiler', 'concat']);
+    grunt.registerTask('dist', ['default', 'closureCompiler', 'concat', 'jsdoc']);
+    grunt.registerTask('publish', ['dist', 'gh-pages']);
 }

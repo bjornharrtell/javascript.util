@@ -52,6 +52,7 @@ ArrayList.prototype.add = function(e) {
 
 
 /**
+ * @inheritDoc
  * @override
  * @export
  */
