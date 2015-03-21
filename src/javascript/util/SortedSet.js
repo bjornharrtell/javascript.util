@@ -12,4 +12,3 @@ goog.require('javascript.util.Set');
  */
 javascript.util.SortedSet = function() {};
 goog.inherits(javascript.util.SortedSet, javascript.util.Set);
-

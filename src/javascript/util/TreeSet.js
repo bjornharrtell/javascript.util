@@ -1,6 +1,7 @@
 goog.provide('javascript.util.TreeSet');
 
 goog.require('javascript.util.Collection');
+goog.require('javascript.util.Iterator');
 goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
 goog.require('javascript.util.SortedSet');
@@ -10,7 +11,6 @@ goog.scope(function() {
 var Collection = javascript.util.Collection;
 var NoSuchElementException = javascript.util.NoSuchElementException;
 var OperationNotSupported = javascript.util.OperationNotSupported;
-var SortedSet = javascript.util.SortedSet;
 
 
 
@@ -22,20 +22,17 @@ var SortedSet = javascript.util.SortedSet;
  * @export
  */
 javascript.util.TreeSet = function() {
+  /**
+   * @type {Array}
+   * @private
+  */
   this.array_ = [];
 
   if (arguments[0] instanceof Collection) {
     this.addAll(arguments[0]);
   }
 };
-goog.inherits(javascript.util.TreeSet, SortedSet);
-
-
-/**
- * @type {Array}
- * @private
- */
-javascript.util.TreeSet.prototype.array_ = null;
+goog.inherits(javascript.util.TreeSet, javascript.util.SortedSet);
 
 
 /**
@@ -148,22 +145,17 @@ javascript.util.TreeSet.prototype.iterator = function() {
  * @export
  */
 var Iterator_ = function(treeSet) {
+  /**
+   * @type {javascript.util.TreeSet}
+   * @private
+   */
   this.treeSet_ = treeSet;
+  /**
+   * @type {number}
+   * @private
+   */
+  this.position_ = 0;
 };
-
-
-/**
- * @type {javascript.util.TreeSet}
- * @private
- */
-Iterator_.prototype.treeSet_ = null;
-
-
-/**
- * @type {number}
- * @private
- */
-Iterator_.prototype.position_ = 0;
 
 
 /**

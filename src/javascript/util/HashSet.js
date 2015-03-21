@@ -1,6 +1,7 @@
 goog.provide('javascript.util.HashSet');
 
 goog.require('javascript.util.Collection');
+goog.require('javascript.util.Iterator');
 goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
 goog.require('javascript.util.Set');
@@ -22,20 +23,17 @@ var Set = javascript.util.Set;
  * @export
  */
 javascript.util.HashSet = function() {
+  /**
+   * @type {Array}
+   * @private
+  */
   this.array_ = [];
 
   if (arguments[0] instanceof Collection) {
     this.addAll(arguments[0]);
   }
 };
-goog.inherits(javascript.util.HashSet, Set);
-
-
-/**
- * @type {Array}
- * @private
- */
-javascript.util.HashSet.prototype.array_ = null;
+goog.inherits(javascript.util.HashSet, javascript.util.Set);
 
 
 /**
@@ -140,22 +138,17 @@ javascript.util.HashSet.prototype.iterator = function() {
  * @export
  */
 var Iterator_ = function(hashSet) {
+  /**
+   * @type {javascript.util.HashSet}
+   * @private
+   */
   this.hashSet_ = hashSet;
+  /**
+   * @type {number}
+   * @private
+   */
+  this.position_ = 0;
 };
-
-
-/**
- * @type {javascript.util.HashSet}
- * @private
- */
-Iterator_.prototype.hashSet_ = null;
-
-
-/**
- * @type {number}
- * @private
- */
-Iterator_.prototype.position_ = 0;
 
 
 /**

@@ -1,8 +1,5 @@
 goog.provide('javascript.util.EmptyStackException');
 
-goog.scope(function() {
-
-
 
 /**
  * @param {string=} message Optional message
@@ -20,5 +17,3 @@ goog.inherits(javascript.util.EmptyStackException, Error);
  * @type {string}
  */
 javascript.util.EmptyStackException.prototype.name = 'EmptyStackException';
-
-});  // goog.scope

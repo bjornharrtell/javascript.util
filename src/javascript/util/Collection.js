@@ -2,11 +2,6 @@ goog.provide('javascript.util.Collection');
 
 goog.require('javascript.util.Iterator');
 
-goog.scope(function() {
-
-var Iterator = javascript.util.Iterator;
-
-
 
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/Collection.html
@@ -70,5 +65,3 @@ javascript.util.Collection.prototype.toArray = goog.abstractMethod;
  * @return {boolean}
  */
 javascript.util.Collection.prototype.remove = goog.abstractMethod;
-
-});  // goog.scope

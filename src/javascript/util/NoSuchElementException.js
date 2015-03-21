@@ -1,8 +1,5 @@
 goog.provide('javascript.util.NoSuchElementException');
 
-goog.scope(function() {
-
-
 
 /**
  * @param {string=} message Optional message
@@ -20,4 +17,3 @@ goog.inherits(javascript.util.NoSuchElementException, Error);
  * @type {string}
  */
 javascript.util.NoSuchElementException.prototype.name = 'NoSuchElementException';
-});  // goog.scope

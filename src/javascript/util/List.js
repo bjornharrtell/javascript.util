@@ -7,7 +7,7 @@ goog.require('javascript.util.Collection');
 /**
  * @see http://download.oracle.com/javase/6/docs/api/java/util/List.html
  *
- * @extends javascript.util.Collection
+ * @extends {javascript.util.Collection}
  * @constructor
  * @export
  */
@@ -38,4 +38,3 @@ javascript.util.List.prototype.set = goog.abstractMethod;
  * @return {boolean}
  */
 javascript.util.List.prototype.isEmpty = goog.abstractMethod;
-

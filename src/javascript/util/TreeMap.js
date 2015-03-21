@@ -6,17 +6,16 @@ goog.require('javascript.util.SortedMap');
 goog.scope(function() {
 
 var ArrayList = javascript.util.ArrayList;
-var SortedMap = javascript.util.SortedMap;
 
 
 /**
- * @type {number}
+ * @const @type {number}
  */
 var BLACK = 0;
 
 
 /**
- * @type {number}
+ * @const @type {number}
  */
 var RED = 1;
 
@@ -36,24 +35,18 @@ var rightOf = function(p) { return (p == null ? null : p.right); };
  * @export
  */
 javascript.util.TreeMap = function() {
+  /**
+   * @type {Object}
+   * @private
+   */
   this.root_ = null;
+  /**
+   * @type {number}
+   * @private
+  */
   this.size_ = 0;
 };
-goog.inherits(javascript.util.TreeMap, SortedMap);
-
-
-/**
- * @type {Object}
- * @private
- */
-javascript.util.TreeMap.prototype.root_;
-
-
-/**
- * @type {number}
- * @private
- */
-javascript.util.TreeMap.prototype.size_;
+goog.inherits(javascript.util.TreeMap, javascript.util.SortedMap);
 
 
 /**

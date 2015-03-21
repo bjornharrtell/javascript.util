@@ -6,7 +6,6 @@ goog.require('javascript.util.Map');
 goog.scope(function() {
 
 var ArrayList = javascript.util.ArrayList;
-var Map = javascript.util.Map;
 
 
 
@@ -18,16 +17,13 @@ var Map = javascript.util.Map;
  * @export
  */
 javascript.util.HashMap = function() {
+  /**
+   * @type {Object}
+   * @private
+  */
   this.object_ = {};
 };
-goog.inherits(javascript.util.HashMap, Map);
-
-
-/**
- * @type {Object}
- * @private
- */
-javascript.util.HashMap.prototype.object_ = null;
+goog.inherits(javascript.util.HashMap, javascript.util.Map);
 
 
 /**

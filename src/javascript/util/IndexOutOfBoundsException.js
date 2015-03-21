@@ -1,8 +1,5 @@
 goog.provide('javascript.util.IndexOutOfBoundsException');
 
-goog.scope(function() {
-
-
 
 /**
  * @param {string=} message Optional message
@@ -20,4 +17,3 @@ goog.inherits(javascript.util.IndexOutOfBoundsException, Error);
  * @type {string}
  */
 javascript.util.IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException';
-});  // goog.scope

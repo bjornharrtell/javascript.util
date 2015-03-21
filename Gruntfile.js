@@ -36,34 +36,54 @@ module.exports = function(grunt) {
                     manage_closure_dependencies: true,
                     only_closure_dependencies: true,
                     use_types_for_optimization: null,
-                    //warning_level: 'VERBOSE',
-                    //jscomp_off: ['visibility'],
+                    summary_detail_level: 3,
+                    "jscomp_error": [
+                      "accessControls",
+                      "ambiguousFunctionDecl",
+                      "checkEventfulObjectDisposal",
+                      "checkRegExp",
+                      "checkStructDictInheritance",
+                      "checkTypes",
+                      "checkVars",
+                      "const",
+                      "constantProperty",
+                      "deprecated",
+                      "duplicateMessage",
+                      "es3",
+                      "es5Strict",
+                      "externsValidation",
+                      "fileoverviewTags",
+                      "globalThis",
+                      "internetExplorerChecks",
+                      "invalidCasts",
+                      "misplacedTypeAnnotation",
+                      "missingGetCssName",
+                      "missingProperties",
+                      "missingProvide",
+                      "missingRequire",
+                      "missingReturn",
+                      "newCheckTypes",
+                      "nonStandardJsDocs",
+                      "suspiciousCode",
+                      "strictModuleDepCheck",
+                      "typeInvalidation",
+                      "undefinedNames",
+                      "undefinedVars",
+                      "unknownDefines",
+                      "uselessCode",
+                      "visibility"
+                    ],
                     closure_entry_point: [
                         'javascript.util.ArrayList',
                         'javascript.util.Arrays',
-                        'javascript.util.Collection',
-                        'javascript.util.EmptyStackException',
                         'javascript.util.HashMap',
                         'javascript.util.HashSet',
-                        'javascript.util.IndexOutOfBoundsException',
-                        'javascript.util.Iterator',
-                        'javascript.util.List',
-                        'javascript.util.Map',
-                        'javascript.util.NoSuchElementException',
-                        'javascript.util.OperationNotSupported',
-                        'javascript.util.Set',
-                        'javascript.util.SortedMap',
-                        'javascript.util.SortedSet',
                         'javascript.util.Stack',
                         'javascript.util.TreeMap',
                         'javascript.util.TreeSet'
                     ],
-                    output_wrapper: '"(function(){%output%}).call(this);"'
-                },
-                execOpts: {
-                    maxBuffer: 999999 * 1024
-                },
-                TieredCompilation: true
+                    output_wrapper: '"(function(){%output%})();"'
+                }
             },
             browser: {
                 src: [
@@ -87,9 +107,6 @@ module.exports = function(grunt) {
         },
 
         concat: {
-            options: {
-                separator: ';',
-            },
             browser: {
                 src: ['license-notice.txt', 'build/javascript.util.js'],
                 dest: 'dist/javascript.util.min.js',

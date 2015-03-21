@@ -6,8 +6,6 @@ goog.require('javascript.util.List');
 goog.scope(function() {
 
 var EmptyStackException = javascript.util.EmptyStackException;
-var List = javascript.util.List;
-
 
 
 /**
@@ -18,16 +16,13 @@ var List = javascript.util.List;
  * @export
  */
 javascript.util.Stack = function() {
+  /**
+   * @type {Array}
+   * @private
+   */
   this.array_ = [];
 };
-goog.inherits(javascript.util.Stack, List);
-
-
-/**
- * @type {Array}
- * @private
- */
-javascript.util.Stack.prototype.array_ = null;
+goog.inherits(javascript.util.Stack, javascript.util.List);
 
 
 /**
@@ -138,5 +133,6 @@ javascript.util.Stack.prototype.toArray = function() {
 
   return array;
 };
+
 
 });  // goog.scope

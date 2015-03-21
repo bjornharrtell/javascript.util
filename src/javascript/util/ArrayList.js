@@ -2,6 +2,7 @@ goog.provide('javascript.util.ArrayList');
 
 goog.require('javascript.util.Collection');
 goog.require('javascript.util.IndexOutOfBoundsException');
+goog.require('javascript.util.Iterator');
 goog.require('javascript.util.List');
 goog.require('javascript.util.NoSuchElementException');
 goog.require('javascript.util.OperationNotSupported');
@@ -10,7 +11,6 @@ goog.scope(function() {
 
 var Collection = javascript.util.Collection;
 var IndexOutOfBoundsException = javascript.util.IndexOutOfBoundsException;
-var List = javascript.util.List;
 var NoSuchElementException = javascript.util.NoSuchElementException;
 var OperationNotSupported = javascript.util.OperationNotSupported;
 
@@ -24,28 +24,24 @@ var OperationNotSupported = javascript.util.OperationNotSupported;
  * @export
  */
 javascript.util.ArrayList = function() {
+  /**
+   * @type {Array}
+   * @private
+  */
   this.array_ = [];
 
   if (arguments[0] instanceof Collection) {
     this.addAll(arguments[0]);
   }
 };
-var ArrayList = javascript.util.ArrayList;
-goog.inherits(ArrayList, List);
-
-
-/**
- * @type {Array}
- * @private
- */
-ArrayList.prototype.array_ = null;
+goog.inherits(javascript.util.ArrayList, javascript.util.List);
 
 
 /**
  * @override
  * @export
  */
-ArrayList.prototype.add = function(e) {
+javascript.util.ArrayList.prototype.add = function(e) {
   this.array_.push(e);
   return true;
 };
@@ -55,7 +51,7 @@ ArrayList.prototype.add = function(e) {
  * @override
  * @export
  */
-ArrayList.prototype.addAll = function(c) {
+javascript.util.ArrayList.prototype.addAll = function(c) {
   for (var i = c.iterator(); i.hasNext();) {
     this.add(i.next());
   }
@@ -67,7 +63,7 @@ ArrayList.prototype.addAll = function(c) {
  * @override
  * @export
  */
-ArrayList.prototype.set = function(index, element) {
+javascript.util.ArrayList.prototype.set = function(index, element) {
   var oldElement = this.array_[index];
   this.array_[index] = element;
   return oldElement;
@@ -78,7 +74,7 @@ ArrayList.prototype.set = function(index, element) {
  * @override
  * @export
  */
-ArrayList.prototype.iterator = function() {
+javascript.util.ArrayList.prototype.iterator = function() {
   return new Iterator_(this);
 };
 
@@ -87,7 +83,7 @@ ArrayList.prototype.iterator = function() {
  * @override
  * @export
  */
-ArrayList.prototype.get = function(index) {
+javascript.util.ArrayList.prototype.get = function(index) {
   if (index < 0 || index >= this.size()) {
     throw new IndexOutOfBoundsException();
   }
@@ -100,7 +96,7 @@ ArrayList.prototype.get = function(index) {
  * @override
  * @export
  */
-ArrayList.prototype.isEmpty = function() {
+javascript.util.ArrayList.prototype.isEmpty = function() {
   return this.array_.length === 0;
 };
 
@@ -109,7 +105,7 @@ ArrayList.prototype.isEmpty = function() {
  * @override
  * @export
  */
-ArrayList.prototype.size = function() {
+javascript.util.ArrayList.prototype.size = function() {
   return this.array_.length;
 };
 
@@ -118,7 +114,7 @@ ArrayList.prototype.size = function() {
  * @override
  * @export
  */
-ArrayList.prototype.toArray = function() {
+javascript.util.ArrayList.prototype.toArray = function() {
   var array = [];
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -133,7 +129,7 @@ ArrayList.prototype.toArray = function() {
  * @override
  * @export
  */
-ArrayList.prototype.remove = function(o) {
+javascript.util.ArrayList.prototype.remove = function(o) {
   var found = false;
 
   for (var i = 0, len = this.array_.length; i < len; i++) {
@@ -151,29 +147,23 @@ ArrayList.prototype.remove = function(o) {
 
 /**
  * @extends {javascript.util.Iterator}
- * @param {javascript.util.ArrayList}
- *          arrayList
+ * @param {javascript.util.ArrayList} arrayList
  * @constructor
  * @private
  * @export
  */
 var Iterator_ = function(arrayList) {
+  /**
+   * @type {javascript.util.ArrayList}
+   * @private
+  */
   this.arrayList_ = arrayList;
+  /**
+   * @type {number}
+   * @private
+  */
+  this.position_ = 0;
 };
-
-
-/**
- * @type {javascript.util.ArrayList}
- * @private
- */
-Iterator_.prototype.arrayList_ = null;
-
-
-/**
- * @type {number}
- * @private
- */
-Iterator_.prototype.position_ = 0;
 
 
 /**
