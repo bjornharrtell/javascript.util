@@ -2,6 +2,14 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        bower: {
+            install: {
+                options: {
+                    copy: false
+                }
+            }
+        },
+        
         gjslint: {
             options: {
                 flags: [
@@ -120,13 +128,14 @@ module.exports = function(grunt) {
         
     });
 
+    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-closure-tools');
     grunt.loadNpmTasks('grunt-gjslint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-gh-pages');
 
-    grunt.registerTask('default', ['closureDepsWriter']);
+    grunt.registerTask('default', ['bower', 'closureDepsWriter']);
     grunt.registerTask('dist', ['default', 'gjslint', 'closureCompiler', 'concat', 'jsdoc']);
     grunt.registerTask('publish', ['dist', 'gh-pages']);
 }
