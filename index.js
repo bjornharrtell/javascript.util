@@ -1,1 +1,1 @@
-require('./dist/javascript.util-node.min.js');
+require('./src/javascript.util.js');

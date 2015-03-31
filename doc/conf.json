@@ -1,7 +1,7 @@
 {
     "opts": {
         "recurse": true,
-        "template": "bower_components/jaguarjs-jsdoc"
+        "template": "node_modules/jaguarjs-jsdoc"
     },
     "tags": {
         "allowUnknownTags": true

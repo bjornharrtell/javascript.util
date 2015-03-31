@@ -1,8 +1,6 @@
 {
     "name": "javascript.util",
     "devDependencies": {
-        "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip",
-        "closure-library": "google/closure-library#master",
-        "jaguarjs-jsdoc": "davidshimjs/jaguarjs-jsdoc"
+        "closure-compiler": "http://dl.google.com/closure-compiler/compiler-20150315.tar.gz"
     }
 }

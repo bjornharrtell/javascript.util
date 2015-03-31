@@ -1,4 +1,4 @@
-require('../bower_components/closure-library/closure/goog/bootstrap/nodejs');
+require('closure-library/closure/goog/bootstrap/nodejs');
 require('../deps.js');
 
 goog.require('javascript.util.ArrayList');

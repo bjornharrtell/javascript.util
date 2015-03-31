@@ -88,21 +88,9 @@ module.exports = function(grunt) {
             browser: {
                 src: [
                     'src/javascript',
-                    'bower_components/closure-library/closure/goog/base.js',
+                    'node_modules/closure-library/closure/goog/base.js',
                 ],
                 dest: 'build/javascript.util.js'
-            },
-            node: {
-                TEMPcompilerOpts: {
-                    only_closure_dependencies: false,
-                    jscomp_off: ['undefinedNames', 'undefinedVars']
-                },
-                src: [
-                    'src',
-                    'bower_components/closure-library/closure/goog/base.js',
-                    'src/node.js'
-                ],
-                dest: 'build/javascript.util-node.js'
             }
         },
 
@@ -110,17 +98,13 @@ module.exports = function(grunt) {
             browser: {
                 src: ['license-notice.txt', 'build/javascript.util.js'],
                 dest: 'dist/javascript.util.min.js',
-            },
-            node: {
-                src: ['license-notice.txt', 'build/javascript.util-node.js'],
-                dest: 'dist/javascript.util-node.min.js',
             }
         },
 
         closureDepsWriter: {
             main: {
                 options: {
-                    closureLibraryPath: 'bower_components/closure-library',
+                    closureLibraryPath: 'node_modules/closure-library',
                     root_with_prefix: '"src ../../../../src"',
                 },
                 dest: 'deps.js'

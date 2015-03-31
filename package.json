@@ -1,7 +1,7 @@
 {
   "name": "javascript.util",
   "description": "javascript.util is a port of selected parts of java.util to JavaScript",
-  "version": "0.12.7",
+  "version": "0.12.8",
   "author": "Björn Harrtell <bjorn@wololo.org>",
   "keywords": [
     "java",
@@ -16,20 +16,26 @@
     }
   ],
   "devDependencies": {
-    "bower": "1.3.12",
-    "chai": "2.1.2",
-    "grunt": "0.4.5",
-    "grunt-bower-task": "0.4.0",
-    "grunt-closure-tools": "0.9.8",
-    "grunt-contrib-concat": "0.5.1",
-    "grunt-gjslint": "0.1.6",
-    "mocha": "2.2.1",
+    "bower": "^1.4.0",
+    "chai": "^2.1.2",
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-closure-tools": "^0.9.8",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-gh-pages": "^0.10.0",
+    "grunt-gjslint": "^0.1.6",
+    "mocha": "^2.2.1",
+    "napa": "^1.2.0",
     "grunt-jsdoc": "beta",
-    "grunt-gh-pages": "0.10.0"
+    "jaguarjs-jsdoc": "davidshimjs/jaguarjs-jsdoc"
   },
   "main": "index.js",
   "scripts": {
+    "install": "napa",
     "test": "./runtests.sh"
+  },
+  "napa": {
+    "closure-library": "google/closure-library#32365aba43acb36c5d693256ef5d4dbe3bddddfe"
   },
   "engines": {
     "node": ">= 0.10.0"
