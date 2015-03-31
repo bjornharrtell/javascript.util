@@ -15,27 +15,24 @@
       "url": "https://raw.github.com/bjornharrtell/javascript.util/master/license-notice.txt"
     }
   ],
-  "devDependencies": {
+  "dependencies": {
     "bower": "^1.4.0",
-    "chai": "^2.1.2",
     "grunt": "^0.4.5",
     "grunt-bower-task": "^0.4.0",
-    "grunt-closure-tools": "^0.9.8",
+    "grunt-closure-tools": "^0.9.8"
+  },
+  "devDependencies": {
+    "chai": "^2.1.2",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-gh-pages": "^0.10.0",
     "grunt-gjslint": "^0.1.6",
-    "mocha": "^2.2.1",
-    "napa": "^1.2.0",
     "grunt-jsdoc": "beta",
-    "jaguarjs-jsdoc": "davidshimjs/jaguarjs-jsdoc"
+    "mocha": "^2.2.1"
   },
   "main": "index.js",
   "scripts": {
-    "install": "napa",
+    "install": "grunt",
     "test": "./runtests.sh"
-  },
-  "napa": {
-    "closure-library": "google/closure-library#32365aba43acb36c5d693256ef5d4dbe3bddddfe"
   },
   "engines": {
     "node": ">= 0.10.0"

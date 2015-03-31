@@ -88,7 +88,7 @@ module.exports = function(grunt) {
             browser: {
                 src: [
                     'src/javascript',
-                    'node_modules/closure-library/closure/goog/base.js',
+                    'bower_components/closure-library/closure/goog/base.js',
                 ],
                 dest: 'build/javascript.util.js'
             }
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
         closureDepsWriter: {
             main: {
                 options: {
-                    closureLibraryPath: 'node_modules/closure-library',
+                    closureLibraryPath: 'bower_components/closure-library',
                     root_with_prefix: '"src ../../../../src"',
                 },
                 dest: 'deps.js'
@@ -126,7 +126,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-gh-pages');
 
-    grunt.registerTask('default', ['gjslint', 'closureDepsWriter']);
-    grunt.registerTask('dist', ['default', 'closureCompiler', 'concat', 'jsdoc']);
+    grunt.registerTask('default', ['closureDepsWriter']);
+    grunt.registerTask('dist', ['default', 'gjslint', 'closureCompiler', 'concat', 'jsdoc']);
     grunt.registerTask('publish', ['dist', 'gh-pages']);
 }
