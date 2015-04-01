@@ -135,7 +135,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-gh-pages');
 
-    grunt.registerTask('default', ['bower', 'closureDepsWriter']);
-    grunt.registerTask('dist', ['default', 'gjslint', 'closureCompiler', 'concat', 'jsdoc']);
+    grunt.registerTask('default', ['bower']);
+    grunt.registerTask('dist', ['default', 'closureDepsWriter', 'gjslint', 'closureCompiler', 'concat', 'jsdoc']);
     grunt.registerTask('publish', ['dist', 'gh-pages']);
 }
