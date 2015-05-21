@@ -1,5 +1,3 @@
-goog.require('javascript.util.Arrays');
-
 var Arrays = javascript.util.Arrays;
 
 describe('Arrays', function() {

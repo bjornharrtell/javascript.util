@@ -1,7 +1,7 @@
 {
   "name": "javascript.util",
   "description": "javascript.util is a port of selected parts of java.util to JavaScript",
-  "version": "0.12.11",
+  "version": "0.12.12",
   "author": "Björn Harrtell <bjorn@wololo.org>",
   "keywords": [
     "java",
@@ -15,24 +15,21 @@
       "url": "https://raw.github.com/bjornharrtell/javascript.util/master/license-notice.txt"
     }
   ],
-  "dependencies": {
-    "bower": "^1.4.0",
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
-    "grunt-bower-task": "^0.4.0",
     "grunt-closure-tools": "^0.9.8",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-gh-pages": "^0.10.0",
     "grunt-gjslint": "^0.1.6",
+    "closure-linter-wrapper": "~0.2.0",
     "grunt-jsdoc": "beta"
-  },
-  "devDependencies": {
-    "chai": "^2.1.2",
-    "mocha": "^2.2.1"
   },
   "main": "index.js",
   "scripts": {
-    "install": "grunt",
     "test": "./runtests.sh"
   },
   "engines": {

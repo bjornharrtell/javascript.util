@@ -1,5 +1,3 @@
-goog.require('javascript.util.TreeMap');
-
 var TreeMap = javascript.util.TreeMap;
 
 describe('TreeMap', function() {

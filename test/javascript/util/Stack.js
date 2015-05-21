@@ -1,5 +1,3 @@
-goog.require('javascript.util.Stack');
-
 var Stack = javascript.util.Stack;
 
 describe('Stack', function() {

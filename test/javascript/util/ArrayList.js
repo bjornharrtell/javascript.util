@@ -1,5 +1,3 @@
-goog.require('javascript.util.ArrayList');
-
 var ArrayList = javascript.util.ArrayList;
 
 describe('ArrayList', function() {

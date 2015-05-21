@@ -1,5 +1,3 @@
-goog.require('javascript.util.TreeSet');
-
 var TreeSet = javascript.util.TreeSet;
 
 describe('TreeSet', function() {

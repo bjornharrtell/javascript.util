@@ -128,14 +128,13 @@ module.exports = function(grunt) {
         
     });
 
-    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-closure-tools');
     grunt.loadNpmTasks('grunt-gjslint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-gh-pages');
 
-    grunt.registerTask('default', ['bower']);
-    grunt.registerTask('dist', ['default', 'closureDepsWriter', 'gjslint', 'closureCompiler', 'concat', 'jsdoc']);
+    grunt.registerTask('default', ['closureDepsWriter', 'gjslint']);
+    grunt.registerTask('dist', ['default', 'closureCompiler', 'concat', 'jsdoc']);
     grunt.registerTask('publish', ['dist', 'gh-pages']);
 }

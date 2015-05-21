@@ -1,5 +1,3 @@
-goog.require('javascript.util.HashSet');
-
 var HashSet = javascript.util.HashSet;
 
 describe('HashSet', function() {

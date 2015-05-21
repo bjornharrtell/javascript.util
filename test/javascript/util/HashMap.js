@@ -1,6 +1,3 @@
-goog.require('javascript.util.Collection');
-goog.require('javascript.util.HashMap');
-
 var Collection = javascript.util.Collection;
 var HashMap = javascript.util.HashMap;
 
